@@ -1,0 +1,18 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="512" rx="110" fill="#0B1F3B"/>
+  <defs>
+    <linearGradient id="cg" x1="80" y1="80" x2="400" y2="440" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#7CC4FF"/>
+      <stop offset="45%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#1140A8"/>
+    </linearGradient>
+    <linearGradient id="fold" x1="310" y1="80" x2="430" y2="200" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#BFD9FF"/>
+      <stop offset="100%" stop-color="#3B82F6"/>
+    </linearGradient>
+  </defs>
+  <g transform="rotate(-18 256 256)">
+    <path d="M370 128 A148 148 0 1 0 370 384" fill="none" stroke="url(#cg)" stroke-width="100" stroke-linecap="round"/>
+    <path d="M370 65 L448 135 L352 202 L296 110 Z" fill="url(#fold)"/>
+  </g>
+</svg>
