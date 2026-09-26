@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { AlertTriangle, Search } from "lucide-react";
+import { Search } from "lucide-react";
 import SEO from "../components/common/SEO";
 import { industriesData, industriesHeroImg } from "../data/initialData";
 import WhatsAppIcon from "../components/common/WhatsAppIcon";
@@ -132,8 +132,8 @@ export default function IndustriesPage({ onOpenAudit }) {
 
                     {ind.operationalChallenges && (
                       <div style={{ marginBottom: "1.25rem" }}>
-                        <span style={{ fontSize: "0.76rem", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.06em", color: "var(--muted)", display: "flex", alignItems: "center", gap: "0.35rem", marginBottom: "0.5rem" }}>
-                          <AlertTriangle size={13} style={{ color: "#D97706" }} /> Common Bottlenecks
+                        <span style={{ fontSize: "0.76rem", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.06em", color: "var(--muted)", display: "block", marginBottom: "0.5rem" }}>
+                          Common Bottlenecks
                         </span>
                         <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "0.35rem" }}>
                           {ind.operationalChallenges.slice(0, 2).map((c, cIdx) => (

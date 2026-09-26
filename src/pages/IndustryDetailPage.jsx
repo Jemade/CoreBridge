@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { 
   ArrowLeft, 
-  AlertTriangle, 
   Layers, 
   Workflow, 
   Cpu, 
@@ -136,8 +135,7 @@ export default function IndustryDetailPage({ onOpenAudit }) {
                 padding: "2.5rem 2rem"
               }}
             >
-              <div style={{ display: "flex", alignItems: "center", gap: "0.65rem", color: "#DC2626", marginBottom: "1.25rem" }}>
-                <AlertTriangle size={20} />
+              <div style={{ marginBottom: "1.25rem" }}>
                 <h2 style={{ fontSize: "1.3rem", color: "#991B1B", margin: 0 }}>
                   Typical Operational Friction
                 </h2>
