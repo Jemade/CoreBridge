@@ -58,6 +58,7 @@ export default function BrandWordmark({
         ...(appliedFontSize ? { fontSize: appliedFontSize } : {}),
         ...style
       }}
+      role="img"
       aria-label="Corebridge"
     >
       <span
@@ -100,7 +101,6 @@ export default function BrandWordmark({
       >
         OREBRIDGE
       </span>
-      <span className="sr-only">Corebridge</span>
     </span>
   );
 
