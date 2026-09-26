@@ -1,16 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import { 
-  ArrowLeft, 
-  Layers, 
-  Workflow, 
-  Cpu, 
-  Code2, 
-  Sparkles
-} from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import SEO from "../components/common/SEO";
 import { industriesData } from "../data/initialData";
-import WhatsAppIcon from "../components/common/WhatsAppIcon";
 
 export default function IndustryDetailPage({ onOpenAudit }) {
   const { slug } = useParams();
@@ -36,8 +28,6 @@ export default function IndustryDetailPage({ onOpenAudit }) {
     );
   }
 
-  const Icon = industry.icon;
-
   return (
     <>
       <SEO
@@ -57,21 +47,7 @@ export default function IndustryDetailPage({ onOpenAudit }) {
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "3rem", alignItems: "center" }}>
             <div>
-              <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "1rem" }}>
-                <div
-                  style={{
-                    width: "42px",
-                    height: "42px",
-                    borderRadius: "var(--radius-sm)",
-                    backgroundColor: "rgba(23, 105, 232, 0.2)",
-                    color: "var(--blue)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center"
-                  }}
-                >
-                  {Icon && <Icon size={22} />}
-                </div>
+              <div style={{ marginBottom: "1rem" }}>
                 <span className="eyebrow-dark" style={{ margin: 0 }}>
                   INDUSTRY BLUEPRINT
                 </span>
@@ -89,23 +65,9 @@ export default function IndustryDetailPage({ onOpenAudit }) {
                 <button type="button" className="btn btn-primary" onClick={onOpenAudit}>
                   Review {industry.name} Architecture
                 </button>
-                <a
-                  href={`https://wa.me/263780787214?text=Hello%20Corebridge%2C%20I%20would%20like%20to%20discuss%20systems%20integration%20for%20our%20${encodeURIComponent(industry.name)}%20business.`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: "0.5rem",
-                    color: "#25D366",
-                    fontSize: "0.95rem",
-                    fontWeight: "600",
-                    textDecoration: "none"
-                  }}
-                >
-                  <WhatsAppIcon size={18} style={{ color: "#25D366" }} />
-                  <span>Chat on WhatsApp</span>
-                </a>
+                <Link to="/industries" className="btn btn-secondary">
+                  All Industries
+                </Link>
               </div>
             </div>
 
@@ -162,8 +124,7 @@ export default function IndustryDetailPage({ onOpenAudit }) {
                 padding: "2.5rem 2rem"
               }}
             >
-              <div style={{ display: "flex", alignItems: "center", gap: "0.65rem", color: "var(--blue)", marginBottom: "1.25rem" }}>
-                <Layers size={20} />
+              <div style={{ marginBottom: "1.25rem" }}>
                 <h2 style={{ fontSize: "1.3rem", color: "var(--primary)", margin: 0 }}>
                   Common Systems in the Stack
                 </h2>
@@ -205,8 +166,7 @@ export default function IndustryDetailPage({ onOpenAudit }) {
               {/* Integration */}
               {industry.integrationOpportunities && (
                 <div style={{ backgroundColor: "var(--bg-surface)", padding: "1.75rem", borderRadius: "var(--radius-md)", border: "1px solid var(--borders)" }}>
-                  <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", color: "var(--blue)", marginBottom: "1rem" }}>
-                    <Workflow size={18} />
+                  <div style={{ marginBottom: "1rem" }}>
                     <h3 style={{ fontSize: "1.05rem", fontWeight: "700", color: "var(--primary)", margin: 0 }}>
                       Systems Integration
                     </h3>
@@ -224,8 +184,7 @@ export default function IndustryDetailPage({ onOpenAudit }) {
               {/* Custom Software */}
               {industry.softwareOpportunities && (
                 <div style={{ backgroundColor: "var(--bg-surface)", padding: "1.75rem", borderRadius: "var(--radius-md)", border: "1px solid var(--borders)" }}>
-                  <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", color: "var(--blue)", marginBottom: "1rem" }}>
-                    <Code2 size={18} />
+                  <div style={{ marginBottom: "1rem" }}>
                     <h3 style={{ fontSize: "1.05rem", fontWeight: "700", color: "var(--primary)", margin: 0 }}>
                       Custom Software
                     </h3>
@@ -243,8 +202,7 @@ export default function IndustryDetailPage({ onOpenAudit }) {
               {/* Automation & AI */}
               {(industry.automationOpportunities || industry.aiOpportunities) && (
                 <div style={{ backgroundColor: "var(--bg-surface)", padding: "1.75rem", borderRadius: "var(--radius-md)", border: "1px solid var(--borders)" }}>
-                  <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", color: "var(--blue)", marginBottom: "1rem" }}>
-                    <Sparkles size={18} />
+                  <div style={{ marginBottom: "1rem" }}>
                     <h3 style={{ fontSize: "1.05rem", fontWeight: "700", color: "var(--primary)", margin: 0 }}>
                       Automation &amp; Practical AI
                     </h3>
@@ -344,24 +302,6 @@ export default function IndustryDetailPage({ onOpenAudit }) {
             <button type="button" className="btn btn-primary" onClick={onOpenAudit}>
               Book 15-Minute Review
             </button>
-            <a
-              href={`https://wa.me/263780787214?text=Hello%20Corebridge%2C%20I%20would%20like%20to%20discuss%20systems%20integration%20for%20our%20${encodeURIComponent(industry.name)}%20business.`}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "0.5rem",
-                color: "#25D366",
-                fontSize: "0.95rem",
-                fontWeight: "600",
-                textDecoration: "none",
-                padding: "0.5rem 1rem"
-              }}
-            >
-              <WhatsAppIcon size={18} style={{ color: "#25D366" }} />
-              <span>Chat on WhatsApp</span>
-            </a>
             <Link to="/industries" className="btn btn-secondary">
               Browse Other Industries
             </Link>

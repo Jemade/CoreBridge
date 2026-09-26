@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { Code2 } from "lucide-react";
 import SEO from "../components/common/SEO";
 import { servicesData, solutionsHeroImg } from "../data/initialData";
 import SystemsMap from "../components/common/SystemsMap";
@@ -76,7 +75,6 @@ export default function SolutionsPage({ onOpenAudit }) {
           </div>
 
           {servicesData.map((svc, idx) => {
-            const Icon = svc.icon || Code2;
             const isReversed = idx % 2 === 1;
 
             return (
@@ -94,25 +92,9 @@ export default function SolutionsPage({ onOpenAudit }) {
               >
                 {/* Left/Main Column: Overview & Scope */}
                 <div className="service-copy-side">
-                  <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1.25rem" }}>
-                    <div
-                      style={{
-                        width: "48px",
-                        height: "48px",
-                        borderRadius: "var(--radius-sm)",
-                        backgroundColor: "var(--soft-blue)",
-                        color: "var(--blue)",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center"
-                      }}
-                    >
-                      <Icon size={24} />
-                    </div>
-                    <span style={{ fontSize: "0.85rem", fontWeight: "800", color: "var(--blue)", letterSpacing: "0.08em" }}>
-                      CAPABILITY {svc.num}
-                    </span>
-                  </div>
+                  <span style={{ fontSize: "0.85rem", fontWeight: "800", color: "var(--blue)", letterSpacing: "0.08em", display: "inline-block", marginBottom: "1rem" }}>
+                    CAPABILITY {svc.num}
+                  </span>
 
                   <h2 style={{ fontSize: "1.85rem", fontWeight: "800", color: "var(--primary)", marginBottom: "1rem", lineHeight: "1.25" }}>
                     {svc.title}

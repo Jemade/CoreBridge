@@ -27,7 +27,6 @@ export default function IndustriesPreviewSection() {
           }}
         >
           {industriesData.map((ind) => {
-            const Icon = ind.icon;
             return (
               <article
                 key={ind.slug}
@@ -52,12 +51,9 @@ export default function IndustriesPreviewSection() {
                 </div>
 
                 <div style={{ padding: "1.75rem", display: "flex", flexDirection: "column", flexGrow: 1 }}>
-                  <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.75rem" }}>
-                    {Icon && <Icon size={18} style={{ color: "var(--blue)" }} />}
-                    <h3 style={{ fontSize: "1.2rem", fontWeight: "800", color: "var(--primary)", margin: 0 }}>
-                      {ind.name}
-                    </h3>
-                  </div>
+                  <h3 style={{ fontSize: "1.2rem", fontWeight: "800", color: "var(--primary)", marginBottom: "0.75rem" }}>
+                    {ind.name}
+                  </h3>
 
                   <p style={{ fontSize: "0.92rem", lineHeight: "1.6", color: "var(--muted)", marginBottom: "1.5rem", flexGrow: 1 }}>
                     {ind.shortDesc}

@@ -1,25 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Hammer, Network, RefreshCw } from "lucide-react";
 
 export default function BuildIntegrateImproveSection() {
   const pillars = [
     {
       action: "BUILD",
       title: "When something genuinely needs to be created",
-      icon: Hammer,
       desc: "Commercial off-the-shelf tools often fail to accommodate unique operational logic. We engineer custom applications, client portals, and secure backend APIs designed around your exact operating rules."
     },
     {
       action: "INTEGRATE",
       title: "When existing systems need to communicate",
-      icon: Network,
       desc: "Replacing software that staff already understand is expensive and disruptive. We engineer reliable middleware, webhook pipelines, and API connectors that sync data automatically across your current tools."
     },
     {
       action: "IMPROVE",
       title: "When the technology works but the workflow does not",
-      icon: RefreshCw,
       desc: "Often the existing platform is capable, but poorly configured or underutilized. We audit bottlenecks, refine system workflows, and train internal teams to unlock the full value of software you already own."
     }
   ];
@@ -48,7 +44,6 @@ export default function BuildIntegrateImproveSection() {
           }}
         >
           {pillars.map((item, idx) => {
-            const Icon = item.icon;
             return (
               <div
                 key={idx}
@@ -62,33 +57,19 @@ export default function BuildIntegrateImproveSection() {
                   alignItems: "flex-start"
                 }}
               >
-                <div
+                <span
                   style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "0.75rem",
-                    marginBottom: "1.25rem"
+                    fontSize: "0.85rem",
+                    fontWeight: "700",
+                    color: "var(--blue)",
+                    letterSpacing: "0.08em",
+                    fontVariantNumeric: "tabular-nums",
+                    marginBottom: "1.25rem",
+                    display: "inline-block"
                   }}
                 >
-                  <div
-                    style={{
-                      width: "42px",
-                      height: "42px",
-                      borderRadius: "var(--radius-sm)",
-                      backgroundColor: "var(--soft-blue)",
-                      color: "var(--blue)",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      flexShrink: 0
-                    }}
-                  >
-                    <Icon size={20} />
-                  </div>
-                  <span style={{ fontSize: "0.82rem", fontWeight: "800", color: "var(--blue)", letterSpacing: "0.08em" }}>
-                    {item.action}
-                  </span>
-                </div>
+                  0{idx + 1} / {item.action}
+                </span>
 
                 <h3 style={{ fontSize: "1.2rem", fontWeight: "800", color: "var(--primary)", lineHeight: "1.35", marginBottom: "1rem" }}>
                   {item.title}

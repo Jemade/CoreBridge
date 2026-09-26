@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import SEO from "../components/common/SEO";
 import { processSteps, approachHeroImg } from "../data/initialData";
-import WhatsAppIcon from "../components/common/WhatsAppIcon";
 
 export default function ApproachPage({ onOpenAudit }) {
   const principles = [
@@ -86,7 +85,6 @@ export default function ApproachPage({ onOpenAudit }) {
 
           <div style={{ display: "flex", flexDirection: "column", gap: "2.5rem", marginTop: "3.5rem" }}>
             {processSteps.map((step) => {
-              const Icon = step.icon;
               return (
                 <div
                   key={step.num}
@@ -131,23 +129,6 @@ export default function ApproachPage({ onOpenAudit }) {
                     <h3 style={{ fontSize: "1.5rem", fontWeight: "700", color: "var(--primary)", marginBottom: "0.75rem" }}>
                       {step.title}
                     </h3>
-
-                    <div
-                      style={{
-                        width: "44px",
-                        height: "44px",
-                        borderRadius: "var(--radius-sm)",
-                        backgroundColor: "var(--white)",
-                        border: "1px solid var(--borders)",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        color: "var(--blue)",
-                        marginTop: "1.25rem"
-                      }}
-                    >
-                      <Icon size={22} />
-                    </div>
                   </div>
 
                   <div style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
@@ -220,24 +201,6 @@ export default function ApproachPage({ onOpenAudit }) {
             <button type="button" className="btn btn-primary" onClick={onOpenAudit}>
               Book 15-Minute Review
             </button>
-            <a
-              href="https://wa.me/263780787214?text=Hello%20Corebridge%2C%20I%20would%20like%20to%20discuss%20our%20system%20requirements%20over%20WhatsApp."
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "0.5rem",
-                color: "#25D366",
-                fontSize: "0.95rem",
-                fontWeight: "600",
-                textDecoration: "none",
-                padding: "0.5rem 1rem"
-              }}
-            >
-              <WhatsAppIcon size={18} style={{ color: "#25D366" }} />
-              <span>Chat on WhatsApp</span>
-            </a>
             <Link to="/contact" className="btn btn-secondary">
               Contact Engineering
             </Link>

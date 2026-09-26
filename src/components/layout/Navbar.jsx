@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import corebridgeLogo from "../../assets/corebridge-logo.png";
-import WhatsAppIcon from "../common/WhatsAppIcon";
 
 export default function Navbar({ onOpenAudit }) {
   const [menuOpen, setMenuOpen] = useState(false);

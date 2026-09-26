@@ -1,27 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Code2, Network, Workflow, Cpu } from "lucide-react";
 
 export default function CapabilitiesPreviewSection() {
   const categories = [
     {
       title: "Software Engineering",
-      icon: Code2,
       desc: "Tailored business applications, operational portals, high-throughput databases, and backend APIs engineered around your specific commercial rules and data models."
     },
     {
       title: "Systems Integration",
-      icon: Network,
       desc: "Reliable synchronization pipelines connecting disconnected enterprise systems, point-of-sale terminals, payment gateways, and accounting ledgers into unified information flows."
     },
     {
       title: "Workflow Automation",
-      icon: Workflow,
       desc: "Event-driven background workers that automate routine approvals, notifications, scheduled reports, and inter-departmental data handoffs to eliminate manual fatigue."
     },
     {
       title: "Applied AI",
-      icon: Cpu,
       desc: "Pragmatic machine intelligence focused on operational value: optical character recognition for scanned supplier invoices, intelligent inquiry routing, and automated document ingestion."
     }
   ];
@@ -50,7 +45,6 @@ export default function CapabilitiesPreviewSection() {
           }}
         >
           {categories.map((cat, idx) => {
-            const Icon = cat.icon;
             return (
               <div
                 key={idx}
@@ -64,21 +58,18 @@ export default function CapabilitiesPreviewSection() {
                   boxShadow: "0 2px 8px rgba(10, 25, 41, 0.03)"
                 }}
               >
-                <div
+                <span
                   style={{
-                    width: "44px",
-                    height: "44px",
-                    borderRadius: "var(--radius-sm)",
-                    backgroundColor: "var(--soft-blue)",
+                    fontSize: "1.1rem",
+                    fontWeight: "700",
                     color: "var(--blue)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    marginBottom: "1.5rem"
+                    fontVariantNumeric: "tabular-nums",
+                    marginBottom: "1.25rem",
+                    display: "block"
                   }}
                 >
-                  <Icon size={22} />
-                </div>
+                  0{idx + 1}
+                </span>
 
                 <h3 style={{ fontSize: "1.25rem", fontWeight: "800", color: "var(--primary)", marginBottom: "0.85rem", lineHeight: "1.3" }}>
                   {cat.title}

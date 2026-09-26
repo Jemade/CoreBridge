@@ -1,34 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { 
-  ShieldCheck, 
-  Target, 
-  Users, 
-  MapPin, 
-  Network
-} from "lucide-react";
+import { MapPin } from "lucide-react";
 import SEO from "../components/common/SEO";
 import { aboutHeroImg, teamHarareImg, engineeringFocusImg } from "../data/initialData";
 
 export default function AboutPage({ onOpenAudit }) {
   const values = [
     {
-      icon: ShieldCheck,
       title: "Rigor Before Novelty",
       desc: "We do not sell speculative prototypes or chase buzzwords. Every line of code, integration connector, or automation workflow is engineered for production uptime and operational stability."
     },
     {
-      icon: Network,
       title: "Interoperability First",
       desc: "Replacing software that staff already understand is expensive and disruptive. We connect and extend your existing tools through secure APIs and background pipelines rather than forcing complete overhauls."
     },
     {
-      icon: Target,
       title: "Grounded in Zimbabwean Realities",
       desc: "We understand the local operating environment: multi-currency transactions, evolving tax regulations, volatile internet connectivity, and the need for resilient offline-tolerant data sync."
     },
     {
-      icon: Users,
       title: "Direct Engineering Accountability",
       desc: "You collaborate directly with the software engineers and system architects in Harare who design and implement your systems. No salespeople, no ticket queues, no offshore handoffs."
     }
@@ -226,24 +216,22 @@ export default function AboutPage({ onOpenAudit }) {
               </h2>
               <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
                 {values.map((v, idx) => {
-                  const Icon = v.icon;
                   return (
                     <div key={idx} style={{ display: "flex", gap: "1rem" }}>
-                      <div
+                      <span
                         style={{
-                          width: "38px",
-                          height: "38px",
-                          borderRadius: "var(--radius-sm)",
-                          backgroundColor: "var(--soft-blue)",
+                          fontSize: "0.9rem",
+                          fontWeight: "800",
                           color: "var(--blue)",
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          flexShrink: 0
+                          letterSpacing: "0.05em",
+                          fontVariantNumeric: "tabular-nums",
+                          paddingTop: "2px",
+                          flexShrink: 0,
+                          width: "28px"
                         }}
                       >
-                        <Icon size={18} />
-                      </div>
+                        0{idx + 1}
+                      </span>
                       <div>
                         <h4 style={{ fontSize: "1.05rem", fontWeight: "700", color: "var(--primary)", marginBottom: "0.25rem" }}>
                           {v.title}

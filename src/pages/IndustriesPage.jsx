@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { Search } from "lucide-react";
 import SEO from "../components/common/SEO";
 import { industriesData, industriesHeroImg } from "../data/initialData";
-import WhatsAppIcon from "../components/common/WhatsAppIcon";
 
 export default function IndustriesPage({ onOpenAudit }) {
   const [searchTerm, setSearchTerm] = useState("");
@@ -93,7 +92,6 @@ export default function IndustriesPage({ onOpenAudit }) {
 
           <div className="industry-grid" style={{ marginTop: 0 }}>
             {filteredIndustries.map((ind) => {
-              const Icon = ind.icon;
               return (
                 <article key={ind.slug} className="industry-card">
                   <div className="industry-card-img-wrap">
@@ -105,25 +103,6 @@ export default function IndustriesPage({ onOpenAudit }) {
                       width="400"
                       height="220"
                     />
-                    <div
-                      style={{
-                        position: "absolute",
-                        top: "1rem",
-                        left: "1rem",
-                        width: "36px",
-                        height: "36px",
-                        borderRadius: "var(--radius-sm)",
-                        backgroundColor: "rgba(10, 25, 41, 0.85)",
-                        backdropFilter: "blur(4px)",
-                        color: "var(--white)",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        border: "1px solid rgba(255, 255, 255, 0.15)"
-                      }}
-                    >
-                      {Icon && <Icon size={18} />}
-                    </div>
                   </div>
 
                   <div className="industry-card-body">
@@ -178,24 +157,6 @@ export default function IndustriesPage({ onOpenAudit }) {
             <button type="button" className="btn btn-primary" onClick={onOpenAudit}>
               Book Operational Review
             </button>
-            <a
-              href="https://wa.me/263780787214?text=Hello%20Corebridge%2C%20I%20would%20like%20to%20discuss%20systems%20for%20our%20industry%20sector."
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "0.5rem",
-                color: "#25D366",
-                fontSize: "0.95rem",
-                fontWeight: "600",
-                textDecoration: "none",
-                padding: "0.5rem 1rem"
-              }}
-            >
-              <WhatsAppIcon size={18} style={{ color: "#25D366" }} />
-              <span>Chat on WhatsApp</span>
-            </a>
             <Link to="/contact" className="btn btn-secondary">
               Contact Engineering
             </Link>

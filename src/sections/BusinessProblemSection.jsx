@@ -1,14 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ShoppingCart, Boxes, CreditCard, BookOpen, BarChart3 } from "lucide-react";
 
 export default function BusinessProblemSection() {
   const pipelineSteps = [
-    { title: "Sales", icon: ShoppingCart, desc: "Orders captured across storefronts, reps, or portals" },
-    { title: "Inventory", icon: Boxes, desc: "Stock reserved and updated across warehouses" },
-    { title: "Payment", icon: CreditCard, desc: "Settlements processed via local rails or cards" },
-    { title: "Accounting", icon: BookOpen, desc: "Journals and ledgers posted without re-entry" },
-    { title: "Reporting", icon: BarChart3, desc: "Real-time visibility for operational leaders" }
+    { num: "01", title: "Sales", desc: "Orders captured across storefronts, reps, or portals" },
+    { num: "02", title: "Inventory", desc: "Stock reserved and updated across warehouses" },
+    { num: "03", title: "Payment", desc: "Settlements processed via local rails or cards" },
+    { num: "04", title: "Accounting", desc: "Journals and ledgers posted without re-entry" },
+    { num: "05", title: "Reporting", desc: "Real-time visibility for operational leaders" }
   ];
 
   return (
@@ -51,7 +50,6 @@ export default function BusinessProblemSection() {
             }}
           >
             {pipelineSteps.map((step, idx) => {
-              const Icon = step.icon;
               return (
                 <div
                   key={idx}
@@ -66,21 +64,18 @@ export default function BusinessProblemSection() {
                     border: "1px solid var(--borders)"
                   }}
                 >
-                  <div
+                  <span
                     style={{
-                      width: "40px",
-                      height: "40px",
-                      borderRadius: "var(--radius-sm)",
-                      backgroundColor: "var(--soft-blue)",
+                      fontSize: "0.85rem",
+                      fontWeight: "700",
                       color: "var(--blue)",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      marginBottom: "1rem"
+                      fontVariantNumeric: "tabular-nums",
+                      marginBottom: "0.75rem",
+                      letterSpacing: "0.05em"
                     }}
                   >
-                    <Icon size={20} />
-                  </div>
+                    {step.num}
+                  </span>
                   <h3 style={{ fontSize: "1.05rem", fontWeight: "700", color: "var(--primary)", marginBottom: "0.4rem" }}>
                     {step.title}
                   </h3>

@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { 
-  ArrowLeft, 
-  Layers
+  ArrowLeft 
 } from "lucide-react";
 import SEO from "../components/common/SEO";
 import { caseStudiesData } from "../data/initialData";
@@ -143,7 +142,6 @@ export default function CaseStudyDetailPage({ onOpenAudit }) {
                     style={{
                       display: "flex",
                       alignItems: "center",
-                      gap: "0.45rem",
                       backgroundColor: "var(--soft-blue)",
                       border: "1px solid #BFDBFE",
                       borderRadius: "var(--radius-sm)",
@@ -153,7 +151,6 @@ export default function CaseStudyDetailPage({ onOpenAudit }) {
                       color: "var(--blue)"
                     }}
                   >
-                    <Layers size={14} />
                     <span>{sys}</span>
                   </div>
                 ))}
