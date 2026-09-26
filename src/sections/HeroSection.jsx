@@ -16,138 +16,115 @@ export default function HeroSection({ onOpenAudit }) {
       className="hero-editorial"
       id="home"
       style={{
-        minHeight: "min(88vh, 840px)",
+        minHeight: "min(92vh, 880px)",
         display: "flex",
         alignItems: "center",
-        backgroundColor: "var(--white)",
-        borderBottom: "1px solid var(--borders)",
-        paddingTop: "4rem",
-        paddingBottom: "4rem",
-        position: "relative"
+        position: "relative",
+        backgroundImage: `linear-gradient(to right, rgba(10, 25, 41, 0.95) 0%, rgba(10, 25, 41, 0.88) 52%, rgba(10, 25, 41, 0.65) 100%), url(${heroLeadImg})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center right",
+        backgroundRepeat: "no-repeat",
+        color: "var(--white)",
+        paddingTop: "6rem",
+        paddingBottom: "6rem",
+        borderBottom: "1px solid rgba(255, 255, 255, 0.1)"
       }}
     >
       <div className="container">
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))",
-            gap: "clamp(2.5rem, 5vw, 4.5rem)",
-            alignItems: "center"
-          }}
-        >
-          {/* Left Column: Brand & Editorial Copy */}
-          <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", maxWidth: "580px" }}>
-            <span
-              style={{
-                fontSize: "0.85rem",
-                fontWeight: "800",
-                letterSpacing: "0.12em",
-                color: "var(--blue)",
-                textTransform: "uppercase",
-                marginBottom: "1rem"
-              }}
-            >
-              COREBRIDGE
-            </span>
+        <div style={{ maxWidth: "720px", display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
+          <span
+            style={{
+              fontSize: "0.85rem",
+              fontWeight: "800",
+              letterSpacing: "0.14em",
+              color: "#38BDF8",
+              textTransform: "uppercase",
+              marginBottom: "1.25rem"
+            }}
+          >
+            COREBRIDGE
+          </span>
 
-            <h1
-              style={{
-                fontSize: "clamp(2.5rem, 5vw, 3.6rem)",
-                fontWeight: "900",
-                color: "var(--primary)",
-                lineHeight: "1.12",
-                letterSpacing: "-0.03em",
-                marginBottom: "1.5rem"
-              }}
-            >
-              Smarter Systems.<br />Stronger Businesses.
-            </h1>
+          <h1
+            style={{
+              fontSize: "clamp(2.5rem, 5.5vw, 4rem)",
+              fontWeight: "900",
+              color: "var(--white)",
+              lineHeight: "1.1",
+              letterSpacing: "-0.03em",
+              marginBottom: "1.5rem"
+            }}
+          >
+            Smarter Systems.<br />Stronger Businesses.
+          </h1>
 
-            <p
-              style={{
-                fontSize: "1.15rem",
-                lineHeight: "1.7",
-                color: "var(--text-dark)",
-                fontWeight: "400",
-                marginBottom: "2rem"
-              }}
-            >
-              Corebridge builds and connects the systems businesses rely on, from custom software and integrations to workflow automation and practical AI.
-            </p>
+          <p
+            style={{
+              fontSize: "1.15rem",
+              lineHeight: "1.75",
+              color: "#CBD5E1",
+              fontWeight: "400",
+              marginBottom: "2.25rem",
+              maxWidth: "640px"
+            }}
+          >
+            Corebridge builds and connects the systems businesses rely on, from custom software and integrations to workflow automation and practical AI.
+          </p>
 
-            {/* 4 Pillars Strip */}
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(130px, 1fr))",
-                gap: "0.75rem",
-                width: "100%",
-                marginBottom: "2.25rem",
-                padding: "0.85rem 1.15rem",
-                backgroundColor: "var(--bg-surface)",
-                border: "1px solid var(--borders)",
-                borderRadius: "var(--radius-sm)"
-              }}
-            >
-              {pillars.map((p, idx) => {
-                const Icon = p.icon;
-                return (
-                  <div key={idx} style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-                    <Icon size={16} style={{ color: "var(--blue)", flexShrink: 0 }} />
-                    <span style={{ fontSize: "0.84rem", fontWeight: "600", color: "var(--primary)" }}>
-                      {p.title}
-                    </span>
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* Action Group */}
-            <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "1rem" }}>
-              <Link
-                to="/solutions"
-                className="btn btn-primary"
-                style={{ fontSize: "0.95rem", padding: "0.85rem 1.75rem" }}
-              >
-                Explore Solutions
-              </Link>
-
-              <button
-                type="button"
-                className="btn btn-secondary"
-                onClick={onOpenAudit}
-                style={{ fontSize: "0.95rem", padding: "0.85rem 1.6rem" }}
-              >
-                Schedule an Operational Review
-              </button>
-            </div>
+          {/* 4 Pillars Strip with Clean Dark Glass Treatment */}
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(130px, 1fr))",
+              gap: "0.75rem",
+              width: "100%",
+              maxWidth: "640px",
+              marginBottom: "2.5rem",
+              padding: "0.85rem 1.15rem",
+              backgroundColor: "rgba(255, 255, 255, 0.08)",
+              border: "1px solid rgba(255, 255, 255, 0.15)",
+              borderRadius: "var(--radius-sm)",
+              backdropFilter: "blur(8px)"
+            }}
+          >
+            {pillars.map((p, idx) => {
+              const Icon = p.icon;
+              return (
+                <div key={idx} style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                  <Icon size={16} style={{ color: "#38BDF8", flexShrink: 0 }} />
+                  <span style={{ fontSize: "0.84rem", fontWeight: "600", color: "#FFFFFF" }}>
+                    {p.title}
+                  </span>
+                </div>
+              );
+            })}
           </div>
 
-          {/* Right Column: Clean Editorial Photograph (No text overlays) */}
-          <div style={{ position: "relative" }}>
-            <div
+          {/* Action Group */}
+          <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "1.25rem" }}>
+            <Link
+              to="/solutions"
+              className="btn btn-primary"
+              style={{ fontSize: "1rem", padding: "0.9rem 1.85rem" }}
+            >
+              Explore Solutions
+            </Link>
+
+            <button
+              type="button"
+              className="btn btn-secondary"
+              onClick={onOpenAudit}
               style={{
-                borderRadius: "var(--radius-md)",
-                overflow: "hidden",
-                border: "1px solid var(--borders)",
-                boxShadow: "0 12px 32px rgba(10, 25, 41, 0.08)",
-                backgroundColor: "var(--bg-surface)"
+                fontSize: "1rem",
+                padding: "0.9rem 1.75rem",
+                backgroundColor: "rgba(255, 255, 255, 0.12)",
+                color: "#FFFFFF",
+                border: "1px solid rgba(255, 255, 255, 0.25)",
+                backdropFilter: "blur(4px)"
               }}
             >
-              <img
-                src={heroLeadImg}
-                alt="Commercial business operations and software engineering"
-                style={{
-                  width: "100%",
-                  height: "clamp(380px, 48vw, 540px)",
-                  objectFit: "cover",
-                  display: "block"
-                }}
-                fetchpriority="high"
-                width="720"
-                height="540"
-              />
-            </div>
+              Schedule an Operational Review
+            </button>
           </div>
         </div>
       </div>

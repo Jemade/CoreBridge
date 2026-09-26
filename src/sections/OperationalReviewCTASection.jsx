@@ -1,9 +1,6 @@
 import React from "react";
-import WhatsAppIcon from "../components/common/WhatsAppIcon";
 
 export default function OperationalReviewCTASection({ onOpenAudit }) {
-  const whatsappUrl = "https://wa.me/263780787214?text=Hello%20Corebridge%2C%20I%20would%20like%20to%20discuss%20a%20business%20systems%20or%20software%20requirement.";
-
   return (
     <section className="section" style={{ backgroundColor: "#0A1929", color: "var(--white)", padding: "5.5rem 0", textAlign: "center" }}>
       <div className="container" style={{ maxWidth: "780px", margin: "0 auto" }}>
@@ -20,29 +17,10 @@ export default function OperationalReviewCTASection({ onOpenAudit }) {
             type="button"
             className="btn btn-primary"
             onClick={onOpenAudit}
-            style={{ fontSize: "0.95rem", padding: "0.85rem 1.75rem" }}
+            style={{ fontSize: "1rem", padding: "0.9rem 2rem" }}
           >
             Schedule an Operational Review
           </button>
-
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-secondary"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "0.5rem",
-              fontSize: "0.95rem",
-              padding: "0.85rem 1.5rem",
-              color: "#FFFFFF",
-              borderColor: "rgba(255, 255, 255, 0.2)"
-            }}
-          >
-            <WhatsAppIcon size={18} style={{ color: "#25D366" }} />
-            <span>Chat with Corebridge</span>
-          </a>
         </div>
       </div>
     </section>

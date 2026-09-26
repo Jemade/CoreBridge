@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { systemsMapNodes } from "../../data/initialData";
-import { Network } from "lucide-react";
+import corebridgeLogoWhite from "../../assets/corebridge-logo-white.png";
 
 export default function SystemsMap({ onOpenAudit }) {
   const [activeNodeId, setActiveNodeId] = useState("pos");
@@ -65,18 +65,22 @@ export default function SystemsMap({ onOpenAudit }) {
             <div className="systems-center-hub">
               <div
                 style={{
-                  width: "48px",
-                  height: "48px",
+                  width: "56px",
+                  height: "56px",
                   borderRadius: "var(--radius-sm)",
-                  backgroundColor: "rgba(23, 105, 232, 0.15)",
+                  backgroundColor: "rgba(255, 255, 255, 0.08)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  color: "#38BDF8",
-                  marginBottom: "1rem"
+                  marginBottom: "0.85rem",
+                  border: "1px solid rgba(255, 255, 255, 0.15)"
                 }}
               >
-                <Network size={26} />
+                <img
+                  src={corebridgeLogoWhite}
+                  alt="Corebridge"
+                  style={{ width: "36px", height: "36px", objectFit: "contain" }}
+                />
               </div>
               <div className="hub-brand-name">COREBRIDGE</div>
               <div className="hub-caption">Interoperability &amp; Middleware Layer</div>
@@ -149,9 +153,17 @@ export default function SystemsMap({ onOpenAudit }) {
                 backgroundColor: "#0A1929",
                 border: "1px solid #1E3A5F",
                 borderRadius: "var(--radius-md)",
-                marginBottom: "1rem"
+                marginBottom: "1rem",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center"
               }}
             >
+              <img
+                src={corebridgeLogoWhite}
+                alt="Corebridge"
+                style={{ width: "32px", height: "32px", objectFit: "contain", marginBottom: "0.6rem" }}
+              />
               <div style={{ fontWeight: "800", fontSize: "1.2rem", color: "#FFFFFF" }}>COREBRIDGE</div>
               <div style={{ fontSize: "0.8rem", color: "#94A3B8", textTransform: "uppercase", letterSpacing: "0.05em", marginTop: "0.25rem" }}>
                 Interoperability &amp; Middleware Layer
