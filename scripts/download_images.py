@@ -3,7 +3,19 @@ import urllib.request
 import time
 
 IMAGES = {
+    # Hero
+    "src/assets/images/hero/hero-operations-lead.jpg": "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=1600&q=85",
     "src/assets/images/hero/corebridge-hero-operations.jpg": "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=1200&q=80",
+    
+    # Sections
+    "src/assets/images/sections/operational-reality.jpg": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80",
+    "src/assets/images/sections/what-we-solve.jpg": "https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=1200&q=80",
+    "src/assets/images/sections/build-integrate-improve.jpg": "https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=1200&q=80",
+    "src/assets/images/sections/global-local.jpg": "https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1200&q=80",
+    "src/assets/images/sections/zimbabwe-operations.jpg": "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=80",
+    "src/assets/images/sections/final-cta.jpg": "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1200&q=80",
+
+    # About
     "src/assets/images/about/corebridge-team-harare.jpg": "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=80",
     "src/assets/images/about/corebridge-engineering-focus.jpg": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80",
     
@@ -34,7 +46,7 @@ IMAGES = {
 }
 
 headers = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
 }
 
 for path, url in IMAGES.items():
@@ -50,6 +62,6 @@ for path, url in IMAGES.items():
         print(f"Saved {path} ({os.path.getsize(path)} bytes)")
     except Exception as e:
         print(f"Failed {path}: {e}")
-    time.sleep(0.5)
+    time.sleep(0.3)
 
-print("Image download complete.")
+print("Image download check complete.")

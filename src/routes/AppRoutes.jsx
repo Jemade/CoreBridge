@@ -25,12 +25,15 @@ import AdminContactsPage from "../pages/admin/AdminContactsPage";
 import AdminContentPage from "../pages/admin/AdminContentPage";
 import AdminSettingsPage from "../pages/admin/AdminSettingsPage";
 
+import FloatingWhatsApp from "../components/common/FloatingWhatsApp";
+
 function PublicLayout({ children, onOpenAudit }) {
   return (
     <div className="site">
       <Navbar onOpenAudit={onOpenAudit} />
       {children}
       <Footer onOpenAudit={onOpenAudit} />
+      <FloatingWhatsApp />
     </div>
   );
 }

@@ -5,6 +5,7 @@ import SEO from "../components/common/SEO";
 import CaseStudyCard from "../components/cards/CaseStudyCard";
 import { getCaseStudies } from "../api/caseStudies";
 import { caseStudiesData } from "../data/initialData";
+import WhatsAppIcon from "../components/common/WhatsAppIcon";
 
 export default function CaseStudiesPage({ onOpenAudit }) {
   const [studies, setStudies] = useState(caseStudiesData);
@@ -39,9 +40,29 @@ export default function CaseStudiesPage({ onOpenAudit }) {
           <p style={{ fontSize: "1.15rem", lineHeight: "1.7", color: "#94A3B8", marginBottom: "2.5rem" }}>
             Real technical solutions solving real operational problems. We document architectural decisions, integration hurdles, and measurable business outcomes without fabricated statistics or vanity metrics.
           </p>
-          <button type="button" className="btn btn-primary" onClick={onOpenAudit} style={{ margin: "0 auto" }}>
-            Request Architecture Discussion <ArrowRight size={16} />
-          </button>
+          <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "1.25rem", flexWrap: "wrap" }}>
+            <button type="button" className="btn btn-primary" onClick={onOpenAudit}>
+              Request Architecture Discussion <ArrowRight size={16} />
+            </button>
+            <a
+              href="https://wa.me/263780787214?text=Hello%20Corebridge%2C%20I%20would%20like%20to%20discuss%20a%20technical%20case%20study%20relevant%20to%20our%20operations."
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.5rem",
+                color: "#25D366",
+                fontSize: "0.95rem",
+                fontWeight: "600",
+                textDecoration: "none",
+                padding: "0.5rem 1rem"
+              }}
+            >
+              <WhatsAppIcon size={18} style={{ color: "#25D366" }} />
+              <span>WhatsApp Direct</span>
+            </a>
+          </div>
         </div>
       </section>
 
@@ -90,10 +111,28 @@ export default function CaseStudiesPage({ onOpenAudit }) {
           <p style={{ color: "#94A3B8", fontSize: "1.05rem", lineHeight: "1.65", marginBottom: "2.5rem" }}>
             Book a 15-minute operational review with our lead engineers in Harare. We will examine your workflows and give you a candid architectural recommendation.
           </p>
-          <div style={{ display: "flex", justifyContent: "center", gap: "1rem", flexWrap: "wrap" }}>
+          <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "1rem", flexWrap: "wrap" }}>
             <button type="button" className="btn btn-primary" onClick={onOpenAudit}>
               Book 15-Minute Review <ArrowRight size={16} />
             </button>
+            <a
+              href="https://wa.me/263780787214?text=Hello%20Corebridge%2C%20I%20would%20like%20to%20discuss%20our%20system%20requirements%20over%20WhatsApp."
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.5rem",
+                color: "#25D366",
+                fontSize: "0.95rem",
+                fontWeight: "600",
+                textDecoration: "none",
+                padding: "0.5rem 1rem"
+              }}
+            >
+              <WhatsAppIcon size={18} style={{ color: "#25D366" }} />
+              <span>WhatsApp Us</span>
+            </a>
             <Link to="/contact" className="btn btn-secondary">
               Contact Engineering
             </Link>

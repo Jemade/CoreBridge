@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import SEO from "../components/common/SEO";
 import { caseStudiesData } from "../data/initialData";
+import WhatsAppIcon from "../components/common/WhatsAppIcon";
 
 export default function CaseStudyDetailPage({ onOpenAudit }) {
   const { slug } = useParams();
@@ -84,10 +85,27 @@ export default function CaseStudyDetailPage({ onOpenAudit }) {
                 {study.problem}
               </p>
 
-              <div>
+              <div style={{ display: "flex", alignItems: "center", gap: "1rem", flexWrap: "wrap" }}>
                 <button type="button" className="btn btn-primary" onClick={onOpenAudit}>
                   Request Architecture Discussion <ArrowRight size={16} />
                 </button>
+                <a
+                  href={`https://wa.me/263780787214?text=Hello%20Corebridge%2C%20I%20would%20like%20to%20discuss%20an%20engineering%20architecture%20similar%20to%20${encodeURIComponent(study.title)}.`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "0.5rem",
+                    color: "#25D366",
+                    fontSize: "0.95rem",
+                    fontWeight: "600",
+                    textDecoration: "none"
+                  }}
+                >
+                  <WhatsAppIcon size={18} style={{ color: "#25D366" }} />
+                  <span>WhatsApp Engineering</span>
+                </a>
               </div>
             </div>
 
@@ -230,7 +248,7 @@ export default function CaseStudyDetailPage({ onOpenAudit }) {
           )}
 
           {/* Bottom Audit Action */}
-          <div style={{ textAlign: "center", padding: "1rem 0" }}>
+          <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "1rem", flexWrap: "wrap", padding: "1rem 0" }}>
             <button
               type="button"
               className="btn btn-primary"
@@ -239,6 +257,24 @@ export default function CaseStudyDetailPage({ onOpenAudit }) {
             >
               Discuss a Similar Integration for Your Business <ArrowRight size={16} />
             </button>
+            <a
+              href={`https://wa.me/263780787214?text=Hello%20Corebridge%2C%20I%20would%20like%20to%20discuss%20a%20technical%20system%20similar%20to%20${encodeURIComponent(study.title)}.`}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.5rem",
+                color: "#25D366",
+                fontSize: "1rem",
+                fontWeight: "600",
+                textDecoration: "none",
+                padding: "0.85rem 1.5rem"
+              }}
+            >
+              <WhatsAppIcon size={18} style={{ color: "#25D366" }} />
+              <span>WhatsApp Direct</span>
+            </a>
           </div>
 
         </div>

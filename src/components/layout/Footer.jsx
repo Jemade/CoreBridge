@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, ArrowRight } from "lucide-react";
 import corebridgeLogoWhite from "../../assets/corebridge-logo-white.png";
+import WhatsAppIcon from "../common/WhatsAppIcon";
 
 export default function Footer({ onOpenAudit }) {
   const scrollToTop = () => {
@@ -150,6 +151,17 @@ export default function Footer({ onOpenAudit }) {
             <div className="footer-contact-item">
               <MapPin size={16} style={{ color: "#38BDF8", marginTop: "3px", flexShrink: 0 }} />
               <span>Harare, Zimbabwe</span>
+            </div>
+            <div className="footer-contact-item">
+              <WhatsAppIcon size={16} style={{ color: "#25D366", marginTop: "3px", flexShrink: 0 }} />
+              <a
+                href="https://wa.me/263780787214?text=Hello%20Corebridge%2C%20I%20would%20like%20to%20discuss%20a%20business%20systems%20or%20software%20requirement."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-link"
+              >
+                WhatsApp: +263 780 787 214
+              </a>
             </div>
             <div className="footer-contact-item">
               <Phone size={16} style={{ color: "#38BDF8", marginTop: "3px", flexShrink: 0 }} />

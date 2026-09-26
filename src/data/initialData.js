@@ -35,10 +35,25 @@ import logisticsManifestImg from "../assets/images/case-studies/logistics-manife
 import fieldServiceImg from "../assets/images/case-studies/field-service.jpg";
 import documentAiImg from "../assets/images/case-studies/document-ai.jpg";
 
+import heroLeadImg from "../assets/images/hero/hero-operations-lead.jpg";
+import operationalRealityImg from "../assets/images/sections/operational-reality.jpg";
+import whatWeSolveImg from "../assets/images/sections/what-we-solve.jpg";
+import buildIntegrateImproveImg from "../assets/images/sections/build-integrate-improve.jpg";
+import globalLocalImg from "../assets/images/sections/global-local.jpg";
+import zimbabweOperationsImg from "../assets/images/sections/zimbabwe-operations.jpg";
+import finalCtaImg from "../assets/images/sections/final-cta.jpg";
+
 export {
+  heroLeadImg,
   heroOperationsImg,
   teamHarareImg,
-  engineeringFocusImg
+  engineeringFocusImg,
+  operationalRealityImg,
+  whatWeSolveImg,
+  buildIntegrateImproveImg,
+  globalLocalImg,
+  zimbabweOperationsImg,
+  finalCtaImg
 };
 
 // =================================================================
@@ -858,42 +873,58 @@ export const problemsWeSolve = [
   {
     icon: Network,
     title: "Disconnected systems",
-    description: "Your core platforms operate independently. Staff spend hours copying and pasting information between sales, inventory, and accounting."
+    explanation: "Core platforms operate in silos without automated communication. Sales occurs in one system, fulfillment in another, and accounting in a third. Information remains isolated inside individual software packages.",
+    symptoms: "Staff manually re-key transactions between systems, reconcile orders across multiple tabs, and make decisions using conflicting numbers.",
+    solution: "We build secure middleware, event webhooks, and REST connectors that move data continuously between systems without human intervention."
   },
   {
     icon: FileText,
-    title: "Manual processes",
-    description: "Critical business workflows still depend on spreadsheets, endless emails, physical paper sheets, and repetitive manual data entry."
+    title: "Manual and duplicate data entry",
+    explanation: "Employees spend valuable working hours transcribing data from printed documents, emails, or PDFs into operational software. Human transcription inevitably causes typographical errors and invoice discrepancies.",
+    symptoms: "Back-office desks buried under paper stacks, clerical staff spending half their day copying lines between terminals, and high error rates during peak trading.",
+    solution: "We engineer automated ingestion pipelines, OCR document parsers, and validated forms that capture and record information once at the source."
+  },
+  {
+    icon: Boxes,
+    title: "Inventory and sales mismatches",
+    explanation: "Stock levels decrement at physical store checkouts or wholesale depots, but the central warehouse, sales reps, and digital catalogs do not update in real time. Discrepancies create stockouts and over-selling.",
+    symptoms: "Cashiers sell items that are physically out of stock, warehouse staff pick orders that were already cancelled, and monthly stock-takes reveal large phantom inventory gaps.",
+    solution: "We connect point of sale tills, warehouse dispatch counters, and e-commerce carts to a single synchronized inventory ledger with local offline queues."
   },
   {
     icon: BarChart3,
-    title: "Poor operational visibility",
-    description: "Important business information exists across your tools, but decision-makers cannot see a single, validated view of performance in one place."
+    title: "Delayed management reporting",
+    explanation: "Business leadership relies on backward-looking financial and operational reports compiled days or weeks after the close of the trading period. Opportunities to cut costs or capture margin are lost.",
+    symptoms: "Executive meetings spend the first hour debating whose numbers are correct because sales, operations, and finance export different figures from different tools.",
+    solution: "We construct automated ETL pipelines and consolidated management dashboards that update continuously, giving leadership real-time visibility."
+  },
+  {
+    icon: Sliders,
+    title: "Spreadsheet dependency",
+    explanation: "Critical business workflows, pricing models, commission calculations, and reconciliations live entirely inside uncontrolled spreadsheets on local laptops. A corrupted formula or lost file risks business disruption.",
+    symptoms: "Different versions of Master_Inventory_Final_v3.xlsx floating across staff inboxes, broken VLOOKUP formulas causing financial errors, and zero audit trails on changes.",
+    solution: "We migrate fragile spreadsheet calculations into secure relational databases, role-based web applications, and automated background calculation engines."
   },
   {
     icon: CreditCard,
     title: "Payment reconciliation friction",
-    description: "Transactions, customer orders, mobile money receipts, and bank deposit records do not automatically line up with accounting journals."
+    explanation: "Customers pay across a fragmented mix of mobile money, bank clearing transfers, physical card swipes, and cash. Matching these payments against outstanding sales invoices requires tedious daily manual effort.",
+    symptoms: "Accounting clerks spend whole afternoons cross-referencing EcoCash SMS codes against till slips and bank statements before dispatching customer orders.",
+    solution: "We integrate payment webhooks and automated settlement matching scripts that clear open orders and post directly to accounting ledgers upon verified receipt."
   },
   {
-    icon: Boxes,
-    title: "Inventory gaps & phantom stock",
-    description: "Sales, purchasing, and warehouse stock information live in different places, leading to unexpected stockouts or capital tied in dead stock."
+    icon: Settings,
+    title: "Inflexible off-the-shelf software",
+    explanation: "Standard commercial software forces a company to abandon its proven competitive advantages to conform to rigid, overseas software conventions. Workarounds emerge to fill the functional mismatch.",
+    symptoms: "Staff running side-systems and shadow spreadsheets because the main enterprise package cannot accommodate local multi-currency rules or unique sales workflows.",
+    solution: "We build custom software modules, client portals, and tailored extensions that integrate cleanly with existing databases while supporting exact operating rules."
   },
   {
     icon: RefreshCw,
-    title: "Legacy systems with modern needs",
-    description: "Existing software still holds core business records, but it lacks modern APIs, mobile interfaces, or integration capabilities."
-  },
-  {
-    icon: Workflow,
-    title: "Workflow bottlenecks",
-    description: "Multi-department handoffs, purchase approvals, and signoffs slow down trading momentum while waiting on manual intervention."
-  },
-  {
-    icon: Clock,
-    title: "Reporting overhead",
-    description: "Teams spend too many days every month compiling, cleaning, and preparing information that should already be available in real time."
+    title: "Unused or misaligned technology",
+    explanation: "Enterprises pay ongoing software licenses for complex platforms that staff find confusing or difficult to navigate. The software remains underutilized while operational problems persist.",
+    symptoms: "Expensive ERP or CRM software deployed months ago, yet staff continue logging daily activity in paper notebooks or private desktop files.",
+    solution: "We simplify interfaces, streamline software configurations around real staff workflows, and provide hands-on, practical enablement on the ground in Harare."
   }
 ];
 
@@ -1007,76 +1038,81 @@ export const caseStudiesData = [
 // =================================================================
 export const systemsMapNodes = [
   {
-    id: "erp",
-    name: "ERP",
-    label: "Enterprise Resource Planning",
-    connectionText: "Synchronize central bills of materials, general ledgers, and purchasing workflows with operational departments."
-  },
-  {
     id: "pos",
     name: "POS",
     label: "Point of Sale",
-    connectionText: "Move retail transactions directly into accounting journals and trigger automated inventory decrementing."
+    icon: Store,
+    connectionText: "Move retail transactions directly into accounting journals and trigger automated inventory decrementing across branches without manual end-of-day re-entry."
   },
   {
-    id: "accounting",
-    name: "ACCOUNTING",
-    label: "Financial Ledgers",
-    connectionText: "Eliminate manual bookkeeping re-entry by feeding verified sales, supplier, and bank data into core journals."
-  },
-  {
-    id: "payments",
-    name: "PAYMENTS",
-    label: "EcoCash / Cards / Paynow",
-    connectionText: "Reconcile payment gateway transactions against outstanding customer invoices and fulfillment orders automatically."
-  },
-  {
-    id: "inventory",
-    name: "INVENTORY",
-    label: "Warehouse Stock",
-    connectionText: "Maintain accurate stock levels across stores and warehouses with automated low-stock reorder thresholds."
-  },
-  {
-    id: "logistics",
-    name: "LOGISTICS",
-    label: "Dispatch & Freight",
-    connectionText: "Connect warehouse pick lists, delivery driver manifests, and proof of delivery into customer invoicing flows."
+    id: "erp",
+    name: "ERP",
+    label: "Enterprise Resource Planning",
+    icon: Layers,
+    connectionText: "Synchronise operational records between the ERP and other systems without forcing the organisation to replace software that already works."
   },
   {
     id: "crm",
     name: "CRM",
     label: "Customer Relationship",
-    connectionText: "Ensure sales teams, customer service agents, and accounts staff share the same verified client order history."
+    icon: Users,
+    connectionText: "Ensure sales teams, customer service reps, and accounts staff share consistent, verified client order histories and outstanding invoice balances."
+  },
+  {
+    id: "payments",
+    name: "PAYMENTS",
+    label: "Payment Ecosystems",
+    icon: CreditCard,
+    connectionText: "Connect payment events with orders, customer records and accounting workflows where the provider exposes the necessary APIs or approved interfaces."
+  },
+  {
+    id: "accounting",
+    name: "ACCOUNTING",
+    label: "General Ledgers",
+    icon: Landmark,
+    connectionText: "Eliminate manual bookkeeping re-entry by feeding verified sales, supplier, and bank data into core general journals and VAT ledgers."
+  },
+  {
+    id: "inventory",
+    name: "INVENTORY",
+    label: "Warehouse & Stock",
+    icon: Boxes,
+    connectionText: "Connect stock movements to sales, purchasing, warehouse and reporting workflows with automated reorder thresholds."
+  },
+  {
+    id: "logistics",
+    name: "LOGISTICS",
+    label: "Dispatch & Freight",
+    icon: Truck,
+    connectionText: "Connect warehouse pick lists, delivery driver manifests, and proof-of-delivery receipts directly into customer invoicing flows."
   },
   {
     id: "ecommerce",
-    name: "ECOMMERCE",
-    label: "Online Storefronts",
-    connectionText: "Reflect actual physical warehouse inventory online and pipe web customer orders directly into fulfillment queues."
-  },
-  {
-    id: "hr",
-    name: "HR & PAYROLL",
-    label: "Workforce & Rostering",
-    connectionText: "Synchronize biometric attendance logs and shift rostering data into verified payroll journal entries."
-  },
-  {
-    id: "analytics",
-    name: "ANALYTICS",
-    label: "Reporting & Dashboards",
-    connectionText: "Pull validated operational numbers from diverse databases into unified management visibility dashboards."
+    name: "E-COMMERCE",
+    label: "Digital Storefronts",
+    icon: Building2,
+    connectionText: "Reflect actual physical warehouse inventory online in real time and pipe web customer orders directly into fulfillment and dispatch queues."
   },
   {
     id: "custom",
     name: "CUSTOM SOFTWARE",
-    label: "Internal Business Apps",
-    connectionText: "Build tailored operational portals, field applications, and specialized tools that connect to existing databases."
+    label: "Line of Business Apps",
+    icon: Code2,
+    connectionText: "Build tailored operational portals, field applications, and specialized tools that connect to existing databases where off-the-shelf software falls short."
+  },
+  {
+    id: "data",
+    name: "DATA",
+    label: "Reporting & Analytics",
+    icon: BarChart3,
+    connectionText: "Consolidate operational numbers from disparate databases into clean, automated management reporting without spreadsheet assembly."
   },
   {
     id: "ai",
-    name: "PRAGMATIC AI",
-    label: "Intelligent Workflows",
-    connectionText: "Apply machine learning for automated invoice parsing, document data extraction, and inquiry triage."
+    name: "AI",
+    label: "Pragmatic Workflows",
+    icon: Cpu,
+    connectionText: "Apply focused machine learning models for automated supplier invoice parsing, document data extraction, and inquiry triage."
   }
 ];
 

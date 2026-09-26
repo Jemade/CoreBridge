@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { Menu, X, ArrowRight } from "lucide-react";
 import corebridgeLogo from "../../assets/corebridge-logo.png";
+import WhatsAppIcon from "../common/WhatsAppIcon";
 
 export default function Navbar({ onOpenAudit }) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -96,7 +97,18 @@ export default function Navbar({ onOpenAudit }) {
         </nav>
 
         {/* Desktop Action CTA */}
-        <div className="nav-actions">
+        <div className="nav-actions" style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+          <a
+            href="https://wa.me/263780787214?text=Hello%20Corebridge%2C%20I%20would%20like%20to%20discuss%20a%20business%20systems%20or%20software%20requirement."
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ display: "inline-flex", alignItems: "center", gap: "0.4rem", color: "var(--text-dark)", fontSize: "0.85rem", fontWeight: "600", textDecoration: "none" }}
+            aria-label="WhatsApp Corebridge at +263 780 787 214"
+          >
+            <WhatsAppIcon size={17} style={{ color: "#25D366" }} />
+            <span>WhatsApp</span>
+          </a>
+
           <button
             type="button"
             className="btn btn-primary"
@@ -179,7 +191,16 @@ export default function Navbar({ onOpenAudit }) {
             </li>
           </ul>
 
-          <div className="mobile-nav-footer">
+          <div className="mobile-nav-footer" style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+            <a
+              href="https://wa.me/263780787214?text=Hello%20Corebridge%2C%20I%20would%20like%20to%20discuss%20a%20business%20systems%20or%20software%20requirement."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-secondary"
+              style={{ width: "100%", justifyContent: "center", display: "inline-flex", alignItems: "center", gap: "0.5rem" }}
+            >
+              <WhatsAppIcon size={18} style={{ color: "#25D366" }} /> WhatsApp Corebridge
+            </a>
             <button
               type="button"
               className="btn btn-primary"

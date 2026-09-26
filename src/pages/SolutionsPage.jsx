@@ -2,7 +2,8 @@ import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { ArrowRight, CheckCircle2, Cpu, Code2, Network, Workflow, Settings, CreditCard, BarChart3, Compass } from "lucide-react";
 import SEO from "../components/common/SEO";
-import { servicesData } from "../data/initialData";
+import { servicesData, buildIntegrateImproveImg } from "../data/initialData";
+import WhatsAppIcon from "../components/common/WhatsAppIcon";
 
 export default function SolutionsPage({ onOpenAudit }) {
   const location = useLocation();
@@ -26,18 +27,63 @@ export default function SolutionsPage({ onOpenAudit }) {
       />
 
       {/* Hero */}
-      <section className="section section-dark" style={{ padding: "5rem 0 4rem" }}>
-        <div className="container" style={{ maxWidth: "860px", textAlign: "center" }}>
-          <span className="eyebrow-dark">ENGINEERING CAPABILITIES</span>
-          <h1 style={{ fontSize: "2.75rem", fontWeight: "800", color: "var(--white)", letterSpacing: "-0.02em", marginBottom: "1.25rem", lineHeight: "1.15" }}>
-            Software, Integration &amp; Intelligent Systems
-          </h1>
-          <p style={{ fontSize: "1.15rem", lineHeight: "1.7", color: "#94A3B8", marginBottom: "2.5rem" }}>
-            We build the technical bridges modern businesses need. Rather than forcing one-size-fits-all software templates, we tailor architecture to your unique operating realities, existing tools, and data flows.
-          </p>
-          <button type="button" className="btn btn-primary" onClick={onOpenAudit} style={{ margin: "0 auto" }}>
-            Discuss Your System Requirements <ArrowRight size={16} />
-          </button>
+      <section className="section section-dark" style={{ padding: "4.5rem 0 4rem" }}>
+        <div className="container">
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "3.5rem", alignItems: "center" }}>
+            <div>
+              <span className="eyebrow-dark">ENGINEERING CAPABILITIES</span>
+              <h1 style={{ fontSize: "2.75rem", fontWeight: "800", color: "var(--white)", letterSpacing: "-0.02em", marginBottom: "1.25rem", lineHeight: "1.15" }}>
+                Software, Integration &amp; Intelligent Systems
+              </h1>
+              <p style={{ fontSize: "1.15rem", lineHeight: "1.7", color: "#94A3B8", marginBottom: "2rem" }}>
+                We build the technical bridges modern businesses need. Rather than forcing one-size-fits-all software templates, we tailor architecture to your unique operating realities, existing tools, and data flows.
+              </p>
+              <div style={{ display: "flex", alignItems: "center", gap: "1.25rem", flexWrap: "wrap" }}>
+                <button type="button" className="btn btn-primary" onClick={onOpenAudit}>
+                  Discuss Your System Requirements <ArrowRight size={16} />
+                </button>
+                <a
+                  href="https://wa.me/263780787214?text=Hello%20Corebridge%2C%20I%20would%20like%20to%20discuss%20our%20software%20and%20integration%20requirements."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "0.5rem",
+                    color: "#25D366",
+                    fontSize: "0.95rem",
+                    fontWeight: "600",
+                    textDecoration: "none"
+                  }}
+                >
+                  <WhatsAppIcon size={18} style={{ color: "#25D366" }} />
+                  <span>WhatsApp: +263 780 787 214</span>
+                </a>
+              </div>
+            </div>
+
+            <div style={{ position: "relative", borderRadius: "var(--radius-lg)", overflow: "hidden", border: "1px solid rgba(255, 255, 255, 0.15)", boxShadow: "var(--shadow-lg)" }}>
+              <img
+                src={buildIntegrateImproveImg}
+                alt="Corebridge engineers assessing business software architecture and data pipelines"
+                style={{ width: "100%", height: "360px", objectFit: "cover", display: "block" }}
+              />
+              <div
+                style={{
+                  position: "absolute",
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                  background: "linear-gradient(transparent, rgba(10, 25, 41, 0.95))",
+                  padding: "1.25rem 1.5rem",
+                  color: "var(--white)",
+                  fontSize: "0.85rem"
+                }}
+              >
+                Architecture decisions grounded in operational realities: Build, Integrate, or Improve.
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -142,7 +188,7 @@ export default function SolutionsPage({ onOpenAudit }) {
                     </ul>
                   </div>
 
-                  {svc.technologies && (
+                  {(svc.technologies || svc.relevantSystems) && (
                     <div
                       style={{
                         backgroundColor: "var(--bg-surface)",
@@ -152,10 +198,10 @@ export default function SolutionsPage({ onOpenAudit }) {
                       }}
                     >
                       <h4 style={{ fontSize: "0.8rem", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--muted)", marginBottom: "0.75rem" }}>
-                        Technology Stack
+                        Systems &amp; Architecture Stack
                       </h4>
                       <div className="specs-tag-list">
-                        {svc.technologies.map((t, tIdx) => (
+                        {(svc.technologies || svc.relevantSystems).map((t, tIdx) => (
                           <span key={tIdx} className="spec-tag">
                             {t}
                           </span>

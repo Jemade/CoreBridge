@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import SEO from "../components/common/SEO";
 import { teamHarareImg, engineeringFocusImg } from "../data/initialData";
+import WhatsAppIcon from "../components/common/WhatsAppIcon";
 
 export default function AboutPage({ onOpenAudit }) {
   const values = [
@@ -56,10 +57,28 @@ export default function AboutPage({ onOpenAudit }) {
           <p style={{ fontSize: "1.15rem", lineHeight: "1.7", color: "#94A3B8", marginBottom: "2.5rem" }}>
             Corebridge is a business systems and software engineering consultancy based in Harare, Zimbabwe. We help businesses close operational gaps by building custom software, integrating disconnected systems, automating workflows, and introducing practical AI.
           </p>
-          <div style={{ display: "flex", justifyContent: "center", gap: "1rem", flexWrap: "wrap" }}>
+          <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "1rem", flexWrap: "wrap" }}>
             <button type="button" className="btn btn-primary" onClick={onOpenAudit}>
               Speak With Our Engineers <ArrowRight size={16} />
             </button>
+            <a
+              href="https://wa.me/263780787214?text=Hello%20Corebridge%2C%20I%20would%20like%20to%20speak%20with%20an%20engineer%20about%20our%20business%20systems."
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.5rem",
+                color: "#25D366",
+                fontSize: "0.95rem",
+                fontWeight: "600",
+                textDecoration: "none",
+                padding: "0.5rem 1rem"
+              }}
+            >
+              <WhatsAppIcon size={18} style={{ color: "#25D366" }} />
+              <span>WhatsApp Us Direct</span>
+            </a>
             <Link to="/approach" className="btn btn-secondary">
               Our 6-Step Approach
             </Link>
@@ -277,10 +296,28 @@ export default function AboutPage({ onOpenAudit }) {
           <p style={{ color: "#94A3B8", fontSize: "1.05rem", lineHeight: "1.65", marginBottom: "2.5rem" }}>
             Schedule a confidential 15-Minute Operational Review. No salespeople, just grounded technical analysis from software engineers in Harare.
           </p>
-          <div style={{ display: "flex", justifyContent: "center", gap: "1rem", flexWrap: "wrap" }}>
+          <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "1rem", flexWrap: "wrap" }}>
             <button type="button" className="btn btn-primary" onClick={onOpenAudit}>
               Schedule Operational Review <ArrowRight size={16} />
             </button>
+            <a
+              href="https://wa.me/263780787214?text=Hello%20Corebridge%2C%20I%20would%20like%20to%20discuss%20our%20systems%20requirements%20over%20WhatsApp."
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.5rem",
+                color: "#25D366",
+                fontSize: "0.95rem",
+                fontWeight: "600",
+                textDecoration: "none",
+                padding: "0.5rem 1rem"
+              }}
+            >
+              <WhatsAppIcon size={18} style={{ color: "#25D366" }} />
+              <span>WhatsApp Us</span>
+            </a>
             <Link to="/contact" className="btn btn-secondary">
               Contact Engineering
             </Link>

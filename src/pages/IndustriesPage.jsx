@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, AlertTriangle, Search } from "lucide-react";
 import SEO from "../components/common/SEO";
 import { industriesData } from "../data/initialData";
+import WhatsAppIcon from "../components/common/WhatsAppIcon";
 
 export default function IndustriesPage({ onOpenAudit }) {
   const [searchTerm, setSearchTerm] = useState("");
@@ -157,10 +158,28 @@ export default function IndustriesPage({ onOpenAudit }) {
           <p style={{ color: "#94A3B8", fontSize: "1.05rem", lineHeight: "1.65", marginBottom: "2.5rem" }}>
             The underlying engineering challenges (data silos, manual spreadsheet handoffs, uncoordinated inventory, and payment reconciliation) are universal. Tell us about your operational workflow.
           </p>
-          <div style={{ display: "flex", justifyContent: "center", gap: "1rem", flexWrap: "wrap" }}>
+          <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "1rem", flexWrap: "wrap" }}>
             <button type="button" className="btn btn-primary" onClick={onOpenAudit}>
               Book Operational Review <ArrowRight size={16} />
             </button>
+            <a
+              href="https://wa.me/263780787214?text=Hello%20Corebridge%2C%20I%20would%20like%20to%20discuss%20systems%20for%20our%20industry%20sector."
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.5rem",
+                color: "#25D366",
+                fontSize: "0.95rem",
+                fontWeight: "600",
+                textDecoration: "none",
+                padding: "0.5rem 1rem"
+              }}
+            >
+              <WhatsAppIcon size={18} style={{ color: "#25D366" }} />
+              <span>WhatsApp Us</span>
+            </a>
             <Link to="/contact" className="btn btn-secondary">
               Contact Engineering
             </Link>

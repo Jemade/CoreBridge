@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import SEO from "../components/common/SEO";
 import { submitContactMessage } from "../api/contact";
+import WhatsAppIcon from "../components/common/WhatsAppIcon";
 
 export default function ContactPage({ onOpenAudit }) {
   const [formData, setFormData] = useState({
@@ -118,6 +119,25 @@ export default function ContactPage({ onOpenAudit }) {
                   >
                     +263 780 787 214
                   </a>
+                  <div style={{ marginTop: "0.4rem" }}>
+                    <a
+                      href="https://wa.me/263780787214?text=Hello%20Corebridge%2C%20I%20would%20like%20to%20discuss%20a%20business%20systems%20or%20software%20requirement."
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: "0.45rem",
+                        color: "#16A34A",
+                        fontSize: "0.85rem",
+                        fontWeight: "600",
+                        textDecoration: "none"
+                      }}
+                    >
+                      <WhatsAppIcon size={16} style={{ color: "#25D366" }} />
+                      <span>Start WhatsApp Chat &rarr;</span>
+                    </a>
+                  </div>
                 </div>
               </div>
 

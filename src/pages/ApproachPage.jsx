@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, CheckCircle2, ShieldCheck, Cpu, Code2, RefreshCw } from "lucide-react";
 import SEO from "../components/common/SEO";
 import { processSteps } from "../data/initialData";
+import WhatsAppIcon from "../components/common/WhatsAppIcon";
 
 export default function ApproachPage({ onOpenAudit }) {
   const principles = [
@@ -41,10 +42,28 @@ export default function ApproachPage({ onOpenAudit }) {
           <p style={{ fontSize: "1.15rem", lineHeight: "1.7", color: "#94A3B8", marginBottom: "2.5rem" }}>
             We do not guess, and we do not force generic software templates. We follow a disciplined, 6-stage engineering process grounded in your operational reality and long-term business goals.
           </p>
-          <div style={{ display: "flex", justifyContent: "center", gap: "1rem", flexWrap: "wrap" }}>
+          <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "1rem", flexWrap: "wrap" }}>
             <button type="button" className="btn btn-primary" onClick={onOpenAudit}>
               Schedule Operational Review <ArrowRight size={16} />
             </button>
+            <a
+              href="https://wa.me/263780787214?text=Hello%20Corebridge%2C%20I%20would%20like%20to%20discuss%20our%20system%20engineering%20process%20over%20WhatsApp."
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.5rem",
+                color: "#25D366",
+                fontSize: "0.95rem",
+                fontWeight: "600",
+                textDecoration: "none",
+                padding: "0.5rem 1rem"
+              }}
+            >
+              <WhatsAppIcon size={18} style={{ color: "#25D366" }} />
+              <span>WhatsApp Us Direct</span>
+            </a>
             <Link to="/case-studies" className="btn btn-secondary">
               View Work in Practice
             </Link>
@@ -196,10 +215,28 @@ export default function ApproachPage({ onOpenAudit }) {
           <p style={{ color: "#94A3B8", fontSize: "1.05rem", lineHeight: "1.65", marginBottom: "2.5rem" }}>
             Book a 15-minute operational review with our lead engineers in Harare. We will examine your workflows and give you a candid architectural recommendation.
           </p>
-          <div style={{ display: "flex", justifyContent: "center", gap: "1rem", flexWrap: "wrap" }}>
+          <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "1rem", flexWrap: "wrap" }}>
             <button type="button" className="btn btn-primary" onClick={onOpenAudit}>
               Book 15-Minute Review <ArrowRight size={16} />
             </button>
+            <a
+              href="https://wa.me/263780787214?text=Hello%20Corebridge%2C%20I%20would%20like%20to%20discuss%20our%20system%20requirements%20over%20WhatsApp."
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.5rem",
+                color: "#25D366",
+                fontSize: "0.95rem",
+                fontWeight: "600",
+                textDecoration: "none",
+                padding: "0.5rem 1rem"
+              }}
+            >
+              <WhatsAppIcon size={18} style={{ color: "#25D366" }} />
+              <span>WhatsApp Us</span>
+            </a>
             <Link to="/contact" className="btn btn-secondary">
               Contact Engineering
             </Link>

@@ -1,161 +1,196 @@
 import React from "react";
-import { ArrowRight, AlertTriangle, CheckCircle2 } from "lucide-react";
+import { ArrowRight, AlertTriangle, CheckCircle2, Layers } from "lucide-react";
+import { operationalRealityImg } from "../data/initialData";
 
 export default function BusinessProblemSection({ onOpenAudit }) {
-  const steps = [
-    { title: "Point of Sale / Web", role: "Sales & Cashier Terminals" },
-    { title: "Customer Orders", role: "Order Ingestion Queue" },
-    { title: "Inventory Stock", role: "Warehouse & Branch Stock" },
-    { title: "Accounting Ledgers", role: "General Ledger & Journals" },
-    { title: "Reporting & Auditing", role: "Executive Visibility" }
+  const commonSystems = [
+    "Point of Sale (POS)",
+    "Accounting Ledgers (Sage, QuickBooks, Pastel)",
+    "Enterprise ERPs (Odoo, SAP, Syspro)",
+    "Customer Relationship Management (CRM)",
+    "Payment Rails (EcoCash, Cards, ZIPIT)",
+    "Warehouse Stock & Inventory",
+    "Departmental Spreadsheets",
+    "E-Commerce & Digital Storefronts",
+    "Mobile Applications & Field Forms",
+    "Executive Reporting Tools"
   ];
 
-  const frictionPoints = [
-    "Repeated manual data entry between spreadsheets and desktop databases",
-    "Duplicate customer and order records across isolated departments",
-    "Delayed financial reporting waiting on manual cross-branch reconciliations",
-    "Time-consuming end-of-day cash and card payment matching",
-    "Transcription errors leading to stock discrepancies and phantom inventory",
-    "Poor operational visibility leaving leadership without real-time numbers"
+  const structuralFriction = [
+    {
+      title: "Duplicate data entry",
+      desc: "Orders taken in store or on the road are manually typed again into accounting software, risking typographical mistakes and double work."
+    },
+    {
+      title: "Manual reconciliation",
+      desc: "Finance teams spend days matching bank statements, mobile money confirmation SMS messages, and till slips line-by-line."
+    },
+    {
+      title: "Inconsistent information",
+      desc: "Sales sees one customer balance, warehouse sees another stock figure, and accounting reports a third. Nobody knows which is correct."
+    },
+    {
+      title: "Delayed reporting",
+      desc: "Decision-makers wait days or weeks for basic month-end numbers because numbers must be extracted and assembled by hand."
+    },
+    {
+      title: "Disconnected workflows",
+      desc: "A sale closes, but dispatch is not notified until someone sends an internal email or prints a paper delivery authorization."
+    },
+    {
+      title: "Staff relying on spreadsheets",
+      desc: "Employees run essential operational calculations on personal laptops in unmanaged Excel files with no backup or change history."
+    },
+    {
+      title: "Information trapped in silos",
+      desc: "Valuable customer purchasing patterns and supplier histories remain trapped inside legacy desktop software without APIs."
+    }
   ];
 
   return (
-    <section className="section section-surface" id="problem">
+    <section className="section" id="problem" style={{ backgroundColor: "var(--bg-surface)", borderBottom: "1px solid var(--borders)" }}>
       <div className="container">
-        <div className="section-header centered">
+        <div style={{ maxWidth: "860px", marginBottom: "3.5rem" }}>
           <span className="eyebrow">THE OPERATIONAL REALITY</span>
-          <h2 style={{ marginBottom: "1.25rem" }}>
-            Your business does not need more software. It needs systems that work together.
+          <h2 style={{ fontSize: "clamp(2rem, 4vw, 2.75rem)", fontWeight: "800", color: "var(--primary)", lineHeight: "1.2", marginBottom: "1.25rem" }}>
+            Most businesses do not have a software problem. They have a systems problem.
           </h2>
-          <p className="lead-text" style={{ margin: "0 auto" }}>
-            Businesses accumulate software over time. One platform handles sales, another handles accounting, another handles stock, and another handles payments. The problem is not necessarily the software itself. The problem is the gap between the systems.
+          <p style={{ fontSize: "1.15rem", lineHeight: "1.7", color: "var(--text-dark)", marginBottom: "1rem" }}>
+            Businesses accumulate software organically over time. One platform handles checkouts, another handles general ledgers, a separate tool tracks warehouse stock, and spreadsheets fill the holes in between.
+          </p>
+          <p style={{ fontSize: "1rem", lineHeight: "1.7", color: "var(--muted)", margin: 0 }}>
+            Individually, each piece of software may work adequately. The core failure occurs in the space between them: where data stops flowing automatically and humans are forced to become manual bridges.
           </p>
         </div>
 
-        {/* Visual System Flow Pipeline */}
+        {/* Photographic Split Feature */}
         <div
           style={{
-            background: "var(--white)",
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))",
+            gap: "3rem",
+            alignItems: "center",
+            marginBottom: "4rem",
+            backgroundColor: "var(--white)",
             border: "1px solid var(--borders)",
             borderRadius: "var(--radius-lg)",
-            padding: "2.5rem 2rem",
-            boxShadow: "var(--shadow-sm)",
-            marginBottom: "3.5rem"
+            overflow: "hidden"
           }}
         >
-          <span style={{ fontSize: "0.82rem", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--primary)", display: "block", marginBottom: "1.5rem", textAlign: "center" }}>
-            How Information Should Move Through Your Business
-          </span>
+          {/* Image Side */}
+          <div style={{ position: "relative", minHeight: "360px", height: "100%" }}>
+            <img
+              src={operationalRealityImg}
+              alt="Real commercial warehouse inventory and distribution operations"
+              style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+              loading="lazy"
+            />
+            <div
+              style={{
+                position: "absolute",
+                bottom: 0,
+                left: 0,
+                right: 0,
+                padding: "1rem 1.25rem",
+                background: "linear-gradient(transparent, rgba(10, 25, 41, 0.9))",
+                color: "var(--white)",
+                fontSize: "0.82rem"
+              }}
+            >
+              Physical operations: Stock, orders, and accounting must synchronize continuously
+            </div>
+          </div>
 
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
-              gap: "1rem",
-              alignItems: "center"
-            }}
-          >
-            {steps.map((s, idx) => (
+          {/* Explanation Side */}
+          <div style={{ padding: "2.5rem 2rem" }}>
+            <span style={{ fontSize: "0.8rem", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--blue)", display: "block", marginBottom: "0.75rem" }}>
+              The Common Landscape
+            </span>
+            <h3 style={{ fontSize: "1.5rem", fontWeight: "800", color: "var(--primary)", marginBottom: "1rem" }}>
+              The 10 Systems Operating in Silos
+            </h3>
+            <p style={{ fontSize: "0.95rem", color: "var(--muted)", lineHeight: "1.6", marginBottom: "1.5rem" }}>
+              A growing enterprise routinely runs these platforms side by side without direct interoperability:
+            </p>
+
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "0.6rem" }}>
+              {commonSystems.map((sys, idx) => (
+                <div key={idx} style={{ display: "flex", alignItems: "center", gap: "0.5rem", fontSize: "0.86rem", color: "var(--text-dark)" }}>
+                  <Layers size={14} style={{ color: "var(--blue)", flexShrink: 0 }} />
+                  <span>{sys}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Detailed 7 Structural Friction Points */}
+        <div style={{ marginBottom: "3.5rem" }}>
+          <div style={{ marginBottom: "2rem" }}>
+            <h3 style={{ fontSize: "1.6rem", fontWeight: "800", color: "var(--primary)", marginBottom: "0.5rem" }}>
+              How the Gap Manifests in Daily Operations
+            </h3>
+            <p style={{ fontSize: "1rem", color: "var(--muted)", margin: 0 }}>
+              When systems cannot talk directly to one another, friction compounds across every department:
+            </p>
+          </div>
+
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.5rem" }}>
+            {structuralFriction.map((f, idx) => (
               <div
                 key={idx}
                 style={{
-                  background: "var(--bg-surface)",
+                  backgroundColor: "var(--white)",
                   border: "1px solid var(--borders)",
-                  borderRadius: "var(--radius-sm)",
-                  padding: "1.25rem 1rem",
-                  textAlign: "center"
+                  borderRadius: "var(--radius-md)",
+                  padding: "1.75rem",
+                  display: "flex",
+                  flexDirection: "column"
                 }}
               >
-                <span style={{ fontSize: "0.74rem", fontWeight: "700", color: "var(--blue)", letterSpacing: "0.06em" }}>
-                  STAGE 0{idx + 1}
-                </span>
-                <div style={{ fontWeight: "700", fontSize: "0.98rem", color: "var(--primary)", marginTop: "0.3rem" }}>
-                  {s.title}
+                <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", color: "#DC2626", marginBottom: "0.75rem" }}>
+                  <AlertTriangle size={18} />
+                  <h4 style={{ fontSize: "1.05rem", fontWeight: "700", color: "var(--primary)", margin: 0 }}>
+                    {f.title}
+                  </h4>
                 </div>
-                <div style={{ fontSize: "0.82rem", color: "var(--muted)", marginTop: "0.2rem" }}>
-                  {s.role}
-                </div>
+                <p style={{ fontSize: "0.92rem", lineHeight: "1.6", color: "var(--muted)", margin: 0 }}>
+                  {f.desc}
+                </p>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Without Integration vs With Corebridge Comparison */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "2.5rem" }}>
-          <div
-            style={{
-              backgroundColor: "var(--white)",
-              border: "1px solid #FECACA",
-              borderRadius: "var(--radius-md)",
-              padding: "2.25rem 2rem"
-            }}
-          >
-            <div style={{ display: "flex", alignItems: "center", gap: "0.65rem", color: "#DC2626", marginBottom: "1rem" }}>
-              <AlertTriangle size={20} />
-              <h3 style={{ fontSize: "1.25rem", color: "#991B1B" }}>Without Systems Integration</h3>
+        {/* Solution Bridge Action */}
+        <div
+          style={{
+            backgroundColor: "var(--white)",
+            border: "1px solid #BAE6FD",
+            borderRadius: "var(--radius-md)",
+            padding: "2.5rem 2rem",
+            display: "flex",
+            flexWrap: "wrap",
+            alignItems: "center",
+            justifyContent: "space-between",
+            gap: "1.5rem"
+          }}
+        >
+          <div style={{ maxWidth: "680px" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", color: "var(--blue)", marginBottom: "0.5rem" }}>
+              <CheckCircle2 size={20} />
+              <h4 style={{ fontSize: "1.2rem", fontWeight: "800", color: "var(--primary)", margin: 0 }}>
+                Corebridge Engineers the Connector Layer
+              </h4>
             </div>
-            <p style={{ fontSize: "0.94rem", lineHeight: "1.6", color: "var(--muted)", marginBottom: "1.5rem" }}>
-              When systems remain isolated, your staff become manual data conduits moving information by hand.
+            <p style={{ fontSize: "0.95rem", color: "var(--muted)", lineHeight: "1.6", margin: 0 }}>
+              We build automated background pipelines, authenticated APIs, and resilient data sync so that records flow from point of sale to warehouse and general ledgers without manual intervention.
             </p>
-            <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "0.75rem" }}>
-              {frictionPoints.map((item, idx) => (
-                <li key={idx} style={{ display: "flex", alignItems: "flex-start", gap: "0.6rem", fontSize: "0.9rem", color: "var(--muted)", lineHeight: "1.45" }}>
-                  <span style={{ color: "#DC2626", fontWeight: "700", lineHeight: "1" }}>&times;</span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
           </div>
-
-          <div
-            style={{
-              backgroundColor: "var(--white)",
-              border: "1px solid #BAE6FD",
-              borderRadius: "var(--radius-md)",
-              padding: "2.25rem 2rem",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "space-between"
-            }}
-          >
-            <div>
-              <div style={{ display: "flex", alignItems: "center", gap: "0.65rem", color: "var(--blue)", marginBottom: "1rem" }}>
-                <CheckCircle2 size={20} />
-                <h3 style={{ fontSize: "1.25rem", color: "var(--primary)" }}>Corebridge Connects the Pieces</h3>
-              </div>
-              <p style={{ fontSize: "0.94rem", lineHeight: "1.6", color: "var(--muted)", marginBottom: "1.5rem" }}>
-                We engineer reliable automated pipelines, APIs, and background queue workers so that data flows continuously between your existing platforms without disruption.
-              </p>
-              <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "0.75rem" }}>
-                <li style={{ display: "flex", alignItems: "flex-start", gap: "0.6rem", fontSize: "0.9rem", color: "var(--muted)", lineHeight: "1.45" }}>
-                  <CheckCircle2 size={16} style={{ color: "var(--blue)", marginTop: "2px", flexShrink: 0 }} />
-                  <span>Validated transactions post directly to general ledgers in real time</span>
-                </li>
-                <li style={{ display: "flex", alignItems: "flex-start", gap: "0.6rem", fontSize: "0.9rem", color: "var(--muted)", lineHeight: "1.45" }}>
-                  <CheckCircle2 size={16} style={{ color: "var(--blue)", marginTop: "2px", flexShrink: 0 }} />
-                  <span>Inventory decrements automatically across all physical branches and sales channels</span>
-                </li>
-                <li style={{ display: "flex", alignItems: "flex-start", gap: "0.6rem", fontSize: "0.9rem", color: "var(--muted)", lineHeight: "1.45" }}>
-                  <CheckCircle2 size={16} style={{ color: "var(--blue)", marginTop: "2px", flexShrink: 0 }} />
-                  <span>Mobile money and bank transactions reconcile against open orders automatically</span>
-                </li>
-                <li style={{ display: "flex", alignItems: "flex-start", gap: "0.6rem", fontSize: "0.9rem", color: "var(--muted)", lineHeight: "1.45" }}>
-                  <CheckCircle2 size={16} style={{ color: "var(--blue)", marginTop: "2px", flexShrink: 0 }} />
-                  <span>Decision-makers access accurate operational summaries without manual spreadsheet assembly</span>
-                </li>
-              </ul>
-            </div>
-
-            <div style={{ marginTop: "2rem" }}>
-              <button
-                type="button"
-                className="btn btn-primary"
-                onClick={onOpenAudit}
-                style={{ width: "100%" }}
-              >
-                Schedule an Operational Review <ArrowRight size={16} />
-              </button>
-            </div>
+          <div>
+            <button type="button" className="btn btn-primary" onClick={onOpenAudit}>
+              Review Your System Gaps <ArrowRight size={16} />
+            </button>
           </div>
         </div>
       </div>
