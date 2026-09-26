@@ -4,13 +4,12 @@ export default function SEO({ title, description }) {
   useEffect(() => {
     let fullTitle;
     if (!title) {
-      fullTitle = "Orebridge | Smarter Systems. Stronger Businesses.";
+      fullTitle = "Corebridge | Smarter Systems. Stronger Businesses.";
     } else {
-      let t = title.replace(/^Corebridge\b/i, "Orebridge").replace(/\|\s*Corebridge$/i, "| Orebridge");
-      if (!t.includes("Orebridge")) {
-        fullTitle = `${t} | Orebridge`;
+      if (!title.includes("Corebridge")) {
+        fullTitle = `${title} | Corebridge`;
       } else {
-        fullTitle = t;
+        fullTitle = title;
       }
     }
     document.title = fullTitle;
