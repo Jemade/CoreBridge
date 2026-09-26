@@ -3,20 +3,6 @@ import { Link } from "react-router-dom";
 import { industriesData } from "../data/initialData";
 
 export default function IndustriesPreviewSection() {
-  // 6 Distinct representative sectors
-  const targetSlugs = [
-    "agriculture",
-    "financial-services",
-    "healthcare-pharmaceuticals",
-    "retail-fmcg",
-    "manufacturing-assembly",
-    "logistics-transport"
-  ];
-
-  const representativeSectors = targetSlugs
-    .map((slug) => industriesData.find((i) => i.slug === slug))
-    .filter(Boolean);
-
   return (
     <section className="section" id="industries" style={{ backgroundColor: "var(--white)", borderBottom: "1px solid var(--borders)", padding: "5rem 0" }}>
       <div className="container">
@@ -30,7 +16,7 @@ export default function IndustriesPreviewSection() {
           </p>
         </div>
 
-        {/* 6 Representative Sector Cards */}
+        {/* Distinct Commercial Sector Cards */}
         <div
           style={{
             display: "grid",
@@ -40,7 +26,7 @@ export default function IndustriesPreviewSection() {
             margin: "0 auto 3.5rem"
           }}
         >
-          {representativeSectors.map((ind) => {
+          {industriesData.map((ind) => {
             const Icon = ind.icon;
             return (
               <article
