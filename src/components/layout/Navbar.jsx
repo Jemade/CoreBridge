@@ -1,11 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-import corebridgeLogo from "../../assets/corebridge-logo.png";
+import BrandWordmark from "../common/BrandWordmark";
 
 export default function Navbar({ onOpenAudit }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const handleLinkClick = () => {
     setMenuOpen(false);
@@ -36,12 +46,11 @@ export default function Navbar({ onOpenAudit }) {
   }, [menuOpen]);
 
   return (
-    <header className="site-header">
+    <header className={`site-header ${isScrolled ? "scrolled" : ""}`}>
       <div className="container nav-container">
-        {/* Brand Logo */}
+        {/* Brand Wordmark: Logo mark as the C in OREBRIDGE */}
         <Link to="/" className="brand-link" onClick={handleLinkClick} aria-label="Corebridge Home">
-          <img src={corebridgeLogo} alt="Corebridge" className="brand-mark-img" width="28" height="28" />
-          <span>COREBRIDGE</span>
+          <BrandWordmark variant="white" />
         </Link>
 
         {/* Desktop Navigation Links */}

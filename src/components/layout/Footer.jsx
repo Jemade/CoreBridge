@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin } from "lucide-react";
-import corebridgeLogoWhite from "../../assets/corebridge-logo-white.png";
+import BrandWordmark from "../common/BrandWordmark";
 import WhatsAppIcon from "../common/WhatsAppIcon";
 
 export default function Footer({ onOpenAudit }) {
@@ -17,9 +17,8 @@ export default function Footer({ onOpenAudit }) {
         <div className="footer-top-grid">
           {/* Col 1: Brand & Positioning */}
           <div>
-            <Link to="/" onClick={scrollToTop} className="brand-link" style={{ color: "#FFFFFF", marginBottom: "1rem", display: "inline-flex" }}>
-              <img src={corebridgeLogoWhite} alt="Corebridge" className="brand-mark-img" width="28" height="28" />
-              <span>COREBRIDGE</span>
+            <Link to="/" onClick={scrollToTop} className="brand-link" style={{ marginBottom: "1rem", display: "inline-flex" }}>
+              <BrandWordmark variant="white" />
             </Link>
             <p style={{ color: "#94A3B8", fontSize: "0.92rem", lineHeight: "1.65", marginBottom: "1.25rem", maxWidth: "300px" }}>
               Smarter Systems. Stronger Businesses. We help businesses close operational gaps through custom software, systems integration, automation, and practical AI.

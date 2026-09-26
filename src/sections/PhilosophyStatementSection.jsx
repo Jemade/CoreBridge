@@ -41,25 +41,24 @@ export default function PhilosophyStatementSection() {
           {/* Editorial Philosophy Statement */}
           <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
             <span className="eyebrow" style={{ marginBottom: "1rem" }}>
-              COREBRIDGE IN ONE STATEMENT
+              THE COREBRIDGE PHILOSOPHY
             </span>
 
-            <blockquote
+            <h2
               style={{
-                fontSize: "clamp(1.65rem, 3vw, 2.25rem)",
+                fontSize: "clamp(1.75rem, 3.2vw, 2.35rem)",
                 fontWeight: "800",
                 color: "var(--primary)",
-                lineHeight: "1.3",
+                lineHeight: "1.25",
                 letterSpacing: "-0.02em",
-                margin: "0 0 1.5rem 0",
-                fontStyle: "normal"
+                margin: "0 0 1.5rem 0"
               }}
             >
-              "Good technology is measured by whether the business works better because it exists."
-            </blockquote>
+              Technology should make the business work better.
+            </h2>
 
             <p style={{ fontSize: "1.05rem", lineHeight: "1.75", color: "var(--muted)", marginBottom: "2rem" }}>
-              Software should not be evaluated by novelty or technical complexity. At Corebridge, success is measured strictly by operational outcome: eliminating duplicate entry, accelerating transactional flow, and ensuring business systems run dependably under local operating conditions.
+              Good technology is not evaluated by novelty or technical complexity. At Corebridge, success is measured strictly by operational outcome: whether information moves without manual friction, whether staff avoid duplicate data entry, and whether the business operates with higher capacity and reliability.
             </p>
 
             <Link
