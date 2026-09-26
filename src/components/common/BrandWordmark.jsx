@@ -68,11 +68,10 @@ export default function BrandWordmark({
           display: "inline-flex",
           alignItems: "center",
           justifyContent: "center",
-          height: "0.90em",
-          width: "0.84em",
-          marginRight: "0.05em",
-          flexShrink: 0,
-          transform: "translateY(-0.02em)"
+          height: "0.76em",
+          width: "0.70em",
+          marginRight: "0.06em",
+          flexShrink: 0
         }}
       >
         <img

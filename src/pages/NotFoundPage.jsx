@@ -7,7 +7,7 @@ import BrandWordmark from "../components/common/BrandWordmark";
 export default function NotFoundPage() {
   return (
     <>
-      <SEO title="Page Not Found | Corebridge" />
+      <SEO title="Page Not Found | Orebridge" />
       <section className="section" style={{ minHeight: "65vh", display: "flex", alignItems: "center" }}>
         <div className="container" style={{ maxWidth: "640px", textAlign: "center" }}>
           <div style={{ marginBottom: "1.5rem" }}>

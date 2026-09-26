@@ -30,7 +30,7 @@ export default function ApproachPage({ onOpenAudit }) {
   return (
     <>
       <SEO
-        title="Our Engineering Approach | Corebridge"
+        title="Our Engineering Approach | Orebridge"
         description="Learn about the Corebridge 6-step engineering methodology: Discover, Map, Architect, Build/Integrate, Deploy, and Improve."
       />
 

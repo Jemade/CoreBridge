@@ -24,7 +24,7 @@ export default function CaseStudiesPage({ onOpenAudit }) {
   return (
     <>
       <SEO
-        title="Case Studies & Engineering Architecture | Corebridge"
+        title="Case Studies & Engineering Architecture | Orebridge"
         description="Transparent technical case studies: Retail POS and Odoo ERP synchronization, B2B transaction exchange, field service automation, and document AI."
       />
 

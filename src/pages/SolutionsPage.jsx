@@ -21,7 +21,7 @@ export default function SolutionsPage({ onOpenAudit }) {
   return (
     <>
       <SEO
-        title="Solutions & Capabilities | Corebridge"
+        title="Solutions & Capabilities | Orebridge"
         description="Explore Corebridge engineering capabilities: Custom software development, systems integration, workflow automation, practical AI, ERP/CRM implementations, and IT consultancy."
       />
 

@@ -13,7 +13,7 @@ export default function HomePage({ onOpenAudit }) {
   return (
     <>
       <SEO
-        title="Corebridge | Smarter Systems. Stronger Businesses."
+        title="Orebridge | Smarter Systems. Stronger Businesses."
         description="Corebridge builds and connects the systems businesses rely on, from custom software and integrations to workflow automation and practical AI."
       />
       <main>

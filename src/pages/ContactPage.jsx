@@ -59,7 +59,7 @@ export default function ContactPage({ onOpenAudit }) {
   return (
     <>
       <SEO
-        title="Contact Engineering &amp; Consultations | Corebridge"
+        title="Contact Engineering &amp; Consultations | Orebridge"
         description="Contact Corebridge software consultancy in Harare, Zimbabwe. Direct engineering line: +263 780 787 214. Tell us what is not working in your systems."
       />
 

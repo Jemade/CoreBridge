@@ -31,7 +31,7 @@ export default function IndustryDetailPage({ onOpenAudit }) {
   return (
     <>
       <SEO
-        title={`${industry.name} Systems Architecture | Corebridge`}
+        title={`${industry.name} Systems Architecture | Orebridge`}
         description={industry.shortDesc || `Corebridge systems integration and custom software engineering for ${industry.name} in Zimbabwe.`}
       />
 

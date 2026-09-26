@@ -19,7 +19,7 @@ export default function IndustriesPage({ onOpenAudit }) {
   return (
     <>
       <SEO
-        title="Industry Solutions & Workflows | Corebridge"
+        title="Industry Solutions & Workflows | Orebridge"
         description="Software architecture and systems integration tailored to 17 commercial sectors in Zimbabwe: Agriculture, Healthcare, FMCG, Manufacturing, Logistics, and more."
       />
 
