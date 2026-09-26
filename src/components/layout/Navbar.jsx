@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { ArrowRight, ArrowUpRight, Menu, X } from "lucide-react";
+import { Menu, X, ArrowRight } from "lucide-react";
 import corebridgeLogo from "../../assets/corebridge-logo.png";
 
 export default function Navbar({ onOpenAudit }) {
@@ -12,88 +12,188 @@ export default function Navbar({ onOpenAudit }) {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  // Close mobile menu on Escape key
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape" && menuOpen) {
+        setMenuOpen(false);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [menuOpen]);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
   return (
-    <header className="nav-wrap">
-      <nav className="nav container">
-        {/* Left: Logo */}
-        <Link to="/" className="brand" onClick={handleLinkClick} aria-label="Corebridge Home">
-          <img className="brand-mark" src={corebridgeLogo} alt="Corebridge" width="28" height="28" />
-          <span>Corebridge</span>
+    <header className="site-header">
+      <div className="container nav-container">
+        {/* Brand Logo */}
+        <Link to="/" className="brand-link" onClick={handleLinkClick} aria-label="Corebridge Home">
+          <img src={corebridgeLogo} alt="Corebridge" className="brand-mark-img" width="28" height="28" />
+          <span>COREBRIDGE</span>
         </Link>
 
-        {/* Center: Nav links */}
-        <div className={`nav-links${menuOpen ? " open" : ""}`}>
-          <NavLink
-            to="/"
-            end
-            className={({ isActive }) => (isActive && location.pathname === "/" ? "active" : "")}
-            onClick={handleLinkClick}
-          >
-            Home
-          </NavLink>
-          <NavLink
-            to="/solutions"
-            className={({ isActive }) => (isActive ? "active" : "")}
-            onClick={handleLinkClick}
-          >
-            Solutions
-          </NavLink>
-          <NavLink
-            to="/industries"
-            className={({ isActive }) => (isActive ? "active" : "")}
-            onClick={handleLinkClick}
-          >
-            Industries
-          </NavLink>
-          <NavLink
-            to="/case-studies"
-            className={({ isActive }) => (isActive ? "active" : "")}
-            onClick={handleLinkClick}
-          >
-            Case Studies
-          </NavLink>
-          <NavLink
-            to="/about"
-            className={({ isActive }) => (isActive ? "active" : "")}
-            onClick={handleLinkClick}
-          >
-            About
-          </NavLink>
-          <NavLink
-            to="/contact"
-            className={({ isActive }) => (isActive ? "active" : "")}
-            onClick={handleLinkClick}
-          >
-            Contact
-          </NavLink>
+        {/* Desktop Navigation Links */}
+        <nav aria-label="Main Navigation">
+          <ul className="nav-desktop-menu">
+            <li>
+              <NavLink
+                to="/solutions"
+                className={({ isActive }) => (isActive ? "nav-item-link active" : "nav-item-link")}
+                onClick={handleLinkClick}
+              >
+                Solutions
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/industries"
+                className={({ isActive }) => (isActive ? "nav-item-link active" : "nav-item-link")}
+                onClick={handleLinkClick}
+              >
+                Industries
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/approach"
+                className={({ isActive }) => (isActive ? "nav-item-link active" : "nav-item-link")}
+                onClick={handleLinkClick}
+              >
+                Approach
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/case-studies"
+                className={({ isActive }) => (isActive ? "nav-item-link active" : "nav-item-link")}
+                onClick={handleLinkClick}
+              >
+                Case Studies
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/about"
+                className={({ isActive }) => (isActive ? "nav-item-link active" : "nav-item-link")}
+                onClick={handleLinkClick}
+              >
+                About
+              </NavLink>
+            </li>
+          </ul>
+        </nav>
 
-          {/* Mobile only audit button */}
+        {/* Desktop Action CTA */}
+        <div className="nav-actions">
           <button
-            className="mobile-audit"
-            onClick={() => {
-              setMenuOpen(false);
-              onOpenAudit();
-            }}
+            type="button"
+            className="btn btn-primary"
+            onClick={onOpenAudit}
+            aria-label="Talk to Corebridge for a 15-Minute Operational Review"
           >
-            Book an Audit <ArrowRight size={14} />
+            Talk to Corebridge
+          </button>
+
+          {/* Mobile Menu Toggle Button */}
+          <button
+            type="button"
+            className="menu-toggle-btn"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={menuOpen}
+          >
+            {menuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
+      </div>
 
-        {/* Right: CTA */}
-        <button className="nav-cta" onClick={onOpenAudit}>
-          Free Audit <ArrowUpRight size={14} />
-        </button>
+      {/* Mobile Drawer Menu */}
+      {menuOpen && (
+        <div className="mobile-nav-drawer open" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+          <ul className="mobile-nav-links">
+            <li>
+              <NavLink
+                to="/solutions"
+                className={({ isActive }) => (isActive ? "mobile-nav-item active" : "mobile-nav-item")}
+                onClick={handleLinkClick}
+              >
+                Solutions
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/industries"
+                className={({ isActive }) => (isActive ? "mobile-nav-item active" : "mobile-nav-item")}
+                onClick={handleLinkClick}
+              >
+                Industries
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/approach"
+                className={({ isActive }) => (isActive ? "mobile-nav-item active" : "mobile-nav-item")}
+                onClick={handleLinkClick}
+              >
+                Approach
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/case-studies"
+                className={({ isActive }) => (isActive ? "mobile-nav-item active" : "mobile-nav-item")}
+                onClick={handleLinkClick}
+              >
+                Case Studies
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/about"
+                className={({ isActive }) => (isActive ? "mobile-nav-item active" : "mobile-nav-item")}
+                onClick={handleLinkClick}
+              >
+                About
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/contact"
+                className={({ isActive }) => (isActive ? "mobile-nav-item active" : "mobile-nav-item")}
+                onClick={handleLinkClick}
+              >
+                Contact
+              </NavLink>
+            </li>
+          </ul>
 
-        {/* Mobile Hamburger */}
-        <button
-          className="menu-btn"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label={menuOpen ? "Close menu" : "Open menu"}
-          aria-expanded={menuOpen}
-        >
-          {menuOpen ? <X size={22} /> : <Menu size={22} />}
-        </button>
-      </nav>
+          <div className="mobile-nav-footer">
+            <button
+              type="button"
+              className="btn btn-primary"
+              style={{ width: "100%" }}
+              onClick={() => {
+                setMenuOpen(false);
+                onOpenAudit();
+              }}
+            >
+              Talk to Corebridge <ArrowRight size={16} />
+            </button>
+          </div>
+        </div>
+      )}
     </header>
   );
 }

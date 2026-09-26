@@ -1,115 +1,168 @@
-import React from "react";
-import { ArrowRight, CheckCircle2, Code2, Link, Cpu, Settings, Headphones } from "lucide-react";
+import React, { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import { ArrowRight, CheckCircle2, Cpu, Code2, Network, Workflow, Settings, CreditCard, BarChart3, Compass } from "lucide-react";
 import SEO from "../components/common/SEO";
 import { servicesData } from "../data/initialData";
 
-const iconMap = {
-  "custom-software": Code2,
-  "system-integrations": Link,
-  "ai-integrations": Cpu,
-  "odoo-zoho-implementation": Settings,
-  "it-consultancy": Headphones
-};
-
 export default function SolutionsPage({ onOpenAudit }) {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const el = document.querySelector(location.hash);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [location]);
+
   return (
     <>
       <SEO
-        title="Solutions & Services"
-        description="Explore Corebridge solutions: Custom software engineering, systems integrations, AI automation, Odoo/Zoho ERP, and IT consultancy."
+        title="Solutions & Capabilities | Corebridge"
+        description="Explore Corebridge engineering capabilities: Custom software development, systems integration, workflow automation, practical AI, ERP/CRM implementations, and IT consultancy."
       />
-      
+
       {/* Hero */}
-      <section style={{ background: "linear-gradient(180deg, #f8fafc 0%, #ffffff 100%)", padding: "80px 0 60px", borderBottom: "1px solid var(--line)" }}>
-        <div className="container" style={{ maxWidth: "800px", textAlign: "center" }}>
-          <span className="section-label" style={{ display: "inline-block", marginBottom: "12px" }}>
-            SOLUTIONS &amp; CAPABILITIES
-          </span>
-          <h1 style={{ fontSize: "42px", fontWeight: "800", letterSpacing: "-0.03em", color: "var(--ink)", marginBottom: "20px", lineHeight: "1.15" }}>
-            Software, Integrations &amp; Intelligent Systems
+      <section className="section section-dark" style={{ padding: "5rem 0 4rem" }}>
+        <div className="container" style={{ maxWidth: "860px", textAlign: "center" }}>
+          <span className="eyebrow-dark">ENGINEERING CAPABILITIES</span>
+          <h1 style={{ fontSize: "2.75rem", fontWeight: "800", color: "var(--white)", letterSpacing: "-0.02em", marginBottom: "1.25rem", lineHeight: "1.15" }}>
+            Software, Integration &amp; Intelligent Systems
           </h1>
-          <p style={{ fontSize: "16px", color: "var(--muted)", lineHeight: "1.6", marginBottom: "32px" }}>
-            We build the technical foundation growing businesses need. Rather than forcing one-size-fits-all software, we tailor architecture to your unique operational realities.
+          <p style={{ fontSize: "1.15rem", lineHeight: "1.7", color: "#94A3B8", marginBottom: "2.5rem" }}>
+            We build the technical bridges modern businesses need. Rather than forcing one-size-fits-all software templates, we tailor architecture to your unique operating realities, existing tools, and data flows.
           </p>
-          <button className="primary-btn" onClick={onOpenAudit} style={{ margin: "0 auto" }}>
+          <button type="button" className="btn btn-primary" onClick={onOpenAudit} style={{ margin: "0 auto" }}>
             Discuss Your System Requirements <ArrowRight size={16} />
           </button>
         </div>
       </section>
 
-      {/* Services Detailed List */}
-      <section style={{ padding: "80px 0" }}>
-        <div className="container" style={{ display: "flex", flexDirection: "column", gap: "60px" }}>
+      {/* Services Detailed Breakdown */}
+      <section className="section" style={{ backgroundColor: "var(--bg-surface)" }}>
+        <div className="container" style={{ display: "flex", flexDirection: "column", gap: "3rem" }}>
           {servicesData.map((svc, idx) => {
-            const Icon = iconMap[svc.id] || Code2;
+            const Icon = svc.icon || Code2;
             const isReversed = idx % 2 === 1;
 
             return (
               <div
-                key={svc.id}
+                key={svc.slug || svc.id}
                 id={svc.slug}
+                className={`service-editorial-card ${isReversed ? "reverse" : ""}`}
                 style={{
-                  display: "grid",
-                  gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-                  gap: "48px",
-                  alignItems: "center",
-                  background: "#ffffff",
-                  border: "1px solid var(--line)",
-                  borderRadius: "16px",
-                  padding: "48px 40px",
-                  boxShadow: "0 2px 8px rgba(10,25,41,.03)"
+                  backgroundColor: "var(--white)",
+                  border: "1px solid var(--borders)",
+                  borderRadius: "var(--radius-lg)",
+                  padding: "3rem 2.5rem",
+                  boxShadow: "var(--shadow-sm)"
                 }}
               >
-                <div>
-                  <div style={{
-                    width: "48px",
-                    height: "48px",
-                    background: "var(--soft)",
-                    color: "var(--blue)",
-                    borderRadius: "12px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    marginBottom: "20px"
-                  }}>
-                    <Icon size={24} strokeWidth={2.2} />
+                {/* Left/Main Column: Overview & Scope */}
+                <div className="service-copy-side">
+                  <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1.25rem" }}>
+                    <div
+                      style={{
+                        width: "48px",
+                        height: "48px",
+                        borderRadius: "var(--radius-sm)",
+                        backgroundColor: "var(--soft-blue)",
+                        color: "var(--blue)",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center"
+                      }}
+                    >
+                      <Icon size={24} />
+                    </div>
+                    <span style={{ fontSize: "0.85rem", fontWeight: "800", color: "var(--blue)", letterSpacing: "0.08em" }}>
+                      CAPABILITY {svc.num}
+                    </span>
                   </div>
-                  
-                  <h2 style={{ fontSize: "26px", fontWeight: "800", color: "var(--ink)", marginBottom: "16px", lineHeight: "1.2", whiteSpace: "pre-line" }}>
+
+                  <h2 style={{ fontSize: "1.85rem", fontWeight: "800", color: "var(--primary)", marginBottom: "1rem", lineHeight: "1.25" }}>
                     {svc.title}
                   </h2>
 
-                  <p style={{ fontSize: "15px", color: "#475569", lineHeight: "1.6", marginBottom: "24px" }}>
+                  <p style={{ fontSize: "1.05rem", lineHeight: "1.65", color: "var(--text-dark)", marginBottom: "1.5rem" }}>
                     {svc.description}
                   </p>
 
-                  <button
-                    onClick={onOpenAudit}
-                    style={{
-                      display: "inline-flex",
-                      alignItems: "center",
-                      gap: "6px",
-                      color: "var(--blue)",
-                      fontWeight: "600",
-                      fontSize: "14px"
-                    }}
-                  >
-                    Request an architectural review for this solution <ArrowRight size={14} />
-                  </button>
+                  {svc.useCases && (
+                    <div style={{ marginBottom: "2rem" }}>
+                      <h4 style={{ fontSize: "0.85rem", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--primary)", marginBottom: "0.85rem" }}>
+                        Typical Operational Scenarios
+                      </h4>
+                      <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "0.6rem" }}>
+                        {svc.useCases.map((uc, uIdx) => (
+                          <li key={uIdx} style={{ display: "flex", alignItems: "flex-start", gap: "0.65rem", fontSize: "0.92rem", color: "var(--muted)", lineHeight: "1.5" }}>
+                            <span style={{ color: "var(--blue)", fontWeight: "700" }}>&rarr;</span>
+                            <span>{uc}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  <div>
+                    <button
+                      type="button"
+                      className="btn btn-secondary"
+                      onClick={onOpenAudit}
+                      style={{ fontSize: "0.9rem" }}
+                    >
+                      Request Architecture Scope <ArrowRight size={14} />
+                    </button>
+                  </div>
                 </div>
 
-                <div style={{ background: "#f8fafc", borderRadius: "12px", padding: "32px", border: "1px solid #e2e8f0" }}>
-                  <h3 style={{ fontSize: "14px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.06em", color: "#64748b", marginBottom: "18px" }}>
-                    Key Deliverables &amp; Scope
-                  </h3>
-                  <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "14px" }}>
-                    {svc.deliverables.map((item, i) => (
-                      <li key={i} style={{ display: "flex", alignItems: "flex-start", gap: "10px", fontSize: "14px", color: "var(--ink)", lineHeight: "1.5" }}>
-                        <CheckCircle2 size={18} style={{ color: "var(--blue)", flexShrink: 0, marginTop: "2px" }} />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+                {/* Right Column: Deliverables & Tech Specs */}
+                <div className="service-specs-side" style={{ display: "flex", flexDirection: "column", gap: "1.75rem" }}>
+                  <div
+                    style={{
+                      backgroundColor: "var(--bg-surface)",
+                      border: "1px solid var(--borders)",
+                      borderRadius: "var(--radius-md)",
+                      padding: "2rem"
+                    }}
+                  >
+                    <h3 style={{ fontSize: "0.85rem", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--primary)", marginBottom: "1.25rem" }}>
+                      Key Deliverables &amp; Outputs
+                    </h3>
+                    <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "0.85rem" }}>
+                      {svc.deliverables?.map((item, dIdx) => (
+                        <li key={dIdx} style={{ display: "flex", alignItems: "flex-start", gap: "0.65rem", fontSize: "0.92rem", color: "var(--text-dark)", lineHeight: "1.45" }}>
+                          <CheckCircle2 size={16} style={{ color: "var(--blue)", flexShrink: 0, marginTop: "2px" }} />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {svc.technologies && (
+                    <div
+                      style={{
+                        backgroundColor: "var(--bg-surface)",
+                        border: "1px solid var(--borders)",
+                        borderRadius: "var(--radius-md)",
+                        padding: "1.5rem 2rem"
+                      }}
+                    >
+                      <h4 style={{ fontSize: "0.8rem", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--muted)", marginBottom: "0.75rem" }}>
+                        Technology Stack
+                      </h4>
+                      <div className="specs-tag-list">
+                        {svc.technologies.map((t, tIdx) => (
+                          <span key={tIdx} className="spec-tag">
+                            {t}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             );
@@ -118,19 +171,17 @@ export default function SolutionsPage({ onOpenAudit }) {
       </section>
 
       {/* Bottom CTA */}
-      <section style={{ background: "var(--ink)", color: "#ffffff", padding: "70px 0", textAlign: "center" }}>
-        <div className="container" style={{ maxWidth: "680px" }}>
-          <span style={{ fontSize: "12px", fontWeight: "700", letterSpacing: "0.08em", color: "#38bdf8", textTransform: "uppercase", display: "inline-block", marginBottom: "12px" }}>
-            NOT SURE WHERE TO START?
-          </span>
-          <h2 style={{ fontSize: "32px", fontWeight: "800", marginBottom: "16px", color: "#ffffff" }}>
-            Let's Diagnose Your Operational Bottlenecks
+      <section className="section section-dark" style={{ textAlign: "center" }}>
+        <div className="container" style={{ maxWidth: "760px" }}>
+          <span className="eyebrow-dark">SYSTEM EVALUATION</span>
+          <h2 style={{ fontSize: "2.25rem", fontWeight: "800", color: "var(--white)", marginBottom: "1.25rem" }}>
+            Unsure which engineering path fits your business?
           </h2>
-          <p style={{ color: "#94a3b8", fontSize: "15px", lineHeight: "1.6", marginBottom: "28px" }}>
-            Schedule a confidential 15-minute operational audit with our engineering leads. No sales fluff, just practical technical assessment.
+          <p style={{ color: "#94A3B8", fontSize: "1.05rem", lineHeight: "1.65", marginBottom: "2.5rem" }}>
+            Schedule a complimentary 15-Minute Operational Review. We will look at your software stack and recommend whether to build, integrate, or configure.
           </p>
-          <button className="primary-btn" onClick={onOpenAudit} style={{ margin: "0 auto" }}>
-            Get Your Free 15-Minute Audit <ArrowRight size={16} />
+          <button type="button" className="btn btn-primary" onClick={onOpenAudit} style={{ margin: "0 auto" }}>
+            Book 15-Minute Operational Review <ArrowRight size={16} />
           </button>
         </div>
       </section>

@@ -1,129 +1,227 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft, ArrowRight, CheckCircle2, Cpu, Building2 } from "lucide-react";
+import { 
+  ArrowLeft, 
+  ArrowRight, 
+  CheckCircle2, 
+  Layers, 
+  Code2, 
+  AlertTriangle,
+  Server,
+  Zap
+} from "lucide-react";
 import SEO from "../components/common/SEO";
-import { getCaseStudyBySlug } from "../api/caseStudies";
+import { caseStudiesData } from "../data/initialData";
 
 export default function CaseStudyDetailPage({ onOpenAudit }) {
   const { slug } = useParams();
-  const [study, setStudy] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const study = caseStudiesData.find((s) => s.slug === slug);
 
   useEffect(() => {
-    let isMounted = true;
-    getCaseStudyBySlug(slug).then(data => {
-      if (isMounted) {
-        setStudy(data);
-        setLoading(false);
-      }
-    });
-    return () => { isMounted = false; };
+    window.scrollTo(0, 0);
   }, [slug]);
-
-  if (loading) {
-    return (
-      <div className="container" style={{ padding: "120px 0", textAlign: "center", color: "#64748b" }}>
-        Loading case study...
-      </div>
-    );
-  }
 
   if (!study) {
     return (
-      <div className="container" style={{ padding: "120px 0", textAlign: "center" }}>
-        <h1 style={{ fontSize: "28px", fontWeight: "800", marginBottom: "16px" }}>Case Study Not Found</h1>
-        <p style={{ color: "#64748b", marginBottom: "24px" }}>The requested case study could not be found or is not currently published.</p>
-        <Link to="/case-studies" className="primary-btn" style={{ display: "inline-flex", margin: "0 auto" }}>
-          <ArrowLeft size={16} /> Back to Case Studies
-        </Link>
+      <div className="section" style={{ minHeight: "60vh", display: "flex", alignItems: "center" }}>
+        <div className="container" style={{ textAlign: "center", maxWidth: "600px" }}>
+          <h1 style={{ fontSize: "2rem", marginBottom: "1rem" }}>Case Study Not Found</h1>
+          <p style={{ color: "var(--muted)", marginBottom: "2rem" }}>
+            The requested technical case study does not exist or has been archived.
+          </p>
+          <Link to="/case-studies" className="btn btn-primary" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
+            <ArrowLeft size={16} /> Back to Case Studies
+          </Link>
+        </div>
       </div>
     );
   }
+
+  const getBadgeClass = (badge) => {
+    switch (badge?.toLowerCase()) {
+      case "prototype":
+        return "case-badge case-badge-prototype";
+      case "internal build":
+        return "case-badge case-badge-internal";
+      case "research":
+        return "case-badge case-badge-research";
+      default:
+        return "case-badge";
+    }
+  };
 
   return (
     <>
       <SEO
-        title={study.title}
-        description={study.summary || study.title}
+        title={`${study.title} | Case Study`}
+        description={study.problem || `Technical implementation overview for ${study.title}.`}
       />
 
-      <section style={{ background: "var(--dark)", color: "var(--white)", padding: "70px 0 50px" }}>
+      {/* Header */}
+      <section className="section section-dark" style={{ padding: "4rem 0 3.5rem" }}>
         <div className="container">
           <Link
             to="/case-studies"
-            style={{ display: "inline-flex", alignItems: "center", gap: "6px", color: "#94a3b8", fontSize: "13px", marginBottom: "24px" }}
+            style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", color: "#94A3B8", fontSize: "0.88rem", marginBottom: "2rem", textDecoration: "none" }}
           >
-            <ArrowLeft size={14} /> Back to All Case Studies
+            <ArrowLeft size={15} /> Back to All Case Studies
           </Link>
-          <div style={{ maxWidth: "800px" }}>
-            <span className="section-label light" style={{ display: "inline-block", marginBottom: "12px" }}>
-              {study.industry || "ENTERPRISE DEPLOYMENT"}
-            </span>
-            <h1 style={{ fontSize: "38px", fontWeight: "800", color: "#ffffff", marginBottom: "20px", lineHeight: "1.2" }}>
-              {study.title}
-            </h1>
-            <p style={{ fontSize: "16px", color: "#cbd5e1", lineHeight: "1.6" }}>
-              {study.summary}
-            </p>
+
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "3rem", alignItems: "center" }}>
+            <div>
+              <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "1rem" }}>
+                <span className={getBadgeClass(study.badge)}>{study.badge}</span>
+                <span style={{ fontSize: "0.8rem", color: "#94A3B8", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.06em" }}>
+                  {study.category}
+                </span>
+              </div>
+
+              <h1 style={{ fontSize: "2.5rem", fontWeight: "800", color: "var(--white)", letterSpacing: "-0.02em", marginBottom: "1.25rem", lineHeight: "1.2" }}>
+                {study.title}
+              </h1>
+
+              <p style={{ fontSize: "1.1rem", lineHeight: "1.7", color: "#CBD5E1", marginBottom: "2rem" }}>
+                {study.problem}
+              </p>
+
+              <div>
+                <button type="button" className="btn btn-primary" onClick={onOpenAudit}>
+                  Request Architecture Discussion <ArrowRight size={16} />
+                </button>
+              </div>
+            </div>
+
+            <div style={{ position: "relative", borderRadius: "var(--radius-lg)", overflow: "hidden", border: "1px solid rgba(255, 255, 255, 0.15)", boxShadow: "var(--shadow-lg)" }}>
+              <img
+                src={study.image}
+                alt={`Engineering implementation for ${study.title}`}
+                style={{ width: "100%", height: "340px", objectFit: "cover", display: "block" }}
+              />
+              <div
+                style={{
+                  position: "absolute",
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                  background: "linear-gradient(transparent, rgba(10, 25, 41, 0.95))",
+                  padding: "1.25rem 1.5rem",
+                  color: "var(--white)",
+                  fontSize: "0.84rem"
+                }}
+              >
+                Implementation verified: {study.badge}
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section style={{ padding: "70px 0" }}>
-        <div className="container" style={{ maxWidth: "860px", display: "flex", flexDirection: "column", gap: "40px" }}>
+      {/* Main Technical Report Content */}
+      <section className="section" style={{ backgroundColor: "var(--bg-surface)" }}>
+        <div className="container" style={{ maxWidth: "900px", display: "flex", flexDirection: "column", gap: "2.5rem" }}>
           
-          {study.challenge && (
-            <div>
-              <h2 style={{ fontSize: "22px", fontWeight: "700", color: "var(--ink)", marginBottom: "12px" }}>
-                The Operational Challenge
+          {/* Operating Context */}
+          {study.context && (
+            <div style={{ backgroundColor: "var(--white)", border: "1px solid var(--borders)", borderRadius: "var(--radius-md)", padding: "2.25rem 2rem" }}>
+              <span className="eyebrow" style={{ display: "block", marginBottom: "0.5rem" }}>OPERATIONAL CONTEXT</span>
+              <h2 style={{ fontSize: "1.35rem", fontWeight: "800", color: "var(--primary)", marginBottom: "0.85rem" }}>
+                Environmental &amp; Business Constraints
               </h2>
-              <div style={{ fontSize: "15px", color: "#475569", lineHeight: "1.7", whiteSpace: "pre-line" }}>
-                {study.challenge}
-              </div>
+              <p style={{ fontSize: "0.98rem", lineHeight: "1.7", color: "var(--text-dark)", margin: 0 }}>
+                {study.context}
+              </p>
             </div>
           )}
 
+          {/* Architectural Approach */}
           {study.approach && (
-            <div>
-              <h2 style={{ fontSize: "22px", fontWeight: "700", color: "var(--ink)", marginBottom: "12px" }}>
-                Our Architectural Approach
+            <div style={{ backgroundColor: "var(--white)", border: "1px solid var(--borders)", borderRadius: "var(--radius-md)", padding: "2.25rem 2rem" }}>
+              <span className="eyebrow" style={{ display: "block", marginBottom: "0.5rem" }}>TECHNICAL ARCHITECTURE</span>
+              <h2 style={{ fontSize: "1.35rem", fontWeight: "800", color: "var(--primary)", marginBottom: "0.85rem" }}>
+                How We Designed the Solution
               </h2>
-              <div style={{ fontSize: "15px", color: "#475569", lineHeight: "1.7", whiteSpace: "pre-line" }}>
+              <p style={{ fontSize: "0.98rem", lineHeight: "1.7", color: "var(--text-dark)", margin: 0 }}>
                 {study.approach}
-              </div>
+              </p>
             </div>
           )}
 
-          {study.solution && (
-            <div>
-              <h2 style={{ fontSize: "22px", fontWeight: "700", color: "var(--ink)", marginBottom: "12px" }}>
-                Engineered Solution
-              </h2>
-              <div style={{ fontSize: "15px", color: "#475569", lineHeight: "1.7", whiteSpace: "pre-line" }}>
-                {study.solution}
-              </div>
-            </div>
-          )}
-
-          {study.results && (
-            <div style={{ background: "var(--soft)", border: "1px solid #bfdbfe", borderRadius: "12px", padding: "28px 32px" }}>
-              <h3 style={{ fontSize: "18px", fontWeight: "700", color: "var(--ink)", marginBottom: "10px" }}>
-                Measurable Impact &amp; Results
+          {/* Systems Involved */}
+          {study.systemsInvolved && (
+            <div style={{ backgroundColor: "var(--white)", border: "1px solid var(--borders)", borderRadius: "var(--radius-md)", padding: "2rem" }}>
+              <span className="eyebrow" style={{ display: "block", marginBottom: "0.5rem" }}>INTEROPERABILITY</span>
+              <h3 style={{ fontSize: "1.2rem", fontWeight: "800", color: "var(--primary)", marginBottom: "1rem" }}>
+                Platforms &amp; Systems Connected
               </h3>
-              <div style={{ fontSize: "14px", color: "#1e3a8a", lineHeight: "1.6", whiteSpace: "pre-line" }}>
-                {study.results}
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem" }}>
+                {study.systemsInvolved.map((sys, idx) => (
+                  <div
+                    key={idx}
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "0.45rem",
+                      backgroundColor: "var(--soft-blue)",
+                      border: "1px solid #BFDBFE",
+                      borderRadius: "var(--radius-sm)",
+                      padding: "0.4rem 0.85rem",
+                      fontSize: "0.85rem",
+                      fontWeight: "600",
+                      color: "var(--blue)"
+                    }}
+                  >
+                    <Layers size={14} />
+                    <span>{sys}</span>
+                  </div>
+                ))}
               </div>
             </div>
           )}
 
+          {/* Implementation Details */}
+          {study.implementation && (
+            <div style={{ backgroundColor: "var(--white)", border: "1px solid var(--borders)", borderRadius: "var(--radius-md)", padding: "2.25rem 2rem" }}>
+              <span className="eyebrow" style={{ display: "block", marginBottom: "0.5rem" }}>ENGINEERING DETAILS</span>
+              <h2 style={{ fontSize: "1.35rem", fontWeight: "800", color: "var(--primary)", marginBottom: "0.85rem" }}>
+                Code &amp; Infrastructure Implementation
+              </h2>
+              <p style={{ fontSize: "0.98rem", lineHeight: "1.7", color: "var(--text-dark)", margin: 0 }}>
+                {study.implementation}
+              </p>
+            </div>
+          )}
+
+          {/* Outcome & Business Impact */}
+          {study.outcome && (
+            <div
+              style={{
+                backgroundColor: "#F0FDF4",
+                border: "1px solid #BBF7D0",
+                borderRadius: "var(--radius-md)",
+                padding: "2.25rem 2rem"
+              }}
+            >
+              <div style={{ display: "flex", alignItems: "center", gap: "0.6rem", color: "#16A34A", marginBottom: "0.75rem" }}>
+                <CheckCircle2 size={22} />
+                <h3 style={{ fontSize: "1.3rem", fontWeight: "800", color: "#166534", margin: 0 }}>
+                  Measurable Operational Outcome
+                </h3>
+              </div>
+              <p style={{ fontSize: "1rem", lineHeight: "1.7", color: "#14532D", margin: 0 }}>
+                {study.outcome}
+              </p>
+            </div>
+          )}
+
+          {/* Technology Stack */}
           {study.technology && (
-            <div style={{ borderTop: "1px solid var(--line)", paddingTop: "24px" }}>
-              <span style={{ fontSize: "12px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.06em", color: "#64748b", display: "block", marginBottom: "10px" }}>
+            <div style={{ backgroundColor: "var(--white)", border: "1px solid var(--borders)", borderRadius: "var(--radius-md)", padding: "1.75rem 2rem" }}>
+              <span style={{ fontSize: "0.8rem", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--muted)", display: "block", marginBottom: "0.75rem" }}>
                 Technology Stack Utilized
               </span>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "0.6rem" }}>
                 {study.technology.split(",").map((tech, i) => (
-                  <span key={i} style={{ fontSize: "12px", background: "#f1f5f9", color: "#334155", padding: "4px 10px", borderRadius: "6px", fontFamily: "'DM Mono', monospace" }}>
+                  <span key={i} className="spec-tag">
                     {tech.trim()}
                   </span>
                 ))}
@@ -131,9 +229,15 @@ export default function CaseStudyDetailPage({ onOpenAudit }) {
             </div>
           )}
 
-          <div style={{ textAlign: "center", paddingTop: "20px" }}>
-            <button className="primary-btn" onClick={onOpenAudit} style={{ margin: "0 auto" }}>
-              Request Similar Operational Audit <ArrowRight size={16} />
+          {/* Bottom Audit Action */}
+          <div style={{ textAlign: "center", padding: "1rem 0" }}>
+            <button
+              type="button"
+              className="btn btn-primary"
+              onClick={onOpenAudit}
+              style={{ fontSize: "1.05rem", padding: "0.85rem 1.75rem" }}
+            >
+              Discuss a Similar Integration for Your Business <ArrowRight size={16} />
             </button>
           </div>
 

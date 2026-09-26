@@ -1,109 +1,170 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, CheckCircle2, AlertTriangle } from "lucide-react";
+import { ArrowRight, AlertTriangle, Search } from "lucide-react";
 import SEO from "../components/common/SEO";
 import { industriesData } from "../data/initialData";
 
 export default function IndustriesPage({ onOpenAudit }) {
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const filteredIndustries = industriesData.filter((ind) => {
+    const q = searchTerm.toLowerCase();
+    return (
+      ind.name.toLowerCase().includes(q) ||
+      ind.shortDesc.toLowerCase().includes(q) ||
+      ind.overview.toLowerCase().includes(q)
+    );
+  });
+
   return (
     <>
       <SEO
-        title="Industry Solutions"
-        description="Tailored technology and system integrations for Pharmacies & Health, Transport & Logistics, FMCG Wholesalers, Manufacturing, Microfinance, and Security."
+        title="Industry Solutions & Workflows | Corebridge"
+        description="Software architecture and systems integration tailored to 17 commercial sectors in Zimbabwe: Agriculture, Healthcare, FMCG, Manufacturing, Logistics, and more."
       />
 
       {/* Header */}
-      <section style={{ background: "var(--dark)", color: "var(--white)", padding: "80px 0 60px" }}>
-        <div className="container" style={{ maxWidth: "800px", textAlign: "center" }}>
-          <span className="section-label light" style={{ display: "inline-block", marginBottom: "12px" }}>
-            SPECIALIZED OPERATIONAL EXPERTISE
-          </span>
-          <h1 style={{ fontSize: "42px", fontWeight: "800", letterSpacing: "-0.03em", color: "var(--white)", marginBottom: "20px", lineHeight: "1.15" }}>
+      <section className="section section-dark" style={{ padding: "5rem 0 4rem" }}>
+        <div className="container" style={{ maxWidth: "860px", textAlign: "center" }}>
+          <span className="eyebrow-dark">SECTORS &amp; DOMAINS</span>
+          <h1 style={{ fontSize: "2.75rem", fontWeight: "800", color: "var(--white)", letterSpacing: "-0.02em", marginBottom: "1.25rem", lineHeight: "1.15" }}>
             Systems Engineered for Your Industry
           </h1>
-          <p style={{ fontSize: "16px", color: "#94a3b8", lineHeight: "1.6", marginBottom: "32px" }}>
-            Generic software forces you to change how your business operates. We configure and build systems around your industry's specific compliance, logistics, and data realities.
+          <p style={{ fontSize: "1.15rem", lineHeight: "1.7", color: "#94A3B8", marginBottom: "2.5rem" }}>
+            Generic software forces you to change how your business operates. We configure, connect, and build systems around your industry's specific compliance, supply chain, and data realities.
           </p>
-          <button className="primary-btn" onClick={onOpenAudit} style={{ margin: "0 auto" }}>
-            Request Industry Consultation <ArrowRight size={16} />
-          </button>
+
+          {/* Search Filter */}
+          <div style={{ maxWidth: "480px", margin: "0 auto", position: "relative" }}>
+            <Search
+              size={18}
+              style={{ position: "absolute", left: "1rem", top: "50%", transform: "translateY(-50%)", color: "#94A3B8" }}
+            />
+            <input
+              type="text"
+              placeholder="Search by industry name or challenge..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="form-input"
+              style={{
+                paddingLeft: "2.75rem",
+                backgroundColor: "rgba(255, 255, 255, 0.08)",
+                borderColor: "rgba(255, 255, 255, 0.15)",
+                color: "var(--white)"
+              }}
+            />
+          </div>
         </div>
       </section>
 
       {/* Industries Grid */}
-      <section style={{ padding: "80px 0", background: "#f8fafc" }}>
-        <div className="container" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))", gap: "32px" }}>
-          {industriesData.map(ind => (
-            <article
-              key={ind.slug}
-              style={{
-                background: "var(--white)",
-                borderRadius: "16px",
-                border: "1px solid var(--line)",
-                overflow: "hidden",
-                boxShadow: "0 2px 6px rgba(10,25,41,.03)",
-                display: "flex",
-                flexDirection: "column"
-              }}
-            >
-              <div style={{ position: "relative", height: "180px", overflow: "hidden" }}>
-                <img
-                  src={ind.image}
-                  alt={ind.name}
-                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                  loading="lazy"
-                />
-                <div style={{
-                  position: "absolute",
-                  inset: 0,
-                  background: "linear-gradient(180deg, rgba(10,25,41,0.2) 0%, rgba(10,25,41,0.85) 100%)",
-                  display: "flex",
-                  alignItems: "flex-end",
-                  padding: "20px"
-                }}>
-                  <h2 style={{ fontSize: "22px", fontWeight: "700", color: "#ffffff", margin: 0 }}>
-                    {ind.name}
-                  </h2>
-                </div>
-              </div>
+      <section className="section" style={{ backgroundColor: "var(--bg-surface)" }}>
+        <div className="container">
+          <div style={{ marginBottom: "2rem", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <span style={{ fontSize: "0.9rem", color: "var(--muted)", fontWeight: "600" }}>
+              Showing {filteredIndustries.length} of {industriesData.length} commercial industries
+            </span>
+            {searchTerm && (
+              <button
+                type="button"
+                onClick={() => setSearchTerm("")}
+                style={{ fontSize: "0.85rem", color: "var(--blue)", fontWeight: "600" }}
+              >
+                Clear filter
+              </button>
+            )}
+          </div>
 
-              <div style={{ padding: "24px", flex: 1, display: "flex", flexDirection: "column" }}>
-                <p style={{ fontSize: "14px", color: "#475569", lineHeight: "1.6", marginBottom: "20px" }}>
-                  {ind.desc}
-                </p>
+          <div className="industry-grid" style={{ marginTop: 0 }}>
+            {filteredIndustries.map((ind) => {
+              const Icon = ind.icon;
+              return (
+                <article key={ind.slug} className="industry-card">
+                  <div className="industry-card-img-wrap">
+                    <img
+                      src={ind.image}
+                      alt={`Commercial operations in ${ind.name}`}
+                      className="industry-card-img"
+                      loading="lazy"
+                      width="400"
+                      height="220"
+                    />
+                    <div
+                      style={{
+                        position: "absolute",
+                        top: "1rem",
+                        left: "1rem",
+                        width: "36px",
+                        height: "36px",
+                        borderRadius: "var(--radius-sm)",
+                        backgroundColor: "rgba(10, 25, 41, 0.85)",
+                        backdropFilter: "blur(4px)",
+                        color: "var(--white)",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        border: "1px solid rgba(255, 255, 255, 0.15)"
+                      }}
+                    >
+                      {Icon && <Icon size={18} />}
+                    </div>
+                  </div>
 
-                <div style={{ marginBottom: "20px" }}>
-                  <h4 style={{ fontSize: "12px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.06em", color: "#64748b", marginBottom: "10px", display: "flex", alignItems: "center", gap: "6px" }}>
-                    <AlertTriangle size={14} style={{ color: "#d97706" }} /> Typical Operational Hurdles
-                  </h4>
-                  <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "6px", fontSize: "13px", color: "#334155" }}>
-                    {ind.challenges.map((c, idx) => (
-                      <li key={idx} style={{ display: "flex", alignItems: "flex-start", gap: "6px" }}>
-                        <span style={{ color: "#94a3b8" }}>•</span>
-                        <span>{c}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                  <div className="industry-card-body">
+                    <h2 className="industry-card-title">{ind.name}</h2>
+                    <p className="industry-card-desc">{ind.shortDesc}</p>
 
-                <div style={{ marginTop: "auto", paddingTop: "16px", borderTop: "1px solid var(--line)" }}>
-                  <Link
-                    to={`/industries/${ind.slug}`}
-                    style={{
-                      fontSize: "13px",
-                      fontWeight: "600",
-                      color: "var(--blue)",
-                      display: "inline-flex",
-                      alignItems: "center",
-                      gap: "6px"
-                    }}
-                  >
-                    View detailed solutions for {ind.name} <ArrowRight size={13} />
-                  </Link>
-                </div>
-              </div>
-            </article>
-          ))}
+                    {ind.operationalChallenges && (
+                      <div style={{ marginBottom: "1.25rem" }}>
+                        <span style={{ fontSize: "0.76rem", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.06em", color: "var(--muted)", display: "flex", alignItems: "center", gap: "0.35rem", marginBottom: "0.5rem" }}>
+                          <AlertTriangle size={13} style={{ color: "#D97706" }} /> Common Bottlenecks
+                        </span>
+                        <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "0.35rem" }}>
+                          {ind.operationalChallenges.slice(0, 2).map((c, cIdx) => (
+                            <li key={cIdx} style={{ fontSize: "0.82rem", color: "var(--muted)", lineHeight: "1.4", display: "flex", alignItems: "flex-start", gap: "0.4rem" }}>
+                              <span style={{ color: "var(--blue)" }}>&bull;</span>
+                              <span>{c}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+
+                    <div style={{ marginTop: "auto", paddingTop: "1rem", borderTop: "1px solid var(--borders-light)" }}>
+                      <Link
+                        to={`/industries/${ind.slug}`}
+                        className="btn-link"
+                        aria-label={`View systems and workflows for ${ind.name}`}
+                      >
+                        Explore systems &amp; workflows <ArrowRight size={14} />
+                      </Link>
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Closing CTA */}
+      <section className="section section-dark" style={{ textAlign: "center" }}>
+        <div className="container" style={{ maxWidth: "760px" }}>
+          <span className="eyebrow-dark">INDUSTRY ARCHITECTURE</span>
+          <h2 style={{ fontSize: "2.25rem", fontWeight: "800", color: "var(--white)", marginBottom: "1.25rem" }}>
+            Do not see your exact sector listed?
+          </h2>
+          <p style={{ color: "#94A3B8", fontSize: "1.05rem", lineHeight: "1.65", marginBottom: "2.5rem" }}>
+            The underlying engineering challenges (data silos, manual spreadsheet handoffs, uncoordinated inventory, and payment reconciliation) are universal. Tell us about your operational workflow.
+          </p>
+          <div style={{ display: "flex", justifyContent: "center", gap: "1rem", flexWrap: "wrap" }}>
+            <button type="button" className="btn btn-primary" onClick={onOpenAudit}>
+              Book Operational Review <ArrowRight size={16} />
+            </button>
+            <Link to="/contact" className="btn btn-secondary">
+              Contact Engineering
+            </Link>
+          </div>
         </div>
       </section>
     </>

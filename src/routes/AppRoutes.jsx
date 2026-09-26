@@ -12,6 +12,7 @@ import IndustryDetailPage from "../pages/IndustryDetailPage";
 import CaseStudiesPage from "../pages/CaseStudiesPage";
 import CaseStudyDetailPage from "../pages/CaseStudyDetailPage";
 import AboutPage from "../pages/AboutPage";
+import ApproachPage from "../pages/ApproachPage";
 import ContactPage from "../pages/ContactPage";
 import NotFoundPage from "../pages/NotFoundPage";
 
@@ -96,6 +97,14 @@ export default function AppRoutes() {
           element={
             <PublicLayout onOpenAudit={() => setAuditOpen(true)}>
               <AboutPage onOpenAudit={() => setAuditOpen(true)} />
+            </PublicLayout>
+          }
+        />
+        <Route
+          path="/approach"
+          element={
+            <PublicLayout onOpenAudit={() => setAuditOpen(true)}>
+              <ApproachPage onOpenAudit={() => setAuditOpen(true)} />
             </PublicLayout>
           }
         />
