@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import BrandWordmark from "../components/common/BrandWordmark";
 
 export default function BusinessProblemSection() {
   const systems = [
@@ -103,8 +104,8 @@ export default function BusinessProblemSection() {
               gap: "0.35rem"
             }}
           >
-            <span style={{ fontSize: "0.82rem", fontWeight: "800", letterSpacing: "0.12em", color: "#38BDF8", textTransform: "uppercase" }}>
-              THE COREBRIDGE ENGINEERING LAYER
+            <span style={{ fontSize: "0.82rem", fontWeight: "800", letterSpacing: "0.12em", color: "#38BDF8", textTransform: "uppercase", display: "inline-flex", alignItems: "center", gap: "0.35rem" }}>
+              THE <BrandWordmark variant="light" textColor="#38BDF8" size="0.82rem" /> ENGINEERING LAYER
             </span>
             <span style={{ fontSize: "0.95rem", color: "#E2E8F0" }}>
               Middleware Connectors · Automated Webhooks · Bi-directional Database Synchronization

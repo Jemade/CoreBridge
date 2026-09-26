@@ -1,5 +1,6 @@
 import React from "react";
 import { ChevronRight } from "lucide-react";
+import BrandWordmark from "../components/common/BrandWordmark";
 import { processSteps, resultsData } from "../data/initialData";
 
 export default function ProcessSection() {
@@ -47,7 +48,7 @@ export default function ProcessSection() {
         {/* WHY COREBRIDGE / RESULTS ROW */}
         <div className="results-row">
           <div className="results-intro-col">
-            <span className="section-label">WHY COREBRIDGE</span>
+            <span className="section-label" style={{ display: "inline-flex", alignItems: "center", gap: "0.35rem" }}>WHY <BrandWordmark variant="blue" size="0.82rem" /></span>
             <h2>Results That Matter</h2>
             <p>We focus on measurable engineering outcomes, not just deliverables.</p>
           </div>

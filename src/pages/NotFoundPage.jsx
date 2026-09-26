@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft, Home, Compass, Layers, Mail } from "lucide-react";
 import SEO from "../components/common/SEO";
+import BrandWordmark from "../components/common/BrandWordmark";
 
 export default function NotFoundPage() {
   return (
@@ -9,6 +10,11 @@ export default function NotFoundPage() {
       <SEO title="Page Not Found | Corebridge" />
       <section className="section" style={{ minHeight: "65vh", display: "flex", alignItems: "center" }}>
         <div className="container" style={{ maxWidth: "640px", textAlign: "center" }}>
+          <div style={{ marginBottom: "1.5rem" }}>
+            <Link to="/" style={{ textDecoration: "none", display: "inline-flex" }}>
+              <BrandWordmark variant="dark" size="1.45rem" />
+            </Link>
+          </div>
           <span className="eyebrow" style={{ display: "inline-block", marginBottom: "0.75rem" }}>
             ERROR 404
           </span>

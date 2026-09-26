@@ -1,33 +1,61 @@
 import React from "react";
-import corebridgeLogoWhite from "../../assets/corebridge-logo-white.png";
+import { Link } from "react-router-dom";
 import corebridgeLogoBlue from "../../assets/corebridge-logo.png";
 
 /**
  * BrandWordmark component
  * 
- * Renders the Corebridge identity where the C-shaped logo mark replaces the initial "C":
+ * Unified brand wordmark where the signature faceted blue C-logo mark
+ * acts as the initial "C" in the wordmark:
  * [C-LOGO-MARK] OREBRIDGE
  * 
- * - Same visual cap-height as the uppercase letters
- * - Tightly controlled optical spacing between mark and "O"
- * - Aligned baseline
- * - Functions as a single, coherent wordmark
- * - Fully accessible with screen-reader text "Corebridge"
+ * Requirements:
+ * - Logo mark ALWAYS retains its signature vibrant blue color and visible faceted design.
+ * - Sizing is optically even with uppercase "OREBRIDGE" letters.
+ * - Tightly controlled optical spacing between the mark and "O".
+ * - Fully accessible with screen-reader text "Corebridge".
+ * - When linkTo is specified, renders an accessible Link to the target route.
+ * - Never duplicate the "C" (no logo followed by the full word "COREBRIDGE").
  */
-export default function BrandWordmark({ variant = "white", className = "", style = {} }) {
-  const isWhite = variant === "white";
-  const markSrc = isWhite ? corebridgeLogoWhite : corebridgeLogoBlue;
-  const textColor = isWhite ? "#FFFFFF" : "#0A1929";
+export default function BrandWordmark({
+  variant = "light",
+  size,
+  textColor,
+  linkTo,
+  className = "",
+  style = {}
+}) {
+  const isLight = variant === "light" || variant === "white";
+  const defaultTextColor = isLight
+    ? "#FFFFFF"
+    : variant === "blue"
+    ? "var(--blue, #1769E8)"
+    : "var(--primary, #0A1929)";
+  const finalTextColor = textColor || defaultTextColor;
 
-  return (
+  const presetSizes = {
+    xs: "0.75rem",
+    sm: "0.85rem",
+    md: "1.1rem",
+    lg: "1.35rem",
+    xl: "1.65rem",
+    "2xl": "2.25rem"
+  };
+
+  const appliedFontSize = size ? (presetSizes[size] || size) : undefined;
+
+  const content = (
     <span
-      className={`brand-wordmark ${isWhite ? "brand-wordmark-white" : "brand-wordmark-dark"} ${className}`}
+      className={`brand-wordmark ${isLight ? "brand-wordmark-light" : "brand-wordmark-dark"} ${className}`}
       style={{
         display: "inline-flex",
         alignItems: "center",
         lineHeight: 1,
-        letterSpacing: "-0.015em",
+        letterSpacing: "-0.02em",
         userSelect: "none",
+        verticalAlign: "middle",
+        textDecoration: "none",
+        ...(appliedFontSize ? { fontSize: appliedFontSize } : {}),
         ...style
       }}
       aria-label="Corebridge"
@@ -39,14 +67,15 @@ export default function BrandWordmark({ variant = "white", className = "", style
           display: "inline-flex",
           alignItems: "center",
           justifyContent: "center",
-          height: "0.78em",
-          width: "0.73em",
-          marginRight: "0.06em",
-          flexShrink: 0
+          height: "0.90em",
+          width: "0.84em",
+          marginRight: "0.05em",
+          flexShrink: 0,
+          transform: "translateY(-0.02em)"
         }}
       >
         <img
-          src={markSrc}
+          src={corebridgeLogoBlue}
           alt=""
           style={{
             height: "100%",
@@ -62,9 +91,9 @@ export default function BrandWordmark({ variant = "white", className = "", style
         style={{
           fontWeight: 800,
           fontSize: "1em",
-          letterSpacing: "-0.015em",
-          color: textColor,
-          fontFamily: "var(--font-sans, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif)",
+          letterSpacing: "-0.02em",
+          color: finalTextColor,
+          fontFamily: "var(--font-sans, 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif)",
           display: "inline-block",
           lineHeight: 1
         }}
@@ -74,4 +103,14 @@ export default function BrandWordmark({ variant = "white", className = "", style
       <span className="sr-only">Corebridge</span>
     </span>
   );
+
+  if (linkTo) {
+    return (
+      <Link to={linkTo} className="brand-link" style={{ textDecoration: "none", display: "inline-flex" }}>
+        {content}
+      </Link>
+    );
+  }
+
+  return content;
 }

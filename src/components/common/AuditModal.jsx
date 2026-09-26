@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { X, ShieldCheck, Loader2, AlertCircle } from "lucide-react";
 import { submitAuditRequest } from "../../api/audits";
+import BrandWordmark from "./BrandWordmark";
 
 export default function AuditModal({ isOpen, onClose }) {
   const [formData, setFormData] = useState({
@@ -135,6 +136,9 @@ export default function AuditModal({ isOpen, onClose }) {
           </div>
         ) : (
           <div>
+            <div style={{ marginBottom: "0.85rem" }}>
+              <BrandWordmark variant="dark" size="1.2rem" />
+            </div>
             <span className="eyebrow">15-MINUTE OPERATIONAL REVIEW</span>
             <h3 id="modal-title" style={{ fontSize: "1.45rem", marginBottom: "0.5rem" }}>
               Tell us about your systems and workflows.

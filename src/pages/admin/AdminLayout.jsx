@@ -4,7 +4,7 @@ import {
   LayoutDashboard, Users, MessageSquare, Layers, Settings, LogOut,
   ExternalLink, Menu, X, ShieldAlert, CheckCircle2
 } from "lucide-react";
-import corebridgeLogoWhite from "../../assets/corebridge-logo-white.png";
+import BrandWordmark from "../../components/common/BrandWordmark";
 import { logout } from "../../api/auth";
 
 export default function AdminLayout() {
@@ -49,10 +49,9 @@ export default function AdminLayout() {
       }}>
         {/* Brand header */}
         <div style={{ padding: "20px 24px", borderBottom: "1px solid #1e293b", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-            <img src={corebridgeLogoWhite} alt="Corebridge" width="24" height="24" />
-            <span style={{ fontSize: "16px", fontWeight: "800", letterSpacing: "-0.03em" }}>Corebridge</span>
-          </div>
+          <Link to="/" style={{ textDecoration: "none", display: "inline-flex" }}>
+            <BrandWordmark variant="white" size="1.05rem" />
+          </Link>
           <span style={{ fontSize: "10px", fontWeight: "700", background: "#1e293b", color: "#38bdf8", padding: "2px 6px", borderRadius: "4px", textTransform: "uppercase" }}>
             ADMIN
           </span>

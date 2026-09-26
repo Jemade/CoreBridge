@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import BrandWordmark from "../components/common/BrandWordmark";
 import { editorialStatementImg } from "../data/initialData";
 
 export default function PhilosophyStatementSection() {
@@ -40,8 +41,8 @@ export default function PhilosophyStatementSection() {
 
           {/* Editorial Philosophy Statement */}
           <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
-            <span className="eyebrow" style={{ marginBottom: "1rem" }}>
-              THE COREBRIDGE PHILOSOPHY
+            <span className="eyebrow" style={{ marginBottom: "1rem", display: "inline-flex", alignItems: "center", gap: "0.35rem" }}>
+              THE <BrandWordmark variant="blue" size="0.82rem" /> PHILOSOPHY
             </span>
 
             <h2

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Lock, Mail, ArrowRight, AlertCircle, Loader2 } from "lucide-react";
-import corebridgeLogo from "../../assets/corebridge-logo.png";
+import BrandWordmark from "../../components/common/BrandWordmark";
 import { login } from "../../api/auth";
 
 export default function AdminLoginPage() {
@@ -43,12 +43,11 @@ export default function AdminLoginPage() {
         padding: "40px 32px",
         boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.3)"
       }}>
-        <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "24px" }}>
-          <img src={corebridgeLogo} alt="Corebridge" width="32" height="32" />
-          <span style={{ fontSize: "20px", fontWeight: "800", color: "#0a1929", letterSpacing: "-0.03em" }}>
-            Corebridge
-          </span>
-          <span style={{ fontSize: "10px", fontWeight: "700", background: "#eff6ff", color: "#1769e8", padding: "2px 6px", borderRadius: "4px", marginLeft: "auto" }}>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "24px" }}>
+          <Link to="/" style={{ textDecoration: "none", display: "inline-flex" }}>
+            <BrandWordmark variant="dark" size="1.25rem" />
+          </Link>
+          <span style={{ fontSize: "10px", fontWeight: "700", background: "#eff6ff", color: "#1769e8", padding: "2px 6px", borderRadius: "4px" }}>
             OPS PORTAL
           </span>
         </div>

@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { MapPin } from "lucide-react";
 import SEO from "../components/common/SEO";
+import BrandWordmark from "../components/common/BrandWordmark";
 import { aboutHeroImg, teamHarareImg, engineeringFocusImg } from "../data/initialData";
 
 export default function AboutPage({ onOpenAudit }) {
@@ -36,7 +37,9 @@ export default function AboutPage({ onOpenAudit }) {
         <div className="container">
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "3.5rem", alignItems: "center" }}>
             <div>
-              <span className="eyebrow-dark">ABOUT COREBRIDGE</span>
+              <span className="eyebrow-dark" style={{ display: "inline-flex", alignItems: "center", gap: "0.4rem" }}>
+                ABOUT <BrandWordmark variant="light" size="0.82rem" />
+              </span>
               <h1 style={{ fontSize: "2.75rem", fontWeight: "800", color: "var(--white)", letterSpacing: "-0.02em", marginBottom: "1.25rem", lineHeight: "1.15" }}>
                 Smarter Systems. Stronger Businesses.
               </h1>
