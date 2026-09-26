@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, CheckCircle2, ShieldCheck, Layers } from "lucide-react";
 import SEO from "../components/common/SEO";
 import CaseStudyCard from "../components/cards/CaseStudyCard";
 import { getCaseStudies } from "../api/caseStudies";
-import { caseStudiesData } from "../data/initialData";
-import WhatsAppIcon from "../components/common/WhatsAppIcon";
+import { caseStudiesData, caseStudiesHeroImg } from "../data/initialData";
 
 export default function CaseStudiesPage({ onOpenAudit }) {
   const [studies, setStudies] = useState(caseStudiesData);
@@ -30,38 +28,38 @@ export default function CaseStudiesPage({ onOpenAudit }) {
         description="Transparent technical case studies: Retail POS and Odoo ERP synchronization, B2B transaction exchange, field service automation, and document AI."
       />
 
-      {/* Header */}
-      <section className="section section-dark" style={{ padding: "5rem 0 4rem" }}>
-        <div className="container" style={{ maxWidth: "860px", textAlign: "center" }}>
-          <span className="eyebrow-dark">GROUNDED CASE STUDIES</span>
-          <h1 style={{ fontSize: "2.75rem", fontWeight: "800", color: "var(--white)", letterSpacing: "-0.02em", marginBottom: "1.25rem", lineHeight: "1.15" }}>
-            Systems in Practice
-          </h1>
-          <p style={{ fontSize: "1.15rem", lineHeight: "1.7", color: "#94A3B8", marginBottom: "2.5rem" }}>
-            Real technical solutions solving real operational problems. We document architectural decisions, integration hurdles, and measurable business outcomes without fabricated statistics or vanity metrics.
-          </p>
-          <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "1.25rem", flexWrap: "wrap" }}>
-            <button type="button" className="btn btn-primary" onClick={onOpenAudit}>
-              Request Architecture Discussion <ArrowRight size={16} />
-            </button>
-            <a
-              href="https://wa.me/263780787214?text=Hello%20Corebridge%2C%20I%20would%20like%20to%20discuss%20a%20technical%20case%20study%20relevant%20to%20our%20operations."
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "0.5rem",
-                color: "#25D366",
-                fontSize: "0.95rem",
-                fontWeight: "600",
-                textDecoration: "none",
-                padding: "0.5rem 1rem"
-              }}
-            >
-              <WhatsAppIcon size={18} style={{ color: "#25D366" }} />
-              <span>WhatsApp Direct</span>
-            </a>
+      {/* Hero with Unique Case Studies Photography */}
+      <section className="section section-dark" style={{ padding: "4.5rem 0 4rem" }}>
+        <div className="container">
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "3.5rem", alignItems: "center" }}>
+            <div>
+              <span className="eyebrow-dark">GROUNDED CASE STUDIES</span>
+              <h1 style={{ fontSize: "2.75rem", fontWeight: "800", color: "var(--white)", letterSpacing: "-0.02em", marginBottom: "1.25rem", lineHeight: "1.15" }}>
+                Systems in Practice
+              </h1>
+              <p style={{ fontSize: "1.15rem", lineHeight: "1.7", color: "#94A3B8", marginBottom: "2rem" }}>
+                Real technical solutions solving real operational problems. We document architectural decisions, integration hurdles, and measurable business outcomes without fabricated statistics or vanity metrics.
+              </p>
+              <div style={{ display: "flex", alignItems: "center", gap: "1rem", flexWrap: "wrap" }}>
+                <button type="button" className="btn btn-primary" onClick={onOpenAudit}>
+                  Schedule Operational Review
+                </button>
+                <Link to="/contact" className="btn btn-secondary">
+                  Contact Engineering
+                </Link>
+              </div>
+            </div>
+
+            {/* Clean Hero Photography without overlays */}
+            <div style={{ position: "relative", borderRadius: "var(--radius-lg)", overflow: "hidden", border: "1px solid rgba(255, 255, 255, 0.15)", boxShadow: "var(--shadow-lg)" }}>
+              <img
+                src={caseStudiesHeroImg}
+                alt="Corebridge engineering case study and system architecture implementation"
+                style={{ width: "100%", height: "340px", objectFit: "cover", display: "block" }}
+                width="720"
+                height="340"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -113,26 +111,8 @@ export default function CaseStudiesPage({ onOpenAudit }) {
           </p>
           <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "1rem", flexWrap: "wrap" }}>
             <button type="button" className="btn btn-primary" onClick={onOpenAudit}>
-              Book 15-Minute Review <ArrowRight size={16} />
+              Book 15-Minute Review
             </button>
-            <a
-              href="https://wa.me/263780787214?text=Hello%20Corebridge%2C%20I%20would%20like%20to%20discuss%20our%20system%20requirements%20over%20WhatsApp."
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "0.5rem",
-                color: "#25D366",
-                fontSize: "0.95rem",
-                fontWeight: "600",
-                textDecoration: "none",
-                padding: "0.5rem 1rem"
-              }}
-            >
-              <WhatsAppIcon size={18} style={{ color: "#25D366" }} />
-              <span>WhatsApp Us</span>
-            </a>
             <Link to="/contact" className="btn btn-secondary">
               Contact Engineering
             </Link>

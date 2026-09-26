@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { systemsMapNodes } from "../../data/initialData";
-import { Network, ArrowRight } from "lucide-react";
+import { Network } from "lucide-react";
 
 export default function SystemsMap({ onOpenAudit }) {
   const [activeNodeId, setActiveNodeId] = useState("pos");
@@ -98,7 +98,7 @@ export default function SystemsMap({ onOpenAudit }) {
                   onClick={onOpenAudit}
                   style={{ width: "100%", justifyContent: "center", fontSize: "0.88rem" }}
                 >
-                  Discuss Integration Flow <ArrowRight size={14} />
+                  Discuss Integration Flow
                 </button>
               </div>
             </div>

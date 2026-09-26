@@ -1,7 +1,7 @@
 import {
   Code2, Network, Cpu, Workflow, Settings, CreditCard, BarChart3, Compass,
   Store, Factory, Truck, Stethoscope, Pill, Sprout, Landmark, ShieldCheck,
-  HardHat, Building2, Boxes, FileText, CheckCircle2, ArrowRight, Search,
+  HardHat, Building2, Boxes, FileText, Search,
   GitMerge, Layers, Hammer, RefreshCw, AlertCircle, Phone, Mail, MapPin,
   Hotel, GraduationCap, Briefcase, Pickaxe, Zap, ChevronRight, Menu, X,
   ArrowUpRight, Activity, Database, Shield, Lock, Clock, Users, Sliders
@@ -36,16 +36,30 @@ import fieldServiceImg from "../assets/images/case-studies/field-service.jpg";
 import documentAiImg from "../assets/images/case-studies/document-ai.jpg";
 
 import heroLeadImg from "../assets/images/hero/hero-operations-lead.jpg";
+import solutionsHeroImg from "../assets/images/hero/solutions-hero.jpg";
+import industriesHeroImg from "../assets/images/hero/industries-hero.jpg";
+import approachHeroImg from "../assets/images/hero/approach-hero.jpg";
+import caseStudiesHeroImg from "../assets/images/hero/case-studies-hero.jpg";
+import aboutHeroImg from "../assets/images/hero/about-hero.jpg";
+import contactHeroImg from "../assets/images/hero/contact-hero.jpg";
+
 import operationalRealityImg from "../assets/images/sections/operational-reality.jpg";
 import whatWeSolveImg from "../assets/images/sections/what-we-solve.jpg";
 import buildIntegrateImproveImg from "../assets/images/sections/build-integrate-improve.jpg";
 import globalLocalImg from "../assets/images/sections/global-local.jpg";
 import zimbabweOperationsImg from "../assets/images/sections/zimbabwe-operations.jpg";
+import editorialStatementImg from "../assets/images/sections/editorial-statement.jpg";
 import finalCtaImg from "../assets/images/sections/final-cta.jpg";
 
 export {
   heroLeadImg,
   heroOperationsImg,
+  solutionsHeroImg,
+  industriesHeroImg,
+  approachHeroImg,
+  caseStudiesHeroImg,
+  aboutHeroImg,
+  contactHeroImg,
   teamHarareImg,
   engineeringFocusImg,
   operationalRealityImg,
@@ -53,6 +67,7 @@ export {
   buildIntegrateImproveImg,
   globalLocalImg,
   zimbabweOperationsImg,
+  editorialStatementImg,
   finalCtaImg
 };
 

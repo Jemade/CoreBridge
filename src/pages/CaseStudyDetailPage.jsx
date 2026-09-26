@@ -2,17 +2,10 @@ import React, { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { 
   ArrowLeft, 
-  ArrowRight, 
-  CheckCircle2, 
-  Layers, 
-  Code2, 
-  AlertTriangle,
-  Server,
-  Zap
+  Layers
 } from "lucide-react";
 import SEO from "../components/common/SEO";
 import { caseStudiesData } from "../data/initialData";
-import WhatsAppIcon from "../components/common/WhatsAppIcon";
 
 export default function CaseStudyDetailPage({ onOpenAudit }) {
   const { slug } = useParams();
@@ -87,25 +80,11 @@ export default function CaseStudyDetailPage({ onOpenAudit }) {
 
               <div style={{ display: "flex", alignItems: "center", gap: "1rem", flexWrap: "wrap" }}>
                 <button type="button" className="btn btn-primary" onClick={onOpenAudit}>
-                  Request Architecture Discussion <ArrowRight size={16} />
+                  Schedule Operational Review
                 </button>
-                <a
-                  href={`https://wa.me/263780787214?text=Hello%20Corebridge%2C%20I%20would%20like%20to%20discuss%20an%20engineering%20architecture%20similar%20to%20${encodeURIComponent(study.title)}.`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: "0.5rem",
-                    color: "#25D366",
-                    fontSize: "0.95rem",
-                    fontWeight: "600",
-                    textDecoration: "none"
-                  }}
-                >
-                  <WhatsAppIcon size={18} style={{ color: "#25D366" }} />
-                  <span>WhatsApp Engineering</span>
-                </a>
+                <Link to="/contact" className="btn btn-secondary">
+                  Contact Engineering
+                </Link>
               </div>
             </div>
 
@@ -115,20 +94,6 @@ export default function CaseStudyDetailPage({ onOpenAudit }) {
                 alt={`Engineering implementation for ${study.title}`}
                 style={{ width: "100%", height: "340px", objectFit: "cover", display: "block" }}
               />
-              <div
-                style={{
-                  position: "absolute",
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  background: "linear-gradient(transparent, rgba(10, 25, 41, 0.95))",
-                  padding: "1.25rem 1.5rem",
-                  color: "var(--white)",
-                  fontSize: "0.84rem"
-                }}
-              >
-                Implementation verified: {study.badge}
-              </div>
             </div>
           </div>
         </div>
@@ -219,31 +184,14 @@ export default function CaseStudyDetailPage({ onOpenAudit }) {
                 padding: "2.25rem 2rem"
               }}
             >
-              <div style={{ display: "flex", alignItems: "center", gap: "0.6rem", color: "#16A34A", marginBottom: "0.75rem" }}>
-                <CheckCircle2 size={22} />
-                <h3 style={{ fontSize: "1.3rem", fontWeight: "800", color: "#166534", margin: 0 }}>
+              <div>
+                <h3 style={{ fontSize: "1.3rem", fontWeight: "800", color: "#166534", margin: "0 0 0.75rem 0" }}>
                   Measurable Operational Outcome
                 </h3>
               </div>
               <p style={{ fontSize: "1rem", lineHeight: "1.7", color: "#14532D", margin: 0 }}>
                 {study.outcome}
               </p>
-            </div>
-          )}
-
-          {/* Technology Stack */}
-          {study.technology && (
-            <div style={{ backgroundColor: "var(--white)", border: "1px solid var(--borders)", borderRadius: "var(--radius-md)", padding: "1.75rem 2rem" }}>
-              <span style={{ fontSize: "0.8rem", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--muted)", display: "block", marginBottom: "0.75rem" }}>
-                Technology Stack Utilized
-              </span>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "0.6rem" }}>
-                {study.technology.split(",").map((tech, i) => (
-                  <span key={i} className="spec-tag">
-                    {tech.trim()}
-                  </span>
-                ))}
-              </div>
             </div>
           )}
 
@@ -255,26 +203,11 @@ export default function CaseStudyDetailPage({ onOpenAudit }) {
               onClick={onOpenAudit}
               style={{ fontSize: "1.05rem", padding: "0.85rem 1.75rem" }}
             >
-              Discuss a Similar Integration for Your Business <ArrowRight size={16} />
+              Discuss a Similar Integration for Your Business
             </button>
-            <a
-              href={`https://wa.me/263780787214?text=Hello%20Corebridge%2C%20I%20would%20like%20to%20discuss%20a%20technical%20system%20similar%20to%20${encodeURIComponent(study.title)}.`}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "0.5rem",
-                color: "#25D366",
-                fontSize: "1rem",
-                fontWeight: "600",
-                textDecoration: "none",
-                padding: "0.85rem 1.5rem"
-              }}
-            >
-              <WhatsAppIcon size={18} style={{ color: "#25D366" }} />
-              <span>WhatsApp Direct</span>
-            </a>
+            <Link to="/contact" className="btn btn-secondary" style={{ fontSize: "1.05rem", padding: "0.85rem 1.75rem" }}>
+              Contact Engineering
+            </Link>
           </div>
 
         </div>

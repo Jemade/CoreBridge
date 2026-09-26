@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { ArrowRight, CheckCircle2, Cpu, Code2, Network, Workflow, Settings, CreditCard, BarChart3, Compass } from "lucide-react";
+import { Code2 } from "lucide-react";
 import SEO from "../components/common/SEO";
-import { servicesData, buildIntegrateImproveImg } from "../data/initialData";
-import WhatsAppIcon from "../components/common/WhatsAppIcon";
+import { servicesData, solutionsHeroImg } from "../data/initialData";
+import SystemsMap from "../components/common/SystemsMap";
 
 export default function SolutionsPage({ onOpenAudit }) {
   const location = useLocation();
@@ -26,7 +26,7 @@ export default function SolutionsPage({ onOpenAudit }) {
         description="Explore Corebridge engineering capabilities: Custom software development, systems integration, workflow automation, practical AI, ERP/CRM implementations, and IT consultancy."
       />
 
-      {/* Hero */}
+      {/* Hero with Unique Solutions Photography */}
       <section className="section section-dark" style={{ padding: "4.5rem 0 4rem" }}>
         <div className="container">
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "3.5rem", alignItems: "center" }}>
@@ -38,58 +38,43 @@ export default function SolutionsPage({ onOpenAudit }) {
               <p style={{ fontSize: "1.15rem", lineHeight: "1.7", color: "#94A3B8", marginBottom: "2rem" }}>
                 We build the technical bridges modern businesses need. Rather than forcing one-size-fits-all software templates, we tailor architecture to your unique operating realities, existing tools, and data flows.
               </p>
-              <div style={{ display: "flex", alignItems: "center", gap: "1.25rem", flexWrap: "wrap" }}>
+              <div>
                 <button type="button" className="btn btn-primary" onClick={onOpenAudit}>
-                  Discuss Your System Requirements <ArrowRight size={16} />
+                  Discuss Your System Requirements
                 </button>
-                <a
-                  href="https://wa.me/263780787214?text=Hello%20Corebridge%2C%20I%20would%20like%20to%20discuss%20our%20software%20and%20integration%20requirements."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: "0.5rem",
-                    color: "#25D366",
-                    fontSize: "0.95rem",
-                    fontWeight: "600",
-                    textDecoration: "none"
-                  }}
-                >
-                  <WhatsAppIcon size={18} style={{ color: "#25D366" }} />
-                  <span>WhatsApp: +263 780 787 214</span>
-                </a>
               </div>
             </div>
 
+            {/* Clean Hero Photography without overlays */}
             <div style={{ position: "relative", borderRadius: "var(--radius-lg)", overflow: "hidden", border: "1px solid rgba(255, 255, 255, 0.15)", boxShadow: "var(--shadow-lg)" }}>
               <img
-                src={buildIntegrateImproveImg}
-                alt="Corebridge engineers assessing business software architecture and data pipelines"
+                src={solutionsHeroImg}
+                alt="Corebridge systems architecture and software engineering"
                 style={{ width: "100%", height: "360px", objectFit: "cover", display: "block" }}
+                width="720"
+                height="360"
               />
-              <div
-                style={{
-                  position: "absolute",
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  background: "linear-gradient(transparent, rgba(10, 25, 41, 0.95))",
-                  padding: "1.25rem 1.5rem",
-                  color: "var(--white)",
-                  fontSize: "0.85rem"
-                }}
-              >
-                Architecture decisions grounded in operational realities: Build, Integrate, or Improve.
-              </div>
             </div>
           </div>
         </div>
       </section>
 
+      {/* Systems Architecture & Interoperability Centerpiece */}
+      <SystemsMap onOpenAudit={onOpenAudit} />
+
       {/* Services Detailed Breakdown */}
-      <section className="section" style={{ backgroundColor: "var(--bg-surface)" }}>
+      <section className="section" style={{ backgroundColor: "var(--bg-surface)", padding: "5rem 0" }}>
         <div className="container" style={{ display: "flex", flexDirection: "column", gap: "3rem" }}>
+          <div style={{ maxWidth: "780px", margin: "0 auto", textAlign: "center" }}>
+            <span className="eyebrow">DETAILED CAPABILITIES</span>
+            <h2 style={{ fontSize: "2.25rem", fontWeight: "800", color: "var(--primary)", lineHeight: "1.2", marginBottom: "1rem" }}>
+              Engineered for Enterprise Operational Resilience
+            </h2>
+            <p style={{ fontSize: "1.05rem", color: "var(--muted)", margin: 0 }}>
+              Examine each capability in detail: operating scenarios, specific deliverables, and implementation scope.
+            </p>
+          </div>
+
           {servicesData.map((svc, idx) => {
             const Icon = svc.icon || Code2;
             const isReversed = idx % 2 === 1;
@@ -102,9 +87,9 @@ export default function SolutionsPage({ onOpenAudit }) {
                 style={{
                   backgroundColor: "var(--white)",
                   border: "1px solid var(--borders)",
-                  borderRadius: "var(--radius-lg)",
+                  borderRadius: "var(--radius-md)",
                   padding: "3rem 2.5rem",
-                  boxShadow: "var(--shadow-sm)"
+                  boxShadow: "0 2px 8px rgba(10, 25, 41, 0.03)"
                 }}
               >
                 {/* Left/Main Column: Overview & Scope */}
@@ -145,7 +130,7 @@ export default function SolutionsPage({ onOpenAudit }) {
                       <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "0.6rem" }}>
                         {svc.useCases.map((uc, uIdx) => (
                           <li key={uIdx} style={{ display: "flex", alignItems: "flex-start", gap: "0.65rem", fontSize: "0.92rem", color: "var(--muted)", lineHeight: "1.5" }}>
-                            <span style={{ color: "var(--blue)", fontWeight: "700" }}>&rarr;</span>
+                            <span style={{ color: "var(--blue)", fontWeight: "700" }}>&bull;</span>
                             <span>{uc}</span>
                           </li>
                         ))}
@@ -160,13 +145,13 @@ export default function SolutionsPage({ onOpenAudit }) {
                       onClick={onOpenAudit}
                       style={{ fontSize: "0.9rem" }}
                     >
-                      Request Architecture Scope <ArrowRight size={14} />
+                      Request Architecture Scope
                     </button>
                   </div>
                 </div>
 
-                {/* Right Column: Deliverables & Tech Specs */}
-                <div className="service-specs-side" style={{ display: "flex", flexDirection: "column", gap: "1.75rem" }}>
+                {/* Right Column: Deliverables & Outputs (No technology stack box, clean bullets) */}
+                <div className="service-specs-side">
                   <div
                     style={{
                       backgroundColor: "var(--bg-surface)",
@@ -181,34 +166,12 @@ export default function SolutionsPage({ onOpenAudit }) {
                     <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "0.85rem" }}>
                       {svc.deliverables?.map((item, dIdx) => (
                         <li key={dIdx} style={{ display: "flex", alignItems: "flex-start", gap: "0.65rem", fontSize: "0.92rem", color: "var(--text-dark)", lineHeight: "1.45" }}>
-                          <CheckCircle2 size={16} style={{ color: "var(--blue)", flexShrink: 0, marginTop: "2px" }} />
+                          <span style={{ color: "var(--blue)", fontWeight: "700" }}>&bull;</span>
                           <span>{item}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
-
-                  {(svc.technologies || svc.relevantSystems) && (
-                    <div
-                      style={{
-                        backgroundColor: "var(--bg-surface)",
-                        border: "1px solid var(--borders)",
-                        borderRadius: "var(--radius-md)",
-                        padding: "1.5rem 2rem"
-                      }}
-                    >
-                      <h4 style={{ fontSize: "0.8rem", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--muted)", marginBottom: "0.75rem" }}>
-                        Systems &amp; Architecture Stack
-                      </h4>
-                      <div className="specs-tag-list">
-                        {(svc.technologies || svc.relevantSystems).map((t, tIdx) => (
-                          <span key={tIdx} className="spec-tag">
-                            {t}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  )}
                 </div>
               </div>
             );
@@ -217,7 +180,7 @@ export default function SolutionsPage({ onOpenAudit }) {
       </section>
 
       {/* Bottom CTA */}
-      <section className="section section-dark" style={{ textAlign: "center" }}>
+      <section className="section section-dark" style={{ textAlign: "center", padding: "5rem 0" }}>
         <div className="container" style={{ maxWidth: "760px" }}>
           <span className="eyebrow-dark">SYSTEM EVALUATION</span>
           <h2 style={{ fontSize: "2.25rem", fontWeight: "800", color: "var(--white)", marginBottom: "1.25rem" }}>
@@ -227,7 +190,7 @@ export default function SolutionsPage({ onOpenAudit }) {
             Schedule a complimentary 15-Minute Operational Review. We will look at your software stack and recommend whether to build, integrate, or configure.
           </p>
           <button type="button" className="btn btn-primary" onClick={onOpenAudit} style={{ margin: "0 auto" }}>
-            Book 15-Minute Operational Review <ArrowRight size={16} />
+            Book 15-Minute Operational Review
           </button>
         </div>
       </section>

@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import { 
-  ArrowRight, 
   Phone, 
   Mail, 
   MapPin, 
-  CheckCircle2, 
   AlertCircle, 
   Loader2,
   Clock,
@@ -12,6 +10,7 @@ import {
 } from "lucide-react";
 import SEO from "../components/common/SEO";
 import { submitContactMessage } from "../api/contact";
+import { contactHeroImg } from "../data/initialData";
 import WhatsAppIcon from "../components/common/WhatsAppIcon";
 
 export default function ContactPage({ onOpenAudit }) {
@@ -64,16 +63,36 @@ export default function ContactPage({ onOpenAudit }) {
         description="Contact Corebridge software consultancy in Harare, Zimbabwe. Direct engineering line: +263 780 787 214. Tell us what is not working in your systems."
       />
 
-      {/* Header */}
-      <section className="section section-dark" style={{ padding: "5rem 0 4rem" }}>
-        <div className="container" style={{ maxWidth: "860px", textAlign: "center" }}>
-          <span className="eyebrow-dark">DIRECT CONSULTATION</span>
-          <h1 style={{ fontSize: "2.75rem", fontWeight: "800", color: "var(--white)", letterSpacing: "-0.02em", marginBottom: "1.25rem", lineHeight: "1.15" }}>
-            Tell us what is not working in your business.
-          </h1>
-          <p style={{ fontSize: "1.15rem", lineHeight: "1.7", color: "#94A3B8" }}>
-            Whether you have disconnected software, manual spreadsheet processes, an ERP migration hurdle, or an internal tool to build, we want to hear about the operational problem.
-          </p>
+      {/* Hero with Unique Contact Photography */}
+      <section className="section section-dark" style={{ padding: "4.5rem 0 4rem" }}>
+        <div className="container">
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "3.5rem", alignItems: "center" }}>
+            <div>
+              <span className="eyebrow-dark">DIRECT CONSULTATION</span>
+              <h1 style={{ fontSize: "2.75rem", fontWeight: "800", color: "var(--white)", letterSpacing: "-0.02em", marginBottom: "1.25rem", lineHeight: "1.15" }}>
+                Tell us what is not working in your business.
+              </h1>
+              <p style={{ fontSize: "1.15rem", lineHeight: "1.7", color: "#94A3B8", marginBottom: "2rem" }}>
+                Whether you have disconnected software, manual spreadsheet processes, an ERP migration hurdle, or an internal tool to build, we want to hear about the operational problem.
+              </p>
+              <div style={{ display: "flex", alignItems: "center", gap: "1rem", flexWrap: "wrap" }}>
+                <button type="button" className="btn btn-primary" onClick={onOpenAudit}>
+                  Schedule Operational Review
+                </button>
+              </div>
+            </div>
+
+            {/* Clean Hero Photography without overlays */}
+            <div style={{ position: "relative", borderRadius: "var(--radius-lg)", overflow: "hidden", border: "1px solid rgba(255, 255, 255, 0.15)", boxShadow: "var(--shadow-lg)" }}>
+              <img
+                src={contactHeroImg}
+                alt="Corebridge engineering consultation and client systems discussion in Harare"
+                style={{ width: "100%", height: "340px", objectFit: "cover", display: "block" }}
+                width="720"
+                height="340"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -135,7 +154,7 @@ export default function ContactPage({ onOpenAudit }) {
                       }}
                     >
                       <WhatsAppIcon size={16} style={{ color: "#25D366" }} />
-                      <span>Start WhatsApp Chat &rarr;</span>
+                      <span>Start WhatsApp Chat</span>
                     </a>
                   </div>
                 </div>
@@ -224,7 +243,7 @@ export default function ContactPage({ onOpenAudit }) {
                 onClick={onOpenAudit}
                 style={{ width: "100%", justifyContent: "center" }}
               >
-                Schedule 15-Minute Review <ArrowRight size={15} />
+                Schedule 15-Minute Review
               </button>
             </div>
           </div>
@@ -254,7 +273,7 @@ export default function ContactPage({ onOpenAudit }) {
                     margin: "0 auto 1.5rem"
                   }}
                 >
-                  <CheckCircle2 size={32} />
+                  <ShieldCheck size={32} />
                 </div>
                 <h3 style={{ fontSize: "1.5rem", fontWeight: "800", color: "var(--primary)", marginBottom: "0.75rem" }}>
                   Message Received
@@ -415,7 +434,7 @@ export default function ContactPage({ onOpenAudit }) {
                       </>
                     ) : (
                       <>
-                        Send Engineering Inquiry <ArrowRight size={16} />
+                        Send Engineering Inquiry
                       </>
                     )}
                   </button>

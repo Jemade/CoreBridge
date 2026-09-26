@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Phone, Mail, MapPin, ArrowRight } from "lucide-react";
+import { Phone, Mail, MapPin } from "lucide-react";
 import corebridgeLogoWhite from "../../assets/corebridge-logo-white.png";
 import WhatsAppIcon from "../common/WhatsAppIcon";
 
@@ -102,7 +102,7 @@ export default function Footer({ onOpenAudit }) {
               </li>
               <li>
                 <Link to="/industries" onClick={scrollToTop} className="footer-link" style={{ color: "#38BDF8", fontWeight: "600" }}>
-                  View all industries &rarr;
+                  View all industries
                 </Link>
               </li>
             </ul>
@@ -112,6 +112,11 @@ export default function Footer({ onOpenAudit }) {
           <div>
             <h4 className="footer-col-title">Company</h4>
             <ul className="footer-link-list">
+              <li>
+                <Link to="/" onClick={scrollToTop} className="footer-link">
+                  Home
+                </Link>
+              </li>
               <li>
                 <Link to="/about" onClick={scrollToTop} className="footer-link">
                   About Corebridge
@@ -160,7 +165,7 @@ export default function Footer({ onOpenAudit }) {
                 rel="noopener noreferrer"
                 className="footer-link"
               >
-                WhatsApp: +263 780 787 214
+                Chat on WhatsApp
               </a>
             </div>
             <div className="footer-contact-item">
@@ -182,7 +187,7 @@ export default function Footer({ onOpenAudit }) {
                 onClick={onOpenAudit}
                 style={{ fontSize: "0.85rem", padding: "0.55rem 1rem", width: "100%" }}
               >
-                15-Min Operational Review <ArrowRight size={14} />
+                15-Min Operational Review
               </button>
             </div>
           </div>

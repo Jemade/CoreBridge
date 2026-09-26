@@ -1,79 +1,44 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import HeroSection from "../sections/HeroSection";
 import BusinessProblemSection from "../sections/BusinessProblemSection";
-import SystemsMap from "../components/common/SystemsMap";
-import WhatWeSolveSection from "../sections/WhatWeSolveSection";
 import BuildIntegrateImproveSection from "../sections/BuildIntegrateImproveSection";
 import CapabilitiesPreviewSection from "../sections/CapabilitiesPreviewSection";
-import GlobalLocalSection from "../sections/GlobalLocalSection";
-import InteroperabilitySection from "../sections/InteroperabilitySection";
-import LocalRealitiesSection from "../sections/LocalRealitiesSection";
 import IndustriesPreviewSection from "../sections/IndustriesPreviewSection";
 import CaseStudiesPreviewSection from "../sections/CaseStudiesPreviewSection";
+import PhilosophyStatementSection from "../sections/PhilosophyStatementSection";
 import OperationalReviewCTASection from "../sections/OperationalReviewCTASection";
 import SEO from "../components/common/SEO";
-import { getServices } from "../api/services";
-import { getIndustries } from "../api/industries";
-import { servicesData, industriesData, caseStudiesData } from "../data/initialData";
 
 export default function HomePage({ onOpenAudit }) {
-  const [services, setServices] = useState(servicesData);
-  const [industries, setIndustries] = useState(industriesData);
-
-  useEffect(() => {
-    let isMounted = true;
-    getServices().then((data) => {
-      if (isMounted && data && data.length > 0) setServices(data);
-    });
-    getIndustries().then((data) => {
-      if (isMounted && data && data.length > 0) setIndustries(data);
-    });
-    return () => {
-      isMounted = false;
-    };
-  }, []);
-
   return (
     <>
       <SEO
         title="Corebridge | Smarter Systems. Stronger Businesses."
-        description="Corebridge engineers custom software, integrates ERP and accounting platforms, automates operational workflows, and introduces pragmatic AI for businesses in Zimbabwe."
+        description="Corebridge builds and connects the systems businesses rely on, from custom software and integrations to workflow automation and practical AI."
       />
       <main>
-        {/* 1. Hero Section */}
+        {/* 01 HERO */}
         <HeroSection onOpenAudit={onOpenAudit} />
 
-        {/* 2. The Operational Problem */}
-        <BusinessProblemSection onOpenAudit={onOpenAudit} />
+        {/* 02 THE PROBLEM */}
+        <BusinessProblemSection />
 
-        {/* 3. Systems Architecture & Interoperability Map */}
-        <SystemsMap onOpenAudit={onOpenAudit} />
-
-        {/* 4. What We Solve */}
-        <WhatWeSolveSection />
-
-        {/* 5. Build vs Integrate vs Improve */}
+        {/* 03 THE COREBRIDGE APPROACH */}
         <BuildIntegrateImproveSection />
 
-        {/* 6. Core Capabilities Preview */}
-        <CapabilitiesPreviewSection services={services} onOpenAudit={onOpenAudit} />
+        {/* 04 WHAT COREBRIDGE DOES */}
+        <CapabilitiesPreviewSection />
 
-        {/* 7. Global Systems, Local Realities */}
-        <GlobalLocalSection onOpenAudit={onOpenAudit} />
+        {/* 05 WHERE WE WORK */}
+        <IndustriesPreviewSection />
 
-        {/* 8. Interoperability Pipeline Flow */}
-        <InteroperabilitySection />
+        {/* 06 SELECTED WORK */}
+        <CaseStudiesPreviewSection />
 
-        {/* 9. Local Business Realities */}
-        <LocalRealitiesSection />
+        {/* 07 COREBRIDGE IN ONE STATEMENT */}
+        <PhilosophyStatementSection />
 
-        {/* 10. Industry Domains Preview */}
-        <IndustriesPreviewSection industries={industries} />
-
-        {/* 11. Grounded Case Studies Preview */}
-        <CaseStudiesPreviewSection caseStudies={caseStudiesData} />
-
-        {/* 12. 15-Minute Operational Review Closing CTA */}
+        {/* 08 FINAL CTA */}
         <OperationalReviewCTASection onOpenAudit={onOpenAudit} />
       </main>
     </>

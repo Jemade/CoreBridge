@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { X, CheckCircle2, ArrowRight, Loader2, AlertCircle } from "lucide-react";
+import { X, ShieldCheck, Loader2, AlertCircle } from "lucide-react";
 import { submitAuditRequest } from "../../api/audits";
 
 export default function AuditModal({ isOpen, onClose }) {
@@ -116,7 +116,7 @@ export default function AuditModal({ isOpen, onClose }) {
                 margin: "0 auto 1.25rem"
               }}
             >
-              <CheckCircle2 size={32} />
+              <ShieldCheck size={32} />
             </div>
             <h3 style={{ fontSize: "1.45rem", marginBottom: "0.65rem" }}>
               Operational Review Requested
@@ -271,7 +271,7 @@ export default function AuditModal({ isOpen, onClose }) {
                   </>
                 ) : (
                   <>
-                    Request 15-Minute Review <ArrowRight size={16} />
+                    Request 15-Minute Review
                   </>
                 )}
               </button>

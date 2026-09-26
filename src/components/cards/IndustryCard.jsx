@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
 
 export default function IndustryCard({ industry }) {
   const Icon = industry.icon;
@@ -47,7 +46,7 @@ export default function IndustryCard({ industry }) {
             className="btn-link"
             aria-label={`View systems and workflows for ${industry.name}`}
           >
-            Explore systems &amp; workflows <ArrowRight size={14} />
+            Explore systems &amp; workflows
           </Link>
         </div>
       </div>

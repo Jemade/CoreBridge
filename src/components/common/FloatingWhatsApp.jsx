@@ -20,8 +20,8 @@ export default function FloatingWhatsApp() {
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Chat with Corebridge engineering on WhatsApp"
-        title="Chat with Corebridge on WhatsApp (+263 780 787 214)"
+        aria-label="Chat with Corebridge on WhatsApp"
+        title="Chat with Corebridge on WhatsApp"
         style={{
           display: "flex",
           alignItems: "center",
@@ -55,7 +55,7 @@ export default function FloatingWhatsApp() {
       >
         <WhatsAppIcon size={20} />
         <span className="floating-wa-label" style={{ letterSpacing: "-0.01em" }}>
-          WhatsApp Corebridge
+          Chat with Corebridge
         </span>
       </a>
     </aside>

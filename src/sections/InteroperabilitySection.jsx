@@ -1,5 +1,4 @@
 import React from "react";
-import { ArrowRight, ArrowDown } from "lucide-react";
 
 export default function InteroperabilitySection({ onOpenAudit }) {
   const steps = [
@@ -82,11 +81,6 @@ export default function InteroperabilitySection({ onOpenAudit }) {
                 >
                   STAGE {step.num}
                 </span>
-                {idx < steps.length - 1 && (
-                  <span style={{ color: "var(--muted)", fontSize: "0.78rem", fontWeight: "600" }}>
-                    &rarr;
-                  </span>
-                )}
               </div>
 
               <h3 style={{ fontSize: "1.2rem", fontWeight: "800", color: "var(--primary)", marginBottom: "0.6rem" }}>
@@ -128,7 +122,7 @@ export default function InteroperabilitySection({ onOpenAudit }) {
             className="btn btn-primary"
             onClick={onOpenAudit}
           >
-            Review Your Transaction Flow <ArrowRight size={16} />
+            Review Your Transaction Flow
           </button>
         </div>
       </div>

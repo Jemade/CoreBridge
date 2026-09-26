@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { 
-  ArrowRight, 
   ArrowLeft, 
-  CheckCircle2, 
   AlertTriangle, 
   Layers, 
   Workflow, 
   Cpu, 
-  Code2,
+  Code2, 
   Sparkles
 } from "lucide-react";
 import SEO from "../components/common/SEO";
@@ -55,7 +53,7 @@ export default function IndustryDetailPage({ onOpenAudit }) {
             to="/industries"
             style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", color: "#94A3B8", fontSize: "0.88rem", marginBottom: "2rem", textDecoration: "none" }}
           >
-            <ArrowLeft size={15} /> Back to All Industries
+            Back to All Industries
           </Link>
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "3rem", alignItems: "center" }}>
@@ -90,7 +88,7 @@ export default function IndustryDetailPage({ onOpenAudit }) {
 
               <div style={{ display: "flex", alignItems: "center", gap: "1rem", flexWrap: "wrap" }}>
                 <button type="button" className="btn btn-primary" onClick={onOpenAudit}>
-                  Review {industry.name} Architecture <ArrowRight size={16} />
+                  Review {industry.name} Architecture
                 </button>
                 <a
                   href={`https://wa.me/263780787214?text=Hello%20Corebridge%2C%20I%20would%20like%20to%20discuss%20systems%20integration%20for%20our%20${encodeURIComponent(industry.name)}%20business.`}
@@ -107,7 +105,7 @@ export default function IndustryDetailPage({ onOpenAudit }) {
                   }}
                 >
                   <WhatsAppIcon size={18} style={{ color: "#25D366" }} />
-                  <span>WhatsApp Engineering</span>
+                  <span>Chat on WhatsApp</span>
                 </a>
               </div>
             </div>
@@ -118,20 +116,6 @@ export default function IndustryDetailPage({ onOpenAudit }) {
                 alt={`Commercial operations in ${industry.name}`}
                 style={{ width: "100%", height: "360px", objectFit: "cover", display: "block" }}
               />
-              <div
-                style={{
-                  position: "absolute",
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  background: "linear-gradient(transparent, rgba(10, 25, 41, 0.9))",
-                  padding: "1.5rem",
-                  color: "var(--white)",
-                  fontSize: "0.85rem"
-                }}
-              >
-                Operational reality: Systems connected for Zimbabwean commercial environments
-              </div>
             </div>
           </div>
         </div>
@@ -192,7 +176,7 @@ export default function IndustryDetailPage({ onOpenAudit }) {
               <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "1rem" }}>
                 {industry.commonSystems?.map((sys, idx) => (
                   <li key={idx} style={{ display: "flex", alignItems: "flex-start", gap: "0.65rem", fontSize: "0.92rem", color: "var(--text-dark)", lineHeight: "1.5" }}>
-                    <CheckCircle2 size={16} style={{ color: "var(--blue)", marginTop: "3px", flexShrink: 0 }} />
+                    <span style={{ color: "var(--blue)", fontWeight: "700" }}>&bull;</span>
                     <span>{sys}</span>
                   </li>
                 ))}
@@ -330,13 +314,9 @@ export default function IndustryDetailPage({ onOpenAudit }) {
                   backgroundColor: "rgba(23, 105, 232, 0.15)",
                   border: "1px solid rgba(56, 189, 248, 0.3)",
                   borderRadius: "var(--radius-sm)",
-                  padding: "1.25rem 1.5rem",
-                  display: "flex",
-                  alignItems: "flex-start",
-                  gap: "0.75rem"
+                  padding: "1.25rem 1.5rem"
                 }}
               >
-                <CheckCircle2 size={18} style={{ color: "#38BDF8", marginTop: "2px", flexShrink: 0 }} />
                 <div>
                   <strong style={{ color: "#38BDF8", fontSize: "0.9rem", display: "block", marginBottom: "0.2rem" }}>
                     Operational Outcome:
@@ -353,7 +333,7 @@ export default function IndustryDetailPage({ onOpenAudit }) {
       </section>
 
       {/* Closing CTA */}
-      <section className="section section-dark" style={{ textAlign: "center" }}>
+      <section className="section section-dark" style={{ textAlign: "center", padding: "5rem 0" }}>
         <div className="container" style={{ maxWidth: "760px" }}>
           <span className="eyebrow-dark">GET STARTED</span>
           <h2 style={{ fontSize: "2.25rem", fontWeight: "800", color: "var(--white)", marginBottom: "1.25rem" }}>
@@ -364,7 +344,7 @@ export default function IndustryDetailPage({ onOpenAudit }) {
           </p>
           <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "1rem", flexWrap: "wrap" }}>
             <button type="button" className="btn btn-primary" onClick={onOpenAudit}>
-              Book 15-Minute Review <ArrowRight size={16} />
+              Book 15-Minute Review
             </button>
             <a
               href={`https://wa.me/263780787214?text=Hello%20Corebridge%2C%20I%20would%20like%20to%20discuss%20systems%20integration%20for%20our%20${encodeURIComponent(industry.name)}%20business.`}
@@ -382,7 +362,7 @@ export default function IndustryDetailPage({ onOpenAudit }) {
               }}
             >
               <WhatsAppIcon size={18} style={{ color: "#25D366" }} />
-              <span>WhatsApp Us</span>
+              <span>Chat on WhatsApp</span>
             </a>
             <Link to="/industries" className="btn btn-secondary">
               Browse Other Industries

@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 export default function ServiceCard({ service, onOpenAudit }) {
   const Icon = service.icon;
@@ -43,7 +42,7 @@ export default function ServiceCard({ service, onOpenAudit }) {
           <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "0.45rem" }}>
             {service.deliverables.slice(0, 3).map((item, idx) => (
               <li key={idx} style={{ display: "flex", alignItems: "flex-start", gap: "0.5rem", fontSize: "0.88rem", color: "var(--muted)", lineHeight: "1.45" }}>
-                <CheckCircle2 size={14} style={{ color: "var(--blue)", marginTop: "2px", flexShrink: 0 }} />
+                <span style={{ color: "var(--blue)", fontWeight: "700" }}>•</span>
                 <span>{item}</span>
               </li>
             ))}
@@ -53,7 +52,7 @@ export default function ServiceCard({ service, onOpenAudit }) {
 
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: "auto" }}>
         <Link to={`/solutions#${service.slug}`} className="btn-link" style={{ fontSize: "0.9rem" }}>
-          Read details <ArrowRight size={14} />
+          Read details
         </Link>
         <button
           type="button"

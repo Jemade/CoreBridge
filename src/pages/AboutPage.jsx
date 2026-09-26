@@ -1,20 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { 
-  ArrowRight, 
-  CheckCircle2, 
   ShieldCheck, 
   Target, 
   Users, 
   MapPin, 
-  Code2, 
-  Network, 
-  Cpu,
-  Layers
+  Network
 } from "lucide-react";
 import SEO from "../components/common/SEO";
-import { teamHarareImg, engineeringFocusImg } from "../data/initialData";
-import WhatsAppIcon from "../components/common/WhatsAppIcon";
+import { aboutHeroImg, teamHarareImg, engineeringFocusImg } from "../data/initialData";
 
 export default function AboutPage({ onOpenAudit }) {
   const values = [
@@ -47,41 +41,38 @@ export default function AboutPage({ onOpenAudit }) {
         description="Corebridge is a business systems and software engineering consultancy based in Harare, Zimbabwe. Smarter Systems. Stronger Businesses."
       />
 
-      {/* Hero */}
-      <section className="section section-dark" style={{ padding: "5rem 0 4rem" }}>
-        <div className="container" style={{ maxWidth: "860px", textAlign: "center" }}>
-          <span className="eyebrow-dark">ABOUT COREBRIDGE</span>
-          <h1 style={{ fontSize: "2.75rem", fontWeight: "800", color: "var(--white)", letterSpacing: "-0.02em", marginBottom: "1.25rem", lineHeight: "1.15" }}>
-            Smarter Systems. Stronger Businesses.
-          </h1>
-          <p style={{ fontSize: "1.15rem", lineHeight: "1.7", color: "#94A3B8", marginBottom: "2.5rem" }}>
-            Corebridge is a business systems and software engineering consultancy based in Harare, Zimbabwe. We help businesses close operational gaps by building custom software, integrating disconnected systems, automating workflows, and introducing practical AI.
-          </p>
-          <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "1rem", flexWrap: "wrap" }}>
-            <button type="button" className="btn btn-primary" onClick={onOpenAudit}>
-              Speak With Our Engineers <ArrowRight size={16} />
-            </button>
-            <a
-              href="https://wa.me/263780787214?text=Hello%20Corebridge%2C%20I%20would%20like%20to%20speak%20with%20an%20engineer%20about%20our%20business%20systems."
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "0.5rem",
-                color: "#25D366",
-                fontSize: "0.95rem",
-                fontWeight: "600",
-                textDecoration: "none",
-                padding: "0.5rem 1rem"
-              }}
-            >
-              <WhatsAppIcon size={18} style={{ color: "#25D366" }} />
-              <span>WhatsApp Us Direct</span>
-            </a>
-            <Link to="/approach" className="btn btn-secondary">
-              Our 6-Step Approach
-            </Link>
+      {/* Hero with Unique About Photography */}
+      <section className="section section-dark" style={{ padding: "4.5rem 0 4rem" }}>
+        <div className="container">
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "3.5rem", alignItems: "center" }}>
+            <div>
+              <span className="eyebrow-dark">ABOUT COREBRIDGE</span>
+              <h1 style={{ fontSize: "2.75rem", fontWeight: "800", color: "var(--white)", letterSpacing: "-0.02em", marginBottom: "1.25rem", lineHeight: "1.15" }}>
+                Smarter Systems. Stronger Businesses.
+              </h1>
+              <p style={{ fontSize: "1.15rem", lineHeight: "1.7", color: "#94A3B8", marginBottom: "2rem" }}>
+                Corebridge is a business systems and software engineering consultancy based in Harare, Zimbabwe. We help businesses close operational gaps by building custom software, integrating disconnected systems, automating workflows, and introducing practical AI.
+              </p>
+              <div style={{ display: "flex", alignItems: "center", gap: "1rem", flexWrap: "wrap" }}>
+                <button type="button" className="btn btn-primary" onClick={onOpenAudit}>
+                  Schedule Operational Review
+                </button>
+                <Link to="/approach" className="btn btn-secondary">
+                  Our 6-Step Approach
+                </Link>
+              </div>
+            </div>
+
+            {/* Clean Hero Photography without overlays */}
+            <div style={{ position: "relative", borderRadius: "var(--radius-lg)", overflow: "hidden", border: "1px solid rgba(255, 255, 255, 0.15)", boxShadow: "var(--shadow-lg)" }}>
+              <img
+                src={aboutHeroImg}
+                alt="Corebridge engineering consultancy and software architecture review"
+                style={{ width: "100%", height: "340px", objectFit: "cover", display: "block" }}
+                width="720"
+                height="340"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -126,20 +117,6 @@ export default function AboutPage({ onOpenAudit }) {
                 alt="Corebridge engineering team collaborating in Harare, Zimbabwe"
                 style={{ width: "100%", height: "380px", objectFit: "cover", display: "block" }}
               />
-              <div
-                style={{
-                  position: "absolute",
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  background: "linear-gradient(transparent, rgba(10, 25, 41, 0.9))",
-                  padding: "1.5rem",
-                  color: "var(--white)",
-                  fontSize: "0.85rem"
-                }}
-              >
-                Direct engineering collaboration with local business leadership
-              </div>
             </div>
           </div>
         </div>
@@ -168,27 +145,26 @@ export default function AboutPage({ onOpenAudit }) {
                 padding: "2.5rem 2rem"
               }}
             >
-              <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", color: "var(--blue)", marginBottom: "1.25rem" }}>
-                <CheckCircle2 size={22} />
+              <div style={{ marginBottom: "1.25rem" }}>
                 <h3 style={{ fontSize: "1.25rem", fontWeight: "800", color: "var(--primary)", margin: 0 }}>
                   What Corebridge Is
                 </h3>
               </div>
               <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "1rem" }}>
                 <li style={{ display: "flex", alignItems: "flex-start", gap: "0.65rem", fontSize: "0.92rem", color: "var(--text-dark)", lineHeight: "1.5" }}>
-                  <CheckCircle2 size={16} style={{ color: "var(--blue)", marginTop: "3px", flexShrink: 0 }} />
+                  <span style={{ color: "var(--blue)", fontWeight: "700" }}>•</span>
                   <span>A software engineering consultancy solving real operational bottlenecks</span>
                 </li>
                 <li style={{ display: "flex", alignItems: "flex-start", gap: "0.65rem", fontSize: "0.92rem", color: "var(--text-dark)", lineHeight: "1.5" }}>
-                  <CheckCircle2 size={16} style={{ color: "var(--blue)", marginTop: "3px", flexShrink: 0 }} />
+                  <span style={{ color: "var(--blue)", fontWeight: "700" }}>•</span>
                   <span>Systems integrators connecting ERPs, POS terminals, and accounting ledgers</span>
                 </li>
                 <li style={{ display: "flex", alignItems: "flex-start", gap: "0.65rem", fontSize: "0.92rem", color: "var(--text-dark)", lineHeight: "1.5" }}>
-                  <CheckCircle2 size={16} style={{ color: "var(--blue)", marginTop: "3px", flexShrink: 0 }} />
+                  <span style={{ color: "var(--blue)", fontWeight: "700" }}>•</span>
                   <span>Builders of custom web applications, portals, and database pipelines</span>
                 </li>
                 <li style={{ display: "flex", alignItems: "flex-start", gap: "0.65rem", fontSize: "0.92rem", color: "var(--text-dark)", lineHeight: "1.5" }}>
-                  <CheckCircle2 size={16} style={{ color: "var(--blue)", marginTop: "3px", flexShrink: 0 }} />
+                  <span style={{ color: "var(--blue)", fontWeight: "700" }}>•</span>
                   <span>Pragmatic AI engineers applying machine learning to document processing and workflow routing</span>
                 </li>
               </ul>
@@ -203,27 +179,26 @@ export default function AboutPage({ onOpenAudit }) {
                 padding: "2.5rem 2rem"
               }}
             >
-              <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", color: "#DC2626", marginBottom: "1.25rem" }}>
-                <span style={{ fontSize: "1.25rem", fontWeight: "900", color: "#DC2626" }}>&times;</span>
+              <div style={{ marginBottom: "1.25rem" }}>
                 <h3 style={{ fontSize: "1.25rem", fontWeight: "800", color: "#991B1B", margin: 0 }}>
                   What Corebridge Is Not
                 </h3>
               </div>
               <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "1rem" }}>
                 <li style={{ display: "flex", alignItems: "flex-start", gap: "0.65rem", fontSize: "0.92rem", color: "var(--muted)", lineHeight: "1.5" }}>
-                  <span style={{ color: "#DC2626", fontWeight: "700" }}>&times;</span>
+                  <span style={{ color: "#DC2626", fontWeight: "700" }}>•</span>
                   <span>Not a generic AI hype agency peddling novelty chatbots without business context</span>
                 </li>
                 <li style={{ display: "flex", alignItems: "flex-start", gap: "0.65rem", fontSize: "0.92rem", color: "var(--muted)", lineHeight: "1.5" }}>
-                  <span style={{ color: "#DC2626", fontWeight: "700" }}>&times;</span>
+                  <span style={{ color: "#DC2626", fontWeight: "700" }}>•</span>
                   <span>Not a design shop that builds static marketing brochures and disappears</span>
                 </li>
                 <li style={{ display: "flex", alignItems: "flex-start", gap: "0.65rem", fontSize: "0.92rem", color: "var(--muted)", lineHeight: "1.5" }}>
-                  <span style={{ color: "#DC2626", fontWeight: "700" }}>&times;</span>
+                  <span style={{ color: "#DC2626", fontWeight: "700" }}>•</span>
                   <span>Not a cybersecurity auditor, managed desktop support provider, or antivirus reseller</span>
                 </li>
                 <li style={{ display: "flex", alignItems: "flex-start", gap: "0.65rem", fontSize: "0.92rem", color: "var(--muted)", lineHeight: "1.5" }}>
-                  <span style={{ color: "#DC2626", fontWeight: "700" }}>&times;</span>
+                  <span style={{ color: "#DC2626", fontWeight: "700" }}>•</span>
                   <span>Not software vendors that lock you into inflexible, costly proprietary licenses</span>
                 </li>
               </ul>
@@ -298,26 +273,8 @@ export default function AboutPage({ onOpenAudit }) {
           </p>
           <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "1rem", flexWrap: "wrap" }}>
             <button type="button" className="btn btn-primary" onClick={onOpenAudit}>
-              Schedule Operational Review <ArrowRight size={16} />
+              Schedule Operational Review
             </button>
-            <a
-              href="https://wa.me/263780787214?text=Hello%20Corebridge%2C%20I%20would%20like%20to%20discuss%20our%20systems%20requirements%20over%20WhatsApp."
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "0.5rem",
-                color: "#25D366",
-                fontSize: "0.95rem",
-                fontWeight: "600",
-                textDecoration: "none",
-                padding: "0.5rem 1rem"
-              }}
-            >
-              <WhatsAppIcon size={18} style={{ color: "#25D366" }} />
-              <span>WhatsApp Us</span>
-            </a>
             <Link to="/contact" className="btn btn-secondary">
               Contact Engineering
             </Link>

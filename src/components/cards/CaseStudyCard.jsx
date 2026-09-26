@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Layers, CheckCircle2 } from "lucide-react";
 
 export default function CaseStudyCard({ study }) {
   const getBadgeClass = (badge) => {
@@ -28,11 +27,11 @@ export default function CaseStudyCard({ study }) {
         flexDirection: "column"
       }}
     >
-      {/* Real Photographic Asset Frame with Honest Caption */}
+      {/* Real Photographic Asset Frame without text overlays */}
       <div style={{ height: "220px", overflow: "hidden", position: "relative", backgroundColor: "#0A1929" }}>
         <img
           src={study.image}
-          alt={`Representative context for ${study.title}`}
+          alt={study.title}
           style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
           loading="lazy"
           width="400"
@@ -40,21 +39,6 @@ export default function CaseStudyCard({ study }) {
         />
         <div style={{ position: "absolute", top: "1rem", left: "1rem" }}>
           <span className={getBadgeClass(study.badge)}>{study.badge}</span>
-        </div>
-        <div
-          style={{
-            position: "absolute",
-            bottom: 0,
-            left: 0,
-            right: 0,
-            padding: "0.5rem 1rem",
-            backgroundColor: "rgba(10, 25, 41, 0.85)",
-            color: "#94A3B8",
-            fontSize: "0.72rem",
-            fontStyle: "italic"
-          }}
-        >
-          Representative operational context
         </div>
       </div>
 
@@ -82,7 +66,7 @@ export default function CaseStudyCard({ study }) {
         {study.systemsInvolved && (
           <div style={{ marginBottom: "1rem" }}>
             <span style={{ fontSize: "0.74rem", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.06em", color: "var(--muted)", display: "block", marginBottom: "0.4rem" }}>
-              Systems Involved
+              Systems Connected
             </span>
             <div style={{ display: "flex", flexWrap: "wrap", gap: "0.35rem" }}>
               {study.systemsInvolved.map((sys, sIdx) => (
@@ -97,8 +81,8 @@ export default function CaseStudyCard({ study }) {
         {/* Verified Outcome */}
         {study.outcome && (
           <div style={{ marginBottom: "1.5rem", borderTop: "1px solid var(--borders)", paddingTop: "0.85rem" }}>
-            <span style={{ fontSize: "0.74rem", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.06em", color: "#16A34A", display: "flex", alignItems: "center", gap: "0.3rem", marginBottom: "0.25rem" }}>
-              <CheckCircle2 size={13} /> Verified Outcome
+            <span style={{ fontSize: "0.74rem", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.06em", color: "var(--primary)", display: "block", marginBottom: "0.25rem" }}>
+              Operational Outcome
             </span>
             <p style={{ fontSize: "0.88rem", color: "var(--muted)", lineHeight: "1.5", margin: 0 }}>
               {study.outcome}
@@ -107,8 +91,12 @@ export default function CaseStudyCard({ study }) {
         )}
 
         <div style={{ marginTop: "auto", paddingTop: "1rem", borderTop: "1px solid var(--borders)" }}>
-          <Link to={`/case-studies/${study.slug}`} className="btn-link" style={{ fontSize: "0.88rem" }}>
-            Read architectural breakdown <ArrowRight size={14} />
+          <Link
+            to={`/case-studies/${study.slug}`}
+            className="btn-link"
+            style={{ fontSize: "0.88rem", color: "var(--blue)", textDecoration: "none", fontWeight: "600" }}
+          >
+            Read architectural breakdown
           </Link>
         </div>
       </div>
