@@ -37,7 +37,7 @@ export default function CaseStudiesPage({ onOpenAudit }) {
             </div>
 
             {/* Clean Hero Photography without overlays */}
-            <div style={{ position: "relative", borderRadius: "var(--radius-lg)", overflow: "hidden", border: "1px solid rgba(255, 255, 255, 0.15)", boxShadow: "var(--shadow-lg)" }}>
+            <div style={{ position: "relative", borderRadius: "4px", overflow: "hidden", border: "1px solid rgba(255, 255, 255, 0.12)" }}>
               <img
                 src={caseStudiesHeroImg}
                 alt="Corebridge engineering case study and system architecture implementation"
