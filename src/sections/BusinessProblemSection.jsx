@@ -42,7 +42,7 @@ export default function BusinessProblemSection() {
         >
           <div style={{ textAlign: "center", marginBottom: "2rem" }}>
             <span style={{ fontSize: "0.8rem", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--muted)" }}>
-              The Disconnected Enterprise Landscape
+              Where business systems become disconnected
             </span>
           </div>
 
@@ -108,7 +108,7 @@ export default function BusinessProblemSection() {
               THE <BrandWordmark variant="light" textColor="#38BDF8" size="0.82rem" /> ENGINEERING LAYER
             </span>
             <span style={{ fontSize: "0.95rem", color: "#E2E8F0" }}>
-              Middleware Connectors · Automated Webhooks · Bi-directional Database Synchronization
+              Connect the systems you already use so information moves reliably across the business.
             </span>
           </div>
         </div>
