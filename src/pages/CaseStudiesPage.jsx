@@ -19,19 +19,19 @@ export default function CaseStudiesPage({ onOpenAudit }) {
         <div className="container">
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "3.5rem", alignItems: "center" }}>
             <div>
-              <span className="eyebrow-dark">GROUNDED CASE STUDIES</span>
+              <span className="eyebrow-dark">SELECTED WORK</span>
               <h1 style={{ fontSize: "2.75rem", fontWeight: "800", color: "var(--white)", letterSpacing: "-0.02em", marginBottom: "1.25rem", lineHeight: "1.15" }}>
                 Systems in Practice
               </h1>
               <p style={{ fontSize: "1.15rem", lineHeight: "1.7", color: "#94A3B8", marginBottom: "2rem" }}>
-                Real technical solutions solving real operational problems. We document architectural decisions, integration hurdles, and measurable business outcomes without fabricated statistics or vanity metrics.
+                A closer look at systems we have built, tested or explored, including the problem, the approach and the result.
               </p>
               <div style={{ display: "flex", alignItems: "center", gap: "1rem", flexWrap: "wrap" }}>
                 <button type="button" className="btn btn-primary" onClick={onOpenAudit}>
                   Schedule Operational Review
                 </button>
                 <Link to="/contact" className="btn btn-secondary">
-                  Contact Engineering
+                  Contact Us
                 </Link>
               </div>
             </div>
@@ -88,19 +88,19 @@ export default function CaseStudiesPage({ onOpenAudit }) {
       {/* Bottom CTA */}
       <section className="section section-dark" style={{ textAlign: "center" }}>
         <div className="container" style={{ maxWidth: "760px" }}>
-          <span className="eyebrow-dark">HAVE A SIMILAR CHALLENGE?</span>
+          <span className="eyebrow-dark">HAVE A SIMILAR PROBLEM?</span>
           <h2 style={{ fontSize: "2.25rem", fontWeight: "800", color: "var(--white)", marginBottom: "1.25rem" }}>
-            Discuss Your System Architecture With Our Team
+            Let's look at what your business needs
           </h2>
           <p style={{ color: "#94A3B8", fontSize: "1.05rem", lineHeight: "1.65", marginBottom: "2.5rem" }}>
-            Book a 15-minute operational review with our lead engineers in Harare. We will examine your workflows and give you a candid architectural recommendation.
+            Tell us what is not working or what needs to connect. We will help you identify a practical way forward.
           </p>
           <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "1rem", flexWrap: "wrap" }}>
             <button type="button" className="btn btn-primary" onClick={onOpenAudit}>
               Book 15-Minute Review
             </button>
             <Link to="/contact" className="btn btn-secondary">
-              Contact Engineering
+              Contact Us
             </Link>
           </div>
         </div>
