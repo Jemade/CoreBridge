@@ -28,12 +28,12 @@ export default function IndustriesPage({ onOpenAudit }) {
         <div className="container">
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "3.5rem", alignItems: "center" }}>
             <div>
-              <span className="eyebrow-dark">SECTORS &amp; DOMAINS</span>
+              <span className="eyebrow-dark">INDUSTRIES</span>
               <h1 style={{ fontSize: "2.75rem", fontWeight: "800", color: "var(--white)", letterSpacing: "-0.02em", marginBottom: "1.25rem", lineHeight: "1.15" }}>
-                Systems Engineered for Your Industry
+                Technology that fits how your industry works
               </h1>
               <p style={{ fontSize: "1.15rem", lineHeight: "1.7", color: "#94A3B8", marginBottom: "2rem" }}>
-                Generic software forces you to change how your business operates. We configure, connect, and build systems around your industry's specific compliance, supply chain, and data realities.
+                Every sector has different workflows, systems and constraints. We build and connect technology around those realities instead of forcing the same setup on every business.
               </p>
 
               {/* Search Filter */}
@@ -146,19 +146,19 @@ export default function IndustriesPage({ onOpenAudit }) {
       {/* Closing CTA */}
       <section className="section section-dark" style={{ textAlign: "center", padding: "5rem 0" }}>
         <div className="container" style={{ maxWidth: "760px" }}>
-          <span className="eyebrow-dark">INDUSTRY ARCHITECTURE</span>
+          <span className="eyebrow-dark">DON'T SEE YOUR INDUSTRY?</span>
           <h2 style={{ fontSize: "2.25rem", fontWeight: "800", color: "var(--white)", marginBottom: "1.25rem" }}>
             Do not see your exact sector listed?
           </h2>
           <p style={{ color: "#94A3B8", fontSize: "1.05rem", lineHeight: "1.65", marginBottom: "2.5rem" }}>
-            The underlying engineering challenges (data silos, manual spreadsheet handoffs, uncoordinated inventory, and payment reconciliation) are universal. Tell us about your operational workflow.
+            Many businesses face the same underlying problems: disconnected systems, repeated data entry, slow approvals and limited visibility. Tell us what you are dealing with.
           </p>
           <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "1rem", flexWrap: "wrap" }}>
             <button type="button" className="btn btn-primary" onClick={onOpenAudit}>
               Book Operational Review
             </button>
             <Link to="/contact" className="btn btn-secondary">
-              Contact Engineering
+              Contact Us
             </Link>
           </div>
         </div>
