@@ -125,7 +125,7 @@ export default function Navbar({ onOpenAudit }) {
         <div className="nav-actions" style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
           <button
             type="button"
-            className="btn btn-primary"
+            className="btn btn-primary nav-review-btn"
             onClick={onOpenAudit}
             aria-label="Schedule an Operational Review"
           >
