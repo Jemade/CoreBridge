@@ -8,17 +8,17 @@ export default function HeroSection({ onOpenAudit }) {
       className="hero-editorial"
       id="home"
       style={{
-        minHeight: "min(88vh, 840px)",
+        minHeight: "min(78vh, 740px)",
         display: "flex",
         alignItems: "center",
         position: "relative",
-        backgroundImage: `linear-gradient(to right, rgba(10, 25, 41, 0.94) 0%, rgba(10, 25, 41, 0.85) 50%, rgba(10, 25, 41, 0.48) 100%), url(${heroLeadImg})`,
+        backgroundImage: `linear-gradient(to right, rgba(10, 25, 41, 0.94) 0%, rgba(10, 25, 41, 0.78) 48%, rgba(10, 25, 41, 0.28) 100%), url(${heroLeadImg})`,
         backgroundSize: "cover",
         backgroundPosition: "center right",
         backgroundRepeat: "no-repeat",
         color: "var(--white)",
-        paddingTop: "6.5rem",
-        paddingBottom: "6.5rem",
+        paddingTop: "5.25rem",
+        paddingBottom: "5.25rem",
         borderBottom: "1px solid rgba(255, 255, 255, 0.1)"
       }}
     >
@@ -35,7 +35,7 @@ export default function HeroSection({ onOpenAudit }) {
               marginBottom: "1.25rem"
             }}
           >
-            END-TO-END TECHNOLOGY FOR BUSINESS
+            END-TO-END BUSINESS TECHNOLOGY
           </span>
 
           {/* Primary Headline */}
@@ -71,7 +71,7 @@ export default function HeroSection({ onOpenAudit }) {
             style={{
               fontSize: "1rem",
               lineHeight: "1.65",
-              color: "#94A3B8",
+              color: "#CBD5E1",
               fontWeight: "400",
               marginBottom: "1.75rem",
               maxWidth: "620px"
