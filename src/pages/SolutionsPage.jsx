@@ -30,12 +30,12 @@ export default function SolutionsPage({ onOpenAudit }) {
         <div className="container">
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "3.5rem", alignItems: "center" }}>
             <div>
-              <span className="eyebrow-dark">ENGINEERING CAPABILITIES</span>
+              <span className="eyebrow-dark">END-TO-END TECHNOLOGY</span>
               <h1 style={{ fontSize: "2.75rem", fontWeight: "800", color: "var(--white)", letterSpacing: "-0.02em", marginBottom: "1.25rem", lineHeight: "1.15" }}>
-                Software, Integration &amp; Intelligent Systems
+                Technology built around how your business works
               </h1>
               <p style={{ fontSize: "1.15rem", lineHeight: "1.7", color: "#94A3B8", marginBottom: "2rem" }}>
-                We build the technical bridges modern businesses need. Rather than forcing one-size-fits-all software templates, we tailor architecture to your unique operating realities, existing tools, and data flows.
+                From new software to connected systems, automation and practical AI, we help businesses solve operational problems with technology that fits the way they actually work.
               </p>
               <div>
                 <button type="button" className="btn btn-primary" onClick={onOpenAudit}>
@@ -65,12 +65,12 @@ export default function SolutionsPage({ onOpenAudit }) {
       <section className="section" style={{ backgroundColor: "var(--bg-surface)", padding: "5rem 0" }}>
         <div className="container" style={{ display: "flex", flexDirection: "column", gap: "3rem" }}>
           <div style={{ maxWidth: "780px", margin: "0 auto", textAlign: "center" }}>
-            <span className="eyebrow">DETAILED CAPABILITIES</span>
+            <span className="eyebrow">WHAT WE CAN HELP WITH</span>
             <h2 style={{ fontSize: "2.25rem", fontWeight: "800", color: "var(--primary)", lineHeight: "1.2", marginBottom: "1rem" }}>
-              Engineered for Enterprise Operational Resilience
+              From the problem to a working solution
             </h2>
             <p style={{ fontSize: "1.05rem", color: "var(--muted)", margin: 0 }}>
-              Examine each capability in detail: operating scenarios, specific deliverables, and implementation scope.
+              Explore the areas where Corebridge can build, connect, improve or implement the technology your operations need.
             </p>
           </div>
 
@@ -127,7 +127,7 @@ export default function SolutionsPage({ onOpenAudit }) {
                       onClick={onOpenAudit}
                       style={{ fontSize: "0.9rem" }}
                     >
-                      Request Architecture Scope
+                      Discuss This Capability
                     </button>
                   </div>
                 </div>
@@ -164,15 +164,15 @@ export default function SolutionsPage({ onOpenAudit }) {
       {/* Bottom CTA */}
       <section className="section section-dark" style={{ textAlign: "center", padding: "5rem 0" }}>
         <div className="container" style={{ maxWidth: "760px" }}>
-          <span className="eyebrow-dark">SYSTEM EVALUATION</span>
+          <span className="eyebrow-dark">NOT SURE WHERE TO START?</span>
           <h2 style={{ fontSize: "2.25rem", fontWeight: "800", color: "var(--white)", marginBottom: "1.25rem" }}>
-            Unsure which engineering path fits your business?
+            Start with the business problem.
           </h2>
           <p style={{ color: "#94A3B8", fontSize: "1.05rem", lineHeight: "1.65", marginBottom: "2.5rem" }}>
-            Schedule a complimentary 15-Minute Operational Review. We will look at your software stack and recommend whether to build, integrate, or configure.
+            Tell us what is slowing the business down, what needs to connect or what needs to be built. We will help you identify a practical path forward.
           </p>
           <button type="button" className="btn btn-primary" onClick={onOpenAudit} style={{ margin: "0 auto" }}>
-            Book 15-Minute Operational Review
+            Discuss Your Business
           </button>
         </div>
       </section>
