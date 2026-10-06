@@ -28,7 +28,7 @@ export default function AboutPage({ onOpenAudit }) {
   return (
     <>
       <SEO
-        title="About Orebridge | Software Engineering & Systems Integration"
+        title="About Corebridge | Software Engineering & Systems Integration"
         description="Corebridge is a business systems and software engineering consultancy based in Harare, Zimbabwe. Smarter Systems. Stronger Businesses."
       />
 
