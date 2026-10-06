@@ -68,9 +68,9 @@ export default function BrandWordmark({
           display: "inline-flex",
           alignItems: "center",
           justifyContent: "center",
-          height: "0.9em",
-          width: "calc(0.9em * 183 / 198)",
-          marginRight: "-0.015em",
+          height: "1.08em",
+          width: "1.08em",
+          marginRight: "0.22em",
           flexShrink: 0,
           lineHeight: 1
         }}
@@ -92,7 +92,7 @@ export default function BrandWordmark({
         style={{
           fontWeight: 800,
           fontSize: "1em",
-          letterSpacing: "-0.02em",
+          letterSpacing: "-0.025em",
           color: finalTextColor,
           fontFamily: "var(--font-sans, 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif)",
           display: "inline-block",
