@@ -42,7 +42,7 @@ export default function PhilosophyStatementSection() {
           {/* Editorial Philosophy Statement */}
           <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
             <span className="eyebrow" style={{ marginBottom: "1rem", display: "inline-flex", alignItems: "center", gap: "0.35rem" }}>
-              THE <BrandWordmark variant="blue" size="0.82rem" /> PHILOSOPHY
+              HOW WE THINK
             </span>
 
             <h2
@@ -59,7 +59,7 @@ export default function PhilosophyStatementSection() {
             </h2>
 
             <p style={{ fontSize: "1.05rem", lineHeight: "1.75", color: "var(--muted)", marginBottom: "2rem" }}>
-              Good technology is not evaluated by novelty or technical complexity. At Corebridge, success is measured strictly by operational outcome: whether information moves without manual friction, whether staff avoid duplicate data entry, and whether the business operates with higher capacity and reliability.
+              We judge technology by what changes for the business. Information should move more easily, staff should spend less time repeating work, and the systems behind the operation should be dependable.
             </p>
 
             <Link
