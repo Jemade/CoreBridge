@@ -57,7 +57,7 @@ export default function ApproachPage({ onOpenAudit }) {
             </div>
 
             {/* Clean Hero Photography without overlays */}
-            <div style={{ position: "relative", borderRadius: "var(--radius-lg)", overflow: "hidden", border: "1px solid rgba(255, 255, 255, 0.15)", boxShadow: "var(--shadow-lg)" }}>
+            <div style={{ position: "relative", borderRadius: "4px", overflow: "hidden", border: "1px solid rgba(255, 255, 255, 0.12)" }}>
               <img
                 src={approachHeroImg}
                 alt="Technical system planning, architecture review, and engineering workshop"
@@ -92,10 +92,10 @@ export default function ApproachPage({ onOpenAudit }) {
                     display: "grid",
                     gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
                     gap: "2rem",
-                    padding: "2.5rem 2rem",
-                    backgroundColor: "var(--bg-surface)",
-                    border: "1px solid var(--borders)",
-                    borderRadius: "var(--radius-md)",
+                    padding: "2.25rem 0",
+                    backgroundColor: "transparent",
+                    borderTop: "1px solid var(--borders)",
+                    borderRadius: 0,
                     position: "relative"
                   }}
                 >
