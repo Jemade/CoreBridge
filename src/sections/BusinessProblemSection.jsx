@@ -3,127 +3,59 @@ import { Link } from "react-router-dom";
 import BrandWordmark from "../components/common/BrandWordmark";
 
 export default function BusinessProblemSection() {
-  const systems = [
-    { num: "01", title: "Sales", desc: "Storefronts, field agents, e-commerce, and client order portals" },
-    { num: "02", title: "Inventory", desc: "Warehouse stock counts, multi-depot allocations, and dispatches" },
-    { num: "03", title: "Payments", desc: "Multi-currency transactions, bank rails, and settlement gateways" },
-    { num: "04", title: "Accounting", desc: "General ledgers, tax postings, and automated audit trails" },
-    { num: "05", title: "Operations", desc: "Fulfillment schedules, job tracking, and field service workflows" },
-    { num: "06", title: "Reporting", desc: "Real-time management visibility and operational reconciliation" }
-  ];
+  const systems = ["Sales", "Inventory", "Payments", "Accounting", "Operations", "Reporting"];
 
   return (
-    <section className="section" id="problem" style={{ backgroundColor: "var(--bg-surface)", borderBottom: "1px solid var(--borders)", padding: "5.5rem 0" }}>
+    <section className="section" id="problem" style={{ backgroundColor: "var(--bg-surface)", borderBottom: "1px solid var(--borders)", padding: "6rem 0" }}>
       <div className="container">
-        <div style={{ maxWidth: "800px", margin: "0 auto 3.5rem", textAlign: "center" }}>
+        <div style={{ maxWidth: "800px", margin: "0 auto 3.75rem", textAlign: "center" }}>
           <span className="eyebrow">THE OPERATIONAL GAP</span>
-          <h2 style={{ fontSize: "clamp(2rem, 3.5vw, 2.75rem)", fontWeight: "800", color: "var(--primary)", lineHeight: "1.2", marginBottom: "1.25rem" }}>
+          <h2 style={{ fontSize: "clamp(2.1rem, 3.8vw, 3rem)", fontWeight: "800", color: "var(--primary)", lineHeight: "1.18", marginBottom: "1.25rem" }}>
             Businesses rarely run on one system.
           </h2>
           <p style={{ fontSize: "1.12rem", lineHeight: "1.75", color: "var(--text-dark)", marginBottom: "0.85rem" }}>
             Your business may already have the systems it needs. The problem is often how those systems work together.
           </p>
-          <p style={{ fontSize: "1.02rem", lineHeight: "1.7", color: "var(--muted)", margin: 0 }}>
-            Critical operational information gets trapped in isolated tools: Point of Sale, spreadsheets, payment rails, and accounting ledgers. When systems cannot communicate, operations rely on duplicate entry, manual batch exports, and delayed reconciliation.
+          <p style={{ fontSize: "1rem", lineHeight: "1.7", color: "var(--muted)", margin: 0 }}>
+            Sales, inventory, payments, accounting, operations and reporting often sit in separate tools. Corebridge helps close the gaps so information can move across the business with less duplicate entry and manual reconciliation.
           </p>
         </div>
 
-        {/* Clean Systems Interoperability Diagram (No decorative cartoon icons) */}
-        <div
-          style={{
-            maxWidth: "1100px",
-            margin: "0 auto 3.5rem",
-            backgroundColor: "var(--white)",
-            border: "1px solid var(--borders)",
-            borderRadius: "var(--radius-md)",
-            padding: "2.5rem 2rem",
-            boxShadow: "0 4px 20px rgba(10, 25, 41, 0.04)"
-          }}
-        >
-          <div style={{ textAlign: "center", marginBottom: "2rem" }}>
-            <span style={{ fontSize: "0.8rem", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--muted)" }}>
-              Where business systems become disconnected
-            </span>
-          </div>
-
-          {/* 6 Core Functional Modules */}
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))",
-              gap: "1.25rem",
-              marginBottom: "2rem"
-            }}
-          >
-            {systems.map((s, idx) => (
-              <div
-                key={idx}
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "flex-start",
-                  padding: "1.25rem 1rem",
-                  backgroundColor: "var(--bg-surface)",
-                  borderRadius: "var(--radius-sm)",
-                  border: "1px solid var(--borders)"
-                }}
-              >
-                <span
-                  style={{
-                    fontSize: "0.8rem",
-                    fontWeight: "800",
-                    color: "var(--blue)",
-                    fontVariantNumeric: "tabular-nums",
-                    marginBottom: "0.5rem",
-                    letterSpacing: "0.06em"
-                  }}
-                >
-                  {s.num}
-                </span>
-                <h3 style={{ fontSize: "1.05rem", fontWeight: "700", color: "var(--primary)", marginBottom: "0.35rem" }}>
-                  {s.title}
-                </h3>
-                <p style={{ fontSize: "0.82rem", color: "var(--muted)", lineHeight: "1.45", margin: 0 }}>
-                  {s.desc}
-                </p>
+        <div style={{ maxWidth: "1050px", margin: "0 auto 3.25rem" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", borderTop: "1px solid var(--borders)", borderBottom: "1px solid var(--borders)" }}>
+            {systems.slice(0, 3).map((system, idx) => (
+              <div key={system} style={{ textAlign: "center", padding: "1.35rem 0.75rem", borderRight: idx < 2 ? "1px solid var(--borders)" : "none", fontWeight: "700", color: "var(--primary)" }}>
+                {system}
               </div>
             ))}
           </div>
 
-          {/* The Corebridge Engineering Layer (Visual Bridge) */}
-          <div
-            style={{
-              backgroundColor: "#0A1929",
-              borderRadius: "var(--radius-sm)",
-              padding: "1.35rem 2rem",
-              textAlign: "center",
-              border: "1px solid rgba(255, 255, 255, 0.12)",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              gap: "0.35rem"
-            }}
-          >
-            <span style={{ fontSize: "0.82rem", fontWeight: "800", letterSpacing: "0.12em", color: "#38BDF8", textTransform: "uppercase", display: "inline-flex", alignItems: "center", gap: "0.35rem" }}>
-              THE <BrandWordmark variant="light" textColor="#38BDF8" size="0.82rem" /> ENGINEERING LAYER
-            </span>
-            <span style={{ fontSize: "0.95rem", color: "#E2E8F0" }}>
-              Connect the systems you already use so information moves reliably across the business.
-            </span>
+          <div style={{ display: "flex", justifyContent: "center", padding: "1.5rem 1rem" }}>
+            <div style={{ width: "100%", maxWidth: "640px", backgroundColor: "#0A1929", padding: "1.25rem 1.5rem", textAlign: "center" }}>
+              <div style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "0.4rem", color: "#FFFFFF", fontSize: "0.82rem", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" }}>
+                <BrandWordmark variant="light" size="0.9rem" /> connects the gap
+              </div>
+              <p style={{ color: "#CBD5E1", fontSize: "0.92rem", lineHeight: "1.55", margin: "0.45rem 0 0" }}>
+                Build what is missing, connect what already exists and improve how information moves.
+              </p>
+            </div>
+          </div>
+
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", borderTop: "1px solid var(--borders)", borderBottom: "1px solid var(--borders)" }}>
+            {systems.slice(3).map((system, idx) => (
+              <div key={system} style={{ textAlign: "center", padding: "1.35rem 0.75rem", borderRight: idx < 2 ? "1px solid var(--borders)" : "none", fontWeight: "700", color: "var(--primary)" }}>
+                {system}
+              </div>
+            ))}
           </div>
         </div>
 
         <div style={{ textAlign: "center" }}>
-          <Link
-            to="/solutions"
-            className="btn btn-secondary"
-            style={{ fontSize: "0.95rem", padding: "0.85rem 1.75rem" }}
-          >
-            See how we solve these problems
+          <Link to="/solutions" className="btn-link" style={{ fontSize: "0.95rem", fontWeight: "700", textDecoration: "none", color: "var(--blue)" }}>
+            See how we connect business systems
           </Link>
         </div>
       </div>
     </section>
   );
 }
-
