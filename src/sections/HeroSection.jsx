@@ -63,7 +63,7 @@ export default function HeroSection({ onOpenAudit }) {
               maxWidth: "640px"
             }}
           >
-            Corebridge builds, connects and improves the systems businesses rely on, from custom software and integrations to workflow automation and practical AI.
+            We help businesses bridge the gap between where they are and where their technology needs to take them.
           </p>
 
           {/* Secondary Positioning Statement */}
@@ -77,29 +77,8 @@ export default function HeroSection({ onOpenAudit }) {
               maxWidth: "620px"
             }}
           >
-            From building new systems to connecting the ones you already use, we help bridge the gap between business operations and technology.
+            From custom software and system integrations to automation and practical AI, Corebridge builds, connects and improves the technology behind your operations.
           </p>
-
-          {/* Subtle Visual Bridge Concept: Build | Connect | Improve */}
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "1.25rem",
-              marginBottom: "2.5rem",
-              fontSize: "0.85rem",
-              fontWeight: "600",
-              color: "#CBD5E1",
-              letterSpacing: "0.06em",
-              textTransform: "uppercase"
-            }}
-          >
-            <span>Build</span>
-            <span style={{ color: "rgba(255, 255, 255, 0.25)" }}>|</span>
-            <span>Connect</span>
-            <span style={{ color: "rgba(255, 255, 255, 0.25)" }}>|</span>
-            <span>Improve</span>
-          </div>
 
           {/* Action Group */}
           <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "1.25rem" }}>
@@ -124,7 +103,7 @@ export default function HeroSection({ onOpenAudit }) {
                 fontWeight: "600"
               }}
             >
-              Schedule an Operational Review
+              Discuss Your Business
             </button>
           </div>
         </div>
