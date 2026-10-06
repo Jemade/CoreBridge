@@ -1,45 +1,11 @@
 # ═══════════════════════════════════════════════════════════════════
-# COREBRIDGE PLATFORM: RENDER BLUEPRINT SPECIFICATION
+# COREBRIDGE PLATFORM: RENDER STATIC SITE SPECIFICATION
 # Smarter Systems. Stronger Businesses.
 # ═══════════════════════════════════════════════════════════════════
 
 services:
   # ─────────────────────────────────────────────────────────────────
-  # 1. FastAPI Backend Web Service
-  # ─────────────────────────────────────────────────────────────────
-  - type: web
-    name: corebridge-backend
-    runtime: python
-    plan: free
-    region: frankfurt
-    rootDir: backend
-    buildCommand: "pip install --upgrade pip && pip install -r requirements.txt"
-    startCommand: "uvicorn app.main:app --host 0.0.0.0 --port $PORT"
-    healthCheckPath: /api/v1/health
-    envVars:
-      - key: PYTHON_VERSION
-        value: 3.11.9
-      - key: ENVIRONMENT
-        value: production
-      - key: SECRET_KEY
-        generateValue: true
-      - key: DATABASE_URL
-        fromDatabase:
-          name: corebridge-postgres
-          property: connectionString
-      - key: BACKEND_CORS_ORIGINS
-        value: "http://localhost:5173,https://corebridge-frontend.onrender.com"
-      - key: RATE_LIMIT_ENABLED
-        value: "true"
-      - key: FIRST_SUPERUSER_EMAIL
-        value: admin@corebridge.co.zw
-      - key: FIRST_SUPERUSER_PASSWORD
-        value: CorebridgeAdmin2025!
-      - key: ADMIN_NOTIFICATION_EMAIL
-        value: info@corebridge.co.zw
-
-  # ─────────────────────────────────────────────────────────────────
-  # 2. React / Vite Frontend (Static Site on Global CDN)
+  # React / Vite Static Site (Global Edge CDN)
   # ─────────────────────────────────────────────────────────────────
   - type: web
     name: corebridge-frontend
@@ -51,21 +17,5 @@ services:
     staticPublishPath: "./dist"
     routes:
       - type: rewrite
-        source: /api/*
-        destination: https://corebridge-backend.onrender.com/api/*
-      - type: rewrite
         source: /*
         destination: /index.html
-    envVars:
-      - key: VITE_API_BASE_URL
-        value: https://corebridge-backend.onrender.com/api/v1
-
-# ─────────────────────────────────────────────────────────────────
-# 3. PostgreSQL Managed Database
-# ─────────────────────────────────────────────────────────────────
-databases:
-  - name: corebridge-postgres
-    plan: free
-    databaseName: corebridge
-    user: corebridge_user
-    region: frankfurt

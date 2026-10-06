@@ -1,45 +1,14 @@
 # Dependencies
 node_modules/
-backend/venv/
-backend/.venv/
-venv/
-.venv/
 
-# Environment configuration (secrets)
+# Production build outputs
+dist/
+dist-ssr/
+
+# Environment files
 .env
 .env.local
 .env.*.local
-
-# Databases & local persistent storage
-*.db
-*.sqlite
-*.sqlite3
-corebridge_local.db
-backend/corebridge_local.db
-
-# Build outputs
-dist/
-dist-ssr/
-*.local
-
-# Python cache & testing
-__pycache__/
-*.py[cod]
-*$py.class
-.pytest_cache/
-.coverage
-htmlcov/
-
-# IDE & OS
-.DS_Store
-.idea/
-.vscode/
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-thumbs.db
 
 # Logs
 *.log
@@ -47,3 +16,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+
+# System & Editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

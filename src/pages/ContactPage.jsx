@@ -9,7 +9,6 @@ import {
   ShieldCheck
 } from "lucide-react";
 import SEO from "../components/common/SEO";
-import { submitContactMessage } from "../api/contact";
 import { contactHeroImg } from "../data/initialData";
 import WhatsAppIcon from "../components/common/WhatsAppIcon";
 
@@ -33,25 +32,35 @@ export default function ContactPage({ onOpenAudit }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (formData.website_hp) {
+      // Honeypot bot protection
+      return;
+    }
+
     setStatus("submitting");
     setErrorMessage("");
 
     try {
-      await submitContactMessage({
+      // Store submission locally for browser persistence
+      const inquiries = JSON.parse(localStorage.getItem("corebridge_contact_inquiries") || "[]");
+      inquiries.push({
         name: formData.name.trim(),
         email: formData.email.trim(),
         company: formData.company.trim(),
         subject: formData.category,
         message: formData.message.trim(),
-        honeypot: formData.website_hp || ""
+        submittedAt: new Date().toISOString()
       });
+      localStorage.setItem("corebridge_contact_inquiries", JSON.stringify(inquiries));
 
+      // Small async tick for natural UX feedback
+      await new Promise((resolve) => setTimeout(resolve, 350));
       setStatus("success");
     } catch (err) {
       console.error("Contact submission error:", err);
       setStatus("error");
       setErrorMessage(
-        err.message || "Failed to submit message. Please reach us directly at +263 780 787 214 or info@corebridge.co.zw."
+        "Failed to submit message. Please reach us directly at +263 780 787 214 or info@corebridge.co.zw."
       );
     }
   };

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 import AuditModal from "../components/common/AuditModal";
@@ -16,15 +16,6 @@ import ApproachPage from "../pages/ApproachPage";
 import ContactPage from "../pages/ContactPage";
 import NotFoundPage from "../pages/NotFoundPage";
 
-// Admin Pages
-import AdminLayout from "../pages/admin/AdminLayout";
-import AdminLoginPage from "../pages/admin/AdminLoginPage";
-import AdminDashboardPage from "../pages/admin/AdminDashboardPage";
-import AdminAuditsPage from "../pages/admin/AdminAuditsPage";
-import AdminContactsPage from "../pages/admin/AdminContactsPage";
-import AdminContentPage from "../pages/admin/AdminContentPage";
-import AdminSettingsPage from "../pages/admin/AdminSettingsPage";
-
 import FloatingWhatsApp from "../components/common/FloatingWhatsApp";
 
 function PublicLayout({ children, onOpenAudit }) {
@@ -40,8 +31,6 @@ function PublicLayout({ children, onOpenAudit }) {
 
 export default function AppRoutes() {
   const [auditOpen, setAuditOpen] = useState(false);
-  const location = useLocation();
-  const isAdminRoute = location.pathname.startsWith("/admin");
 
   return (
     <>
@@ -120,18 +109,6 @@ export default function AppRoutes() {
           }
         />
 
-        {/* ── Admin Routes ── */}
-        <Route path="/admin/login" element={<AdminLoginPage />} />
-        
-        <Route path="/admin" element={<AdminLayout />}>
-          <Route index element={<Navigate to="/admin/dashboard" replace />} />
-          <Route path="dashboard" element={<AdminDashboardPage />} />
-          <Route path="audits" element={<AdminAuditsPage />} />
-          <Route path="contacts" element={<AdminContactsPage />} />
-          <Route path="content" element={<AdminContentPage />} />
-          <Route path="settings" element={<AdminSettingsPage />} />
-        </Route>
-
         {/* ── 404 Fallback ── */}
         <Route
           path="*"
@@ -144,9 +121,7 @@ export default function AppRoutes() {
       </Routes>
 
       {/* Global Audit Modal for Public Routes */}
-      {!isAdminRoute && (
-        <AuditModal isOpen={auditOpen} onClose={() => setAuditOpen(false)} />
-      )}
+      <AuditModal isOpen={auditOpen} onClose={() => setAuditOpen(false)} />
     </>
   );
 }

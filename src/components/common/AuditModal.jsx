@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { X, ShieldCheck, Loader2, AlertCircle } from "lucide-react";
-import { submitAuditRequest } from "../../api/audits";
 import BrandWordmark from "./BrandWordmark";
 
 export default function AuditModal({ isOpen, onClose }) {
@@ -52,19 +51,26 @@ export default function AuditModal({ isOpen, onClose }) {
     setErrorMessage("");
 
     try {
-      await submitAuditRequest({
+      // Record locally for client persistence
+      const submissions = JSON.parse(localStorage.getItem("corebridge_audit_submissions") || "[]");
+      submissions.push({
         full_name: formData.name.trim(),
         email: formData.email.trim(),
         phone: formData.phone.trim(),
         company_name: formData.company.trim(),
-        notes: formData.notes.trim()
+        notes: formData.notes.trim(),
+        submittedAt: new Date().toISOString()
       });
+      localStorage.setItem("corebridge_audit_submissions", JSON.stringify(submissions));
+
+      // Small async tick for natural UX feedback
+      await new Promise((resolve) => setTimeout(resolve, 350));
       setStatus("success");
     } catch (err) {
-      console.warn("Audit submission notice:", err.message);
+      console.warn("Audit submission notice:", err);
       setStatus("error");
       setErrorMessage(
-        err.message || "Failed to submit request. Please call us directly at +263 780 787 214."
+        "Failed to submit request. Please call us directly at +263 780 787 214 or email info@corebridge.co.zw."
       );
     }
   };

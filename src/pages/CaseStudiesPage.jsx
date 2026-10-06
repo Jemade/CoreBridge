@@ -1,25 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import SEO from "../components/common/SEO";
 import CaseStudyCard from "../components/cards/CaseStudyCard";
-import { getCaseStudies } from "../api/caseStudies";
 import { caseStudiesData, caseStudiesHeroImg } from "../data/initialData";
 
 export default function CaseStudiesPage({ onOpenAudit }) {
-  const [studies, setStudies] = useState(caseStudiesData);
-
-  useEffect(() => {
-    let isMounted = true;
-    getCaseStudies().then((data) => {
-      if (isMounted && data && data.length > 0) {
-        // Merge or replace if backend has updated records
-        setStudies(data);
-      }
-    });
-    return () => {
-      isMounted = false;
-    };
-  }, []);
+  const studies = caseStudiesData;
 
   return (
     <>
