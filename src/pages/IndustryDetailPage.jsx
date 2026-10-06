@@ -153,9 +153,9 @@ export default function IndustryDetailPage({ onOpenAudit }) {
             }}
           >
             <div style={{ maxWidth: "720px", marginBottom: "2.5rem" }}>
-              <span className="eyebrow">ENGINEERING INTERVENTIONS</span>
+              <span className="eyebrow">PRACTICAL IMPROVEMENTS</span>
               <h2 style={{ fontSize: "1.85rem", fontWeight: "800", color: "var(--primary)", marginBottom: "0.75rem" }}>
-                Where Corebridge Delivers High Operational ROI
+                Where Corebridge Can Help
               </h2>
               <p style={{ fontSize: "1rem", color: "var(--muted)", lineHeight: "1.6", margin: 0 }}>
                 Targeted technical solutions designed to unlock capacity and eliminate manual spreadsheet dependencies.
@@ -235,7 +235,7 @@ export default function IndustryDetailPage({ onOpenAudit }) {
               }}
             >
               <div style={{ marginBottom: "2rem" }}>
-                <span className="eyebrow-dark">END-TO-END FLOW IN ACTION</span>
+                <span className="eyebrow-dark">HOW THE WORKFLOW CONNECTS</span>
                 <h2 style={{ fontSize: "1.85rem", fontWeight: "800", color: "var(--white)", marginBottom: "0.75rem" }}>
                   Example Operational Workflow
                 </h2>
