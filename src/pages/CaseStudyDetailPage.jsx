@@ -82,7 +82,7 @@ export default function CaseStudyDetailPage({ onOpenAudit }) {
                   Schedule Operational Review
                 </button>
                 <Link to="/contact" className="btn btn-secondary">
-                  Contact Engineering
+                  Contact Us
                 </Link>
               </div>
             </div>
@@ -105,9 +105,9 @@ export default function CaseStudyDetailPage({ onOpenAudit }) {
           {/* Operating Context */}
           {study.context && (
             <div style={{ backgroundColor: "var(--white)", border: "1px solid var(--borders)", borderRadius: "var(--radius-md)", padding: "2.25rem 2rem" }}>
-              <span className="eyebrow" style={{ display: "block", marginBottom: "0.5rem" }}>OPERATIONAL CONTEXT</span>
+              <span className="eyebrow" style={{ display: "block", marginBottom: "0.5rem" }}>THE SITUATION</span>
               <h2 style={{ fontSize: "1.35rem", fontWeight: "800", color: "var(--primary)", marginBottom: "0.85rem" }}>
-                Environmental &amp; Business Constraints
+                What the business was dealing with
               </h2>
               <p style={{ fontSize: "0.98rem", lineHeight: "1.7", color: "var(--text-dark)", margin: 0 }}>
                 {study.context}
@@ -118,9 +118,9 @@ export default function CaseStudyDetailPage({ onOpenAudit }) {
           {/* Architectural Approach */}
           {study.approach && (
             <div style={{ backgroundColor: "var(--white)", border: "1px solid var(--borders)", borderRadius: "var(--radius-md)", padding: "2.25rem 2rem" }}>
-              <span className="eyebrow" style={{ display: "block", marginBottom: "0.5rem" }}>TECHNICAL ARCHITECTURE</span>
+              <span className="eyebrow" style={{ display: "block", marginBottom: "0.5rem" }}>THE APPROACH</span>
               <h2 style={{ fontSize: "1.35rem", fontWeight: "800", color: "var(--primary)", marginBottom: "0.85rem" }}>
-                How We Designed the Solution
+                How we approached it
               </h2>
               <p style={{ fontSize: "0.98rem", lineHeight: "1.7", color: "var(--text-dark)", margin: 0 }}>
                 {study.approach}
@@ -131,9 +131,9 @@ export default function CaseStudyDetailPage({ onOpenAudit }) {
           {/* Systems Involved */}
           {study.systemsInvolved && (
             <div style={{ backgroundColor: "var(--white)", border: "1px solid var(--borders)", borderRadius: "var(--radius-md)", padding: "2rem" }}>
-              <span className="eyebrow" style={{ display: "block", marginBottom: "0.5rem" }}>INTEROPERABILITY</span>
+              <span className="eyebrow" style={{ display: "block", marginBottom: "0.5rem" }}>SYSTEMS INVOLVED</span>
               <h3 style={{ fontSize: "1.2rem", fontWeight: "800", color: "var(--primary)", marginBottom: "1rem" }}>
-                Platforms &amp; Systems Connected
+                What needed to work together
               </h3>
               <div style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem" }}>
                 {study.systemsInvolved.map((sys, idx) => (
@@ -161,9 +161,9 @@ export default function CaseStudyDetailPage({ onOpenAudit }) {
           {/* Implementation Details */}
           {study.implementation && (
             <div style={{ backgroundColor: "var(--white)", border: "1px solid var(--borders)", borderRadius: "var(--radius-md)", padding: "2.25rem 2rem" }}>
-              <span className="eyebrow" style={{ display: "block", marginBottom: "0.5rem" }}>ENGINEERING DETAILS</span>
+              <span className="eyebrow" style={{ display: "block", marginBottom: "0.5rem" }}>IMPLEMENTATION</span>
               <h2 style={{ fontSize: "1.35rem", fontWeight: "800", color: "var(--primary)", marginBottom: "0.85rem" }}>
-                Code &amp; Infrastructure Implementation
+                What we built
               </h2>
               <p style={{ fontSize: "0.98rem", lineHeight: "1.7", color: "var(--text-dark)", margin: 0 }}>
                 {study.implementation}
@@ -183,7 +183,7 @@ export default function CaseStudyDetailPage({ onOpenAudit }) {
             >
               <div>
                 <h3 style={{ fontSize: "1.3rem", fontWeight: "800", color: "#166534", margin: "0 0 0.75rem 0" }}>
-                  Measurable Operational Outcome
+                  Outcome
                 </h3>
               </div>
               <p style={{ fontSize: "1rem", lineHeight: "1.7", color: "#14532D", margin: 0 }}>
@@ -203,7 +203,7 @@ export default function CaseStudyDetailPage({ onOpenAudit }) {
               Discuss a Similar Integration for Your Business
             </button>
             <Link to="/contact" className="btn btn-secondary" style={{ fontSize: "1.05rem", padding: "0.85rem 1.75rem" }}>
-              Contact Engineering
+              Contact Us
             </Link>
           </div>
 
