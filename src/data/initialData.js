@@ -154,7 +154,7 @@ export const servicesData = [
     icon: Cpu,
     title: "Pragmatic AI Integration",
     shortDescription: "Apply AI where it creates measurable operational value rather than adding AI for mere appearance.",
-    description: "We focus on unglamorous, high-impact enterprise AI. Instead of consumer chat toys, Corebridge introduces machine intelligence where skilled employees are burdened with repetitive transcription, unstructured document parsing, and inquiry triage.",
+    description: "We apply AI where it can remove repetitive work, improve access to information, and support better operational decisions. Corebridge focuses on practical use cases such as document processing, knowledge retrieval, inquiry routing, and anomaly detection, with human review where it matters.",
     useCases: [
       "Extracting line-item data, tax numbers, and totals from scanned supplier PDF invoices",
       "Automated categorization and direct routing of incoming operational inquiries",
