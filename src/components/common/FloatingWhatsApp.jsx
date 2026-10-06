@@ -9,8 +9,8 @@ export default function FloatingWhatsApp() {
       aria-label="Direct WhatsApp Contact"
       style={{
         position: "fixed",
-        bottom: "1.5rem",
-        right: "1.5rem",
+        bottom: "1.25rem",
+        right: "1.25rem",
         zIndex: 99,
         display: "flex",
         alignItems: "center"
@@ -28,22 +28,22 @@ export default function FloatingWhatsApp() {
           gap: "0.5rem",
           backgroundColor: "#25D366",
           color: "#FFFFFF",
-          padding: "0.75rem 1rem",
+          padding: "0.62rem 0.85rem",
           borderRadius: "9999px",
-          boxShadow: "0 4px 14px rgba(0, 0, 0, 0.16)",
+          boxShadow: "0 3px 10px rgba(0, 0, 0, 0.14)",
           textDecoration: "none",
           fontWeight: "600",
-          fontSize: "0.88rem",
+          fontSize: "0.82rem",
           transition: "transform 0.15s ease, box-shadow 0.15s ease",
           outline: "none"
         }}
         onMouseEnter={(e) => {
-          e.currentTarget.style.transform = "translateY(-2px)";
-          e.currentTarget.style.boxShadow = "0 6px 18px rgba(0, 0, 0, 0.22)";
+          e.currentTarget.style.transform = "translateY(-1px)";
+          e.currentTarget.style.boxShadow = "0 4px 12px rgba(0, 0, 0, 0.18)";
         }}
         onMouseLeave={(e) => {
           e.currentTarget.style.transform = "translateY(0)";
-          e.currentTarget.style.boxShadow = "0 4px 14px rgba(0, 0, 0, 0.16)";
+          e.currentTarget.style.boxShadow = "0 3px 10px rgba(0, 0, 0, 0.14)";
         }}
         onFocus={(e) => {
           e.currentTarget.style.outline = "2px solid #0A1929";
@@ -53,7 +53,7 @@ export default function FloatingWhatsApp() {
           e.currentTarget.style.outline = "none";
         }}
       >
-        <WhatsAppIcon size={20} />
+        <WhatsAppIcon size={18} />
         <span className="floating-wa-label" style={{ letterSpacing: "-0.01em" }}>
           Chat with Corebridge
         </span>
