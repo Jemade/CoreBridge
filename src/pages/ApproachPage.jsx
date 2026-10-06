@@ -39,12 +39,12 @@ export default function ApproachPage({ onOpenAudit }) {
         <div className="container">
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "3.5rem", alignItems: "center" }}>
             <div>
-              <span className="eyebrow-dark">OUR METHODOLOGY</span>
+              <span className="eyebrow-dark">OUR APPROACH</span>
               <h1 style={{ fontSize: "2.75rem", fontWeight: "800", color: "var(--white)", letterSpacing: "-0.02em", marginBottom: "1.25rem", lineHeight: "1.15" }}>
-                How Corebridge Engineers Resilient Business Systems
+                How we take a business problem from discovery to delivery
               </h1>
               <p style={{ fontSize: "1.15rem", lineHeight: "1.7", color: "#94A3B8", marginBottom: "2rem" }}>
-                We do not guess, and we do not force generic software templates. We follow a disciplined, 6-stage engineering process grounded in your operational reality and long-term business goals.
+                We begin by understanding how the business works today, where the friction is, and what a useful result looks like. From there, we design, build and improve the right solution.
               </p>
               <div style={{ display: "flex", alignItems: "center", gap: "1rem", flexWrap: "wrap" }}>
                 <button type="button" className="btn btn-primary" onClick={onOpenAudit}>
@@ -74,12 +74,12 @@ export default function ApproachPage({ onOpenAudit }) {
       <section className="section" style={{ backgroundColor: "var(--white)", padding: "5rem 0" }}>
         <div className="container" style={{ maxWidth: "960px" }}>
           <div className="section-header centered">
-            <span className="eyebrow">THE 6-STAGE LIFECYCLE</span>
+            <span className="eyebrow">OUR PROCESS</span>
             <h2 style={{ marginBottom: "1rem" }}>
-              From initial operational audit to continuous evolution
+              From understanding the problem to improving the result
             </h2>
             <p className="lead-text" style={{ margin: "0 auto" }}>
-              Every implementation follows this structured engineering pipeline to ensure stability, data integrity, and measurable business value.
+              The process keeps the work practical, visible and tied to the way your business operates.
             </p>
           </div>
 
@@ -150,12 +150,12 @@ export default function ApproachPage({ onOpenAudit }) {
       <section className="section section-surface" style={{ padding: "5rem 0" }}>
         <div className="container">
           <div className="section-header centered">
-            <span className="eyebrow">OUR CORE PRINCIPLES</span>
+            <span className="eyebrow">WHAT GUIDES THE WORK</span>
             <h2 style={{ marginBottom: "1rem" }}>
-              How we approach every technical engagement
+              Simple principles for making better technology decisions
             </h2>
             <p className="lead-text" style={{ margin: "0 auto" }}>
-              We hold our software design and integration work to exacting technical and professional standards.
+              We favour practical solutions, preserve what already works and design for the conditions your team actually works in.
             </p>
           </div>
 
@@ -190,19 +190,19 @@ export default function ApproachPage({ onOpenAudit }) {
       {/* CTA Section */}
       <section className="section section-dark" style={{ textAlign: "center", padding: "5rem 0" }}>
         <div className="container" style={{ maxWidth: "720px" }}>
-          <span className="eyebrow-dark">READY TO COLLABORATE</span>
+          <span className="eyebrow-dark">LET'S TALK</span>
           <h2 style={{ fontSize: "2.25rem", fontWeight: "800", color: "var(--white)", marginBottom: "1.25rem" }}>
-            Discuss Your System Architecture With Our Team
+            Tell us what needs to work better
           </h2>
           <p style={{ color: "#94A3B8", fontSize: "1.05rem", lineHeight: "1.65", marginBottom: "2.5rem" }}>
-            Book a 15-minute operational review with our lead engineers in Harare. We will examine your workflows and give you a candid architectural recommendation.
+            Tell us where the process is slow, disconnected or too manual. We will help you work out a sensible next step.
           </p>
           <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "1rem", flexWrap: "wrap" }}>
             <button type="button" className="btn btn-primary" onClick={onOpenAudit}>
               Book 15-Minute Review
             </button>
             <Link to="/contact" className="btn btn-secondary">
-              Contact Engineering
+              Contact Us
             </Link>
           </div>
         </div>
