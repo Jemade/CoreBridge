@@ -49,9 +49,7 @@ export default function Navbar({ onOpenAudit }) {
     <header className={`site-header ${isScrolled ? "scrolled" : ""}`}>
       <div className="container nav-container">
         {/* Brand Wordmark: Logo mark as the C in OREBRIDGE */}
-        <Link to="/" className="brand-link" onClick={handleLinkClick} aria-label="Corebridge Home">
-          <BrandWordmark variant="white" />
-        </Link>
+        <BrandWordmark variant="white" linkTo="/" className="nav-brand-wordmark" />
 
         {/* Desktop Navigation Links */}
         <nav aria-label="Main Navigation">
