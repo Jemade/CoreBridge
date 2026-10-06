@@ -7,31 +7,31 @@
 :root {
   --primary: #0A1929;
   --primary-rgb: 10, 25, 41;
-  --blue: #1769E8;
-  --blue-rgb: 23, 105, 232;
-  --blue-hover: #1254C0;
-  --soft-blue: #EFF6FF;
+  --blue: #1F5FAF;
+  --blue-rgb: 31, 95, 175;
+  --blue-hover: #184C8C;
+  --soft-blue: #F1F5F9;
   --text: #0F172A;
   --muted: #64748B;
   --muted-light: #94A3B8;
   --borders: #E2E8F0;
   --borders-light: #F1F5F9;
   --white: #FFFFFF;
-  --bg-surface: #F8FAFC;
+  --bg-surface: #F7F7F5;
   --bg-card: #FFFFFF;
   
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
 
   --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 14px;
-  --radius-xl: 20px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 10px;
 
   --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04);
-  --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.06);
-  --shadow-lg: 0 12px 28px rgba(15, 23, 42, 0.08);
-  --shadow-hover: 0 8px 24px rgba(23, 105, 232, 0.12);
+  --shadow-md: 0 2px 8px rgba(15, 23, 42, 0.05);
+  --shadow-lg: 0 6px 18px rgba(15, 23, 42, 0.07);
+  --shadow-hover: 0 3px 10px rgba(15, 23, 42, 0.08);
 
   --transition-fast: 150ms cubic-bezier(0.16, 1, 0.3, 1);
   --transition-smooth: 250ms cubic-bezier(0.16, 1, 0.3, 1);
@@ -243,7 +243,7 @@ p {
   font-size: 0.96rem;
   padding: 0.78rem 1.65rem;
   border-radius: var(--radius-sm);
-  transition: all var(--transition-fast);
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
   white-space: nowrap;
   min-height: 44px;
 }
@@ -252,14 +252,13 @@ p {
   background-color: var(--blue);
   color: var(--white);
   border: 1px solid var(--blue);
-  box-shadow: 0 1px 3px rgba(23, 105, 232, 0.25);
+  box-shadow: none;
 }
 
 .btn-primary:hover {
   background-color: var(--blue-hover);
   border-color: var(--blue-hover);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(23, 105, 232, 0.3);
+  box-shadow: none;
 }
 
 .btn-secondary {
@@ -319,7 +318,7 @@ p {
 .site-header.scrolled {
   background-color: #0A1929;
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  box-shadow: none;
 }
 
 .nav-container {
@@ -363,7 +362,7 @@ p {
 }
 
 .nav-item-link.active {
-  color: #38BDF8;
+  color: #FFFFFF;
   font-weight: 600;
 }
 
@@ -451,7 +450,7 @@ p {
 .hero-editorial {
   padding-top: clamp(3rem, 6vw, 5.5rem);
   padding-bottom: clamp(3.5rem, 7vw, 6rem);
-  background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
+  background: #FFFFFF;
   border-bottom: 1px solid var(--borders);
   overflow: hidden;
 }
@@ -492,12 +491,7 @@ p {
   height: clamp(360px, 42vw, 480px);
   object-fit: cover;
   display: block;
-  filter: brightness(0.92);
-  transition: transform 600ms ease;
-}
-
-.hero-visual-frame:hover .hero-editorial-img {
-  transform: scale(1.02);
+  filter: none;
 }
 
 /* Restrained caption banner */
@@ -528,13 +522,12 @@ p {
   border: 1px solid var(--borders);
   border-radius: var(--radius-md);
   padding: 1.75rem;
-  transition: all var(--transition-fast);
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
 }
 
 .problem-card:hover {
   border-color: #CBD5E1;
   box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
 }
 
 .problem-card-icon {
@@ -572,7 +565,6 @@ p {
 .systems-map-wrapper {
   margin-top: 3rem;
   position: relative;
-  background: radial-gradient(circle at center, rgba(23, 105, 232, 0.08) 0%, transparent 70%);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-xl);
   padding: 2.5rem;
@@ -598,7 +590,7 @@ p {
   border-radius: var(--radius-sm);
   padding: 1rem 1.25rem;
   cursor: pointer;
-  transition: all var(--transition-fast);
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
   position: relative;
 }
 
@@ -606,7 +598,6 @@ p {
 .system-node-card.active {
   background: rgba(23, 105, 232, 0.18);
   border-color: var(--blue);
-  transform: translateX(3px);
 }
 
 .node-code {
@@ -696,7 +687,7 @@ p {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: all var(--transition-fast);
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
 }
 
 .pillar-col:hover {
@@ -877,13 +868,12 @@ p {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: all var(--transition-fast);
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
 }
 
 .industry-card:hover {
   border-color: #CBD5E1;
   box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
 }
 
 .industry-card-img-wrap {
@@ -897,11 +887,6 @@ p {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 500ms ease;
-}
-
-.industry-card:hover .industry-card-img {
-  transform: scale(1.03);
 }
 
 .industry-card-body {
@@ -932,7 +917,7 @@ p {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: all var(--transition-fast);
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
 }
 
 .case-study-card:hover {
