@@ -309,15 +309,15 @@ p {
   left: 0;
   width: 100%;
   z-index: 100;
-  background-color: rgba(10, 25, 41, 0.75);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background-color: #0A1929;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .site-header.scrolled {
-  background-color: rgba(10, 25, 41, 0.96);
+  background-color: #0A1929;
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
 }
@@ -326,14 +326,14 @@ p {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 72px;
+  height: 68px;
 }
 
 .brand-link {
   display: inline-flex;
   align-items: center;
   text-decoration: none;
-  font-size: 1.35rem;
+  font-size: 1.48rem;
   transition: opacity var(--transition-fast);
 }
 
@@ -383,11 +383,19 @@ p {
   border-radius: var(--radius-sm);
 }
 
+/* Restrained header action */
+.nav-review-btn {
+  min-height: 40px;
+  padding: 0.62rem 1.15rem;
+  font-size: 0.88rem;
+  box-shadow: none;
+}
+
 /* Mobile Drawer Navigation */
 .mobile-nav-drawer {
   display: none;
   position: fixed;
-  top: 72px;
+  top: 68px;
   left: 0;
   right: 0;
   bottom: 0;
