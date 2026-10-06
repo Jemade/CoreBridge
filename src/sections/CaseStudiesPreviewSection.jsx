@@ -13,10 +13,10 @@ export default function CaseStudiesPreviewSection({ caseStudies = caseStudiesDat
         <div style={{ maxWidth: "780px", margin: "0 auto 3.5rem", textAlign: "center" }}>
           <span className="eyebrow">SELECTED WORK</span>
           <h2 style={{ fontSize: "clamp(2rem, 3.5vw, 2.75rem)", fontWeight: "800", color: "var(--primary)", lineHeight: "1.2", marginBottom: "1.25rem" }}>
-            Systems in Practice
+            Work in practice
           </h2>
           <p style={{ fontSize: "1.1rem", lineHeight: "1.7", color: "var(--muted)", margin: 0 }}>
-            Real technical solutions solving real operational problems. We document architectural decisions, integration hurdles, and measurable business outcomes.
+            A closer look at the problem, what was built or connected, and what changed afterwards.
           </p>
         </div>
 
