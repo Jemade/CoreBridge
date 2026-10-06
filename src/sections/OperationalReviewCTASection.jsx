@@ -4,7 +4,7 @@ export default function OperationalReviewCTASection({ onOpenAudit }) {
   return (
     <section className="section" style={{ backgroundColor: "#0A1929", color: "var(--white)", padding: "5.5rem 0", textAlign: "center" }}>
       <div className="container" style={{ maxWidth: "780px", margin: "0 auto" }}>
-        <span className="eyebrow-dark">COMMENCE AN ENGAGEMENT</span>
+        <span className="eyebrow-dark">START WITH THE PROBLEM</span>
         <h2 style={{ fontSize: "clamp(2rem, 4vw, 2.75rem)", fontWeight: "800", color: "var(--white)", letterSpacing: "-0.02em", marginBottom: "1.25rem", lineHeight: "1.2" }}>
           Have a technology gap to bridge?
         </h2>
@@ -19,7 +19,7 @@ export default function OperationalReviewCTASection({ onOpenAudit }) {
             onClick={onOpenAudit}
             style={{ fontSize: "1rem", padding: "0.9rem 2rem", fontWeight: "600" }}
           >
-            Schedule an Operational Review
+            Discuss Your Business
           </button>
         </div>
       </div>
