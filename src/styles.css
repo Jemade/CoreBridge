@@ -1920,3 +1920,20 @@ button {
 .photo { position:relative; }
 .photo > .reference-image { position:absolute; inset:0; width:100%; height:100%; aspect-ratio:auto; }
 .photo:has(> .reference-image) { min-width:0; }
+
+/* Real photos retain natural detail; overlays protect the live headings. */
+.photographic-hero .hero-shade { background:linear-gradient(90deg,rgba(10,25,41,.96) 0%,rgba(10,25,41,.84) 35%,rgba(10,25,41,.28) 70%,rgba(10,25,41,.1)); }
+.photographic-hero.hero-light .hero-shade { background:linear-gradient(90deg,rgba(237,241,247,.98) 0%,rgba(237,241,247,.9) 38%,rgba(237,241,247,.15) 75%); }
+.photographic-hero .hero-background img { object-position:70% 45%; }
+.solutions-hero.photographic-hero .hero-background img { object-position:50% 44%; }
+.photo img { display:block; }
+.people-shade,.cta-shade { background:linear-gradient(90deg,rgba(10,25,41,.96) 0%,rgba(10,25,41,.85) 45%,rgba(10,25,41,.28) 85%); }
+@media (max-width:560px) {
+ .photographic-hero .hero-shade { background:rgba(10,25,41,.75); }
+ .photographic-hero.hero-light .hero-shade { background:rgba(237,241,247,.87); }
+}
+
+.photographic-hero { background:#0a1929; }
+.photographic-hero.hero-light { background:#edf1f7; }
+.photographic-hero .hero-background { left:38%; width:62%; }
+@media (max-width:560px) { .photographic-hero .hero-background { left:0; width:100%; } }

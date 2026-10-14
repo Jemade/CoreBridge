@@ -18,7 +18,7 @@ for (const route of routes) {
     assert.ok(destinations.has(destination), `${route}: broken internal link ${href}`);
     if (destination === '/solutions' && hash) assert.ok(serviceAnchors.includes(hash) || ['payment-integration', 'data-reporting'].includes(hash), `${route}: broken solution anchor`);
   }
-  for (const [, src] of html.matchAll(/src="(\/assets\/[^"]+)"/g)) { await access(path.join('dist', src)); imageChecks++; }
+  for (const [, src] of html.matchAll(/src="(\/(?:assets|photos)\/[^"]+)"/g)) { await access(path.join('dist', src)); imageChecks++; }
 }
 for (const url of ['/unavailable', '/industries/not-real', '/case-studies/not-real']) assert.ok(render(url).includes('404'), `${url}: missing-page state`);
 const home = await readFile('dist/index.html', 'utf8');
@@ -31,7 +31,8 @@ assert.ok(about.includes('Corebridge was founded to help businesses'), 'Company 
 assert.ok(!/Zimbabwean|Zimbabwe|Harare/.test(about), 'About page has no geographic restriction');
 for (const page of ['solutions','industries','approach','about','contact','case-studies']) {
  const content = await readFile(`dist/${page}/index.html`,'utf8');
- assert.ok(content.includes('/reference-images/'), `${page}: approved reference imagery is used`);
+ assert.ok(/<img[^>]+src="\/(?:assets|photos)\//.test(content), `${page}: real photographs are present`);
+ if (page !== 'contact') assert.ok(!content.includes('/reference-images/'), `${page}: no generated photo sheets`);
 }
 const styles = await readFile('src/styles.css', 'utf8');
 for (const breakpoint of ['1080px','820px','560px']) assert.ok(styles.includes(`max-width:${breakpoint}`), `Responsive layout ${breakpoint}`);
@@ -55,3 +56,6 @@ await checkRegions(reference);
 assert.ok(home.includes('mask-image:') && home.includes('var(--blue'), 'Logo uses the site palette through its original shape');
 assert.ok(home.includes('aspect-ratio:'), 'Photo regions have explicit layout dimensions');
 console.log(`Verified ${regionCount} image regions and palette-matched logo markup.`);
+
+assert.equal(regionCount, 1, 'Only the approved Contact mug uses a reference region');
+assert.ok(contact.includes('/reference-images/about-contact-workflows.png'), 'Contact retains the Corebridge mug');

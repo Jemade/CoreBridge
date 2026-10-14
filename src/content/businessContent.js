@@ -1,6 +1,6 @@
 import { reference } from './referenceImages';
 import { industriesData, solutionsHeroImg, operationalRealityImg, buildIntegrateImproveImg, editorialStatementImg, contactHeroImg, aboutHeroImg, approachHeroImg, caseStudiesData } from '../data/initialData';
-import mining from '../assets/images/industries/mining.jpg';
+const mining = '/photos/open-pit-mine.jpg';
 import energy from '../assets/images/industries/energy-utilities.jpg';
 import realEstate from '../assets/images/industries/real-estate.jpg';
 import pharma from '../assets/images/industries/pharmaceuticals.jpg';

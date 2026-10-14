@@ -1,0 +1,35 @@
+[
+  {
+    "file": "team-planning.jpg",
+    "size": 431262,
+    "url": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=max&w=2000&q=90",
+    "license": "https://unsplash.com/license"
+  },
+  {
+    "file": "office-discussion.jpg",
+    "size": 352928,
+    "url": "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=max&w=2000&q=90",
+    "license": "https://unsplash.com/license"
+  },
+  {
+    "file": "woman-desk.jpg",
+    "size": 192544,
+    "url": "https://images.unsplash.com/photo-1573497619951-6c9477fb83b4?auto=format&fit=max&w=2000&q=90",
+    "license": "https://unsplash.com/license"
+  },
+  {
+    "file": "open-pit-mine.jpg",
+    "url": "https://images.unsplash.com/photo-1649822825476-70af6471d30f?auto=format&fit=max&w=1600&q=85",
+    "photographer": "Tim Altmann",
+    "source": "https://unsplash.com/photos/a-large-open-pit-with-machinery-in-the-middle-of-it-bdrrcW3t2uM",
+    "license": "https://unsplash.com/license"
+  },
+  {
+    "file": "whiteboard-planning.jpg",
+    "url": "https://images.unsplash.com/photo-1573166364266-356ef04ae798?auto=format&fit=max&w=2000&q=90",
+    "photographer": "Christina @ wocintechchat.com",
+    "source": "https://unsplash.com/photos/person-writing-on-dry-erase-board-tYVkjjMYFBo",
+    "pinterest": "https://www.pinterest.com/pin/452541462564491527/",
+    "license": "https://unsplash.com/license"
+  }
+]

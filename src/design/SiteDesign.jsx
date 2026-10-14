@@ -116,7 +116,7 @@ function Photo({
   eager = false,
   caption
 }) {
-  return <figure className={`photo ${className}`} style={typeof src === 'object' ? { aspectRatio: `${src.rect[2]} / ${src.rect[3]}` } : undefined}>
+  return <figure className={`photo ${className}`} style={{ aspectRatio: typeof src === 'object' ? `${src.rect[2]} / ${src.rect[3]}` : '3 / 2' }}>
     {typeof src === 'object' ? <span className="reference-image" style={imageRegionStyle(src)} role="img" aria-label={alt} /> : <img src={src} alt={alt} loading={eager ? 'eager' : 'lazy'} decoding="async" width="800" height="540" />}
     {caption && <figcaption>{caption}</figcaption>}
   </figure>;
@@ -140,7 +140,7 @@ function Hero({
   breadcrumb,
   page = ''
 }) {
-  return <section className={`page-hero reference-hero ${light ? 'hero-light' : ''} ${page ? `${page}-hero` : ''}`}>
+  return <section className={`page-hero reference-hero ${light ? 'hero-light' : ''} ${page ? `${page}-hero` : ''} ${typeof image === 'string' ? 'photographic-hero' : ''}`}>
     <Photo src={image} alt={alt} className="hero-background" eager />
     <div className="hero-shade" />
     <div className="container hero-content"><div className="hero-copy">
