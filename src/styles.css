@@ -1937,3 +1937,9 @@ button {
 .photographic-hero.hero-light { background:#edf1f7; }
 .photographic-hero .hero-background { left:38%; width:62%; }
 @media (max-width:560px) { .photographic-hero .hero-background { left:0; width:100%; } }
+
+.home-nav-link { display:inline-flex; align-items:center; gap:10px; justify-content:center; min-width:32px; }
+
+.industry-detail-page .photo-challenges article { padding:24px; background:white; border:1px solid var(--line); border-radius:5px; }
+.industry-detail-page .industry-solutions article { display:block; padding:24px; border:1px solid var(--line); border-radius:5px; }
+.example-detail-page .systems-list article { padding:24px; background:white; border:1px solid var(--line); border-radius:5px; }

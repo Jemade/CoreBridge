@@ -23,17 +23,37 @@ const woman = '/photos/woman-desk.jpg';
 const planning = '/photos/team-planning.jpg';
 const discussion = '/photos/office-discussion.jpg';
 const meeting = '/photos/whiteboard-planning.jpg';
+const photo = id => `/photos/sections/${id}.jpg`;
 export const reference = {
  solutionsHero: woman, industriesHero: warehouse, approachHero: meeting,
- erp: team, integration: warehouse, automation: planning, ai: documents, software: planning, consulting: discussion,
- industries: [grocery, truck, construction, manufacturing, agriculture, health, finance, professional, energy, hospitality, education, '/photos/open-pit-mine.jpg'],
- process: [meeting, board, discussion, team, training, woman],
- aboutHero: planning, story: city, values: [team, documents, woman, discussion], people: planning,
+ erp: team, integration: photo('BNBA1h-NgdY'), automation: planning, ai: photo('iusJ25iYu1c'), software: photo('CPs2X8JYmS8'), consulting: discussion,
+ industries: [grocery, photo('EmEQ6kK_5P0'), photo('qvBYnMuNJ9A'), photo('WjOWazUPAss'), photo('Gh_Oc8USMe8'), photo('NFvdKIhxYlU'), photo('jpqyfK7GB4w'), photo('SJvDxw0azqw'), photo('Ilpf2eUPpUE'), photo('hotel-interior'), photo('GDokEYnOfnE'), '/photos/open-pit-mine.jpg'],
+ process: [photo('KdeqA3aTnBY'), board, photo('7aakZdIl4vg'), photo('bPVM4nOy0Rg'), photo('gMsnXqILjp4'), photo('50TkCaP8M3A')],
+ aboutHero: photo('faEfWCdOKIg'), story: city,
+ values: [photo('OW5KP_Pj85Q'), photo('xoU52jUVUXA'), photo('MkxWUzCuYkE'), photo('46bom4lObsA')],
+ people: new URL('../assets/images/about/corebridge-engineering-focus.jpg', import.meta.url).href,
  contactHero: {sheet:'/reference-images/about-contact-workflows.png',dimensions:[1536,1024],rect:[531,69,475,183]},
- contactDesk: office, workflowsHero: warehouse, workflowFeatured: pos, workflowJobs: field, workflowInvoice: documents,
- workflowDelivery: truck, workflowKnowledge: woman, workflowCTA: office,
- retailDetailHero: grocery, detailChallenges: [grocery, warehouse, documents], detailERP: team, detailIntegration: warehouse, detailAI: documents,
- exampleHero: pos, exampleProblem: woman, exampleSystems: [pos, warehouse, finance, documents], missingDesk: office
+ workflowsHero: photo('dI-aXC7DWpQ'), workflowFeatured: pos, workflowJobs: photo('x-ghf9LjrVg'), workflowInvoice: photo('8wLZi9OhsWU'),
+ workflowDelivery: photo('5WQJ_ejZ7y8'), workflowKnowledge: photo('Lks7vei-eAg'), workflowCTA: photo('1RT4txDDAbM'),
+ homeIndustries: [photo('kGoPcmpPT7c'), photo('nHRXNv2qeDE'), photo('X1P1_EDNnok')],
+ homeExamples: [new URL('../assets/images/sections/zimbabwe-operations.jpg', import.meta.url).href, photo('ESZRBtkQ_f8'), photo('q10VITrVYUM')],
+ industryHeroes: {
+  'retail-fmcg': photo('ezeC8-clZSs'), 'hospitality-tourism': hospitality,
+  'mining': photo('Evss0Whf5OI'), 'fmcg': photo('retail-interior')
+ },
+ exampleHeroes: {
+  'pos-odoo-integration': photo('LNnmSumlwO4'),
+  'b2b-interoperability-layer': new URL('../assets/images/case-studies/logistics-manifest.jpg', import.meta.url).href,
+  'field-service-workflow-engine': field,
+  'practical-document-ocr-pipeline': documents,
+  'business-knowledge-assistant': new URL('../assets/images/industries/retail.jpg', import.meta.url).href
+ },
+ exampleProblems: {
+  'pos-odoo-integration': photo('JhevWHCbVyw'), 'b2b-interoperability-layer': photo('NndKt2kF1L4'),
+  'field-service-workflow-engine': photo('41X6FwTwPh4'), 'practical-document-ocr-pipeline': photo('PlikkWB79qs'),
+  'business-knowledge-assistant': photo('9l_326FISzk')
+ },
+ missingDesk: photo('3A4XZUopCJA')
 };
 export function imageRegionStyle(image) {
   const [sheetWidth, sheetHeight] = image.dimensions;

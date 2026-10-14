@@ -59,3 +59,17 @@ console.log(`Verified ${regionCount} image regions and palette-matched logo mark
 
 assert.equal(regionCount, 1, 'Only the approved Contact mug uses a reference region');
 assert.ok(contact.includes('/reference-images/about-contact-workflows.png'), 'Contact retains the Corebridge mug');
+
+const photoOwners = new Map();
+for (const route of routes) {
+ const html = await readFile(path.join('dist', route, 'index.html'), 'utf8');
+ assert.ok(html.includes('aria-label="Home"') && html.includes('lucide-house'), `${route}: accessible Home icon`);
+ const photos = [...html.matchAll(/<img[^>]+src="([^"]+)"/g)].map(match => match[1]).filter(src => !src.includes('corebridge-logo'));
+ if (route === '/') photos.push(...[...html.matchAll(/url\((\/assets\/[^)]+)\)/g)].map(match => match[1]));
+ for (const src of photos.filter(src => !src.includes('corebridge-logo'))) {
+  assert.ok(!photoOwners.has(src), `${route}: photo already used on ${photoOwners.get(src)}: ${src}`);
+  photoOwners.set(src,route);
+ }
+}
+assert.ok(!contact.includes('contact-desk-photo'), 'Contact office image block is removed');
+console.log(`Verified ${photoOwners.size} distinct photo placements without reuse across the site.`);

@@ -1,7 +1,7 @@
 import { reference, imageRegionStyle } from '../content/referenceImages';
 import React, { useEffect, useRef, useState } from 'react';
 import { Link, NavLink, useLocation, useParams } from 'react-router-dom';
-import { Layers, Network, Workflow, Cpu, Code2, Settings, Menu, X, Search, Phone, Mail, MapPin, FileText, Package, ShoppingCart, BarChart3, Check } from 'lucide-react';
+import { Home as HomeIcon, Layers, Network, Workflow, Cpu, Code2, Settings, Menu, X, Search, Phone, Mail, MapPin, FileText, Package, ShoppingCart, BarChart3, Check } from 'lucide-react';
 import BrandWordmark from '../components/common/BrandWordmark';
 import WhatsAppIcon from '../components/common/WhatsAppIcon';
 import SEO from '../components/common/SEO';
@@ -62,10 +62,10 @@ export function SiteHeader() {
   }, [open]);
   return <header className="site-header"><div className="container header-inner">
     <BrandWordmark variant="dark" linkTo="/" size="1.55rem" />
-    <nav className="desktop-nav" aria-label="Main navigation">{navItems.map(([to, label]) => <NavLink key={to} to={to}>{label}</NavLink>)}</nav>
+    <nav className="desktop-nav" aria-label="Main navigation"><NavLink to="/" end className="home-nav-link" aria-label="Home"><HomeIcon size={20} aria-hidden="true" /></NavLink>{navItems.map(([to, label]) => <NavLink key={to} to={to}>{label}</NavLink>)}</nav>
     <Link className="button button-primary header-contact" to="/contact">Let’s talk</Link>
     <button className="menu-toggle" type="button" ref={toggleRef} aria-label={open ? 'Close navigation' : 'Open navigation'} aria-expanded={open} aria-controls="mobile-navigation" onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</button>
-  </div>{open && <nav id="mobile-navigation" ref={menuRef} className="mobile-nav" aria-label="Mobile navigation">{navItems.map(([to, label]) => <NavLink key={to} to={to}>{label}</NavLink>)}<Link to="/case-studies">Workflow examples</Link><Link to="/contact" className="button button-primary">Discuss your business</Link></nav>}</header>;
+  </div>{open && <nav id="mobile-navigation" ref={menuRef} className="mobile-nav" aria-label="Mobile navigation"><NavLink to="/" end className="home-nav-link"><HomeIcon size={20} aria-hidden="true" />Home</NavLink>{navItems.map(([to, label]) => <NavLink key={to} to={to}>{label}</NavLink>)}<Link to="/case-studies">Workflow examples</Link><Link to="/contact" className="button button-primary">Discuss your business</Link></nav>}</header>;
 }
 export function SiteFooter() {
   return <footer className="site-footer"><div className="container"><div className="footer-grid">
@@ -159,7 +159,7 @@ function CTA({
   label = 'Let’s talk'
 }) {
   return <section className={`contact-band ${image ? 'contact-band-photo' : ''} cta-${variant}`}>
-    {image && <><Photo src={typeof image === 'object' ? image : reference.workflowCTA} alt="Illustrative business workspace" className="cta-background" /><div className="cta-shade" /></>}
+    {image && <><Photo src={image === true ? reference.workflowCTA : image} alt="Illustrative business workspace" className="cta-background" /><div className="cta-shade" /></>}
     <div className="container cta-inner"><h2>{title}</h2><div><p>{text}</p><Button>{label}</Button></div></div>
   </section>;
 }
@@ -195,7 +195,7 @@ function Steps({
   return <ol className={detailed ? 'process-list' : 'numbered-steps'}>{list.map((step, index) => <li key={step.title}><span className="step-number">{index + 1}</span><div><h3>{step.title}</h3><p>{step.text || step.desc}</p>{step.deliverable && detailed && <p className="deliverable"><strong>What we agree:</strong> {step.deliverable}</p>}</div>{detailed && step.image && <Photo src={step.image} alt={`Illustrative business scene for ${step.title.toLowerCase()}`} />}</li>)}</ol>;
 }
 export function Home() {
-  const featuredIndustries = featuredIndustrySlugs.map(slug => industries.find(i => i.slug === slug));
+  const featuredIndustries = featuredIndustrySlugs.map((slug, i) => ({ ...industries.find(item => item.slug === slug), image: reference.homeIndustries[i] }));
   return <><SEO title="Corebridge | Smarter Systems. Stronger Businesses." description={businessDescription} />
     <section className="home-hero" style={{
       backgroundImage: `linear-gradient(90deg, rgba(10,25,41,.93) 0%, rgba(10,25,41,.72) 48%, rgba(10,25,41,.1) 100%), url(${heroLeadImg})`
@@ -208,7 +208,7 @@ export function Home() {
           }, {
             title: 'Connect',
             text: 'Bring existing tools and information into a coordinated workflow.',
-            image: operationalRealityImg
+            image: new URL('../assets/images/sections/what-we-solve.jpg', import.meta.url).href
           }, {
             title: 'Improve',
             text: 'Use practical AI and automation to make everyday work easier.',
@@ -216,12 +216,12 @@ export function Home() {
           }].map((item, i) => <article key={item.title}><span className="eyebrow">0{i + 1} / {item.title}</span><h3>{item.text}</h3><Photo src={item.image} alt={`Illustrative business scene: ${item.title.toLowerCase()}`} /></article>)}</div></div></section>
     <section className="section dark"><div className="container capabilities-layout"><Heading eyebrow="OUR SOLUTIONS" title="From the business problem to a working solution." text="Technology is useful when it helps the people, information and work behind your business." /><div className="capability-list">{services.slice(0, 4).map(s => <Link key={s.slug} to={`/solutions#${s.slug}`} className="capability-item"><IconTile name={s.icon} /><div><h3>{s.title}</h3><p>{s.short}</p><span className="plain-link">Explore {s.title.toLowerCase()}</span></div></Link>)}</div></div></section>
     <section className="section"><div className="container"><Heading eyebrow="INDUSTRIES" title="Technology shaped around your operations." text="Different businesses have different needs. We start with the work your team does." /><div className="featured-industries">{featuredIndustries.map((item, i) => <IndustryCard key={item.slug} item={item} featured={i === 0} />)}</div><Link to="/industries" className="text-link section-link">Explore all industries</Link></div></section>
-    <section className="section surface"><div className="container"><Heading eyebrow="ILLUSTRATIVE WORKFLOW EXAMPLES" title="See how better connected work could look." text="Practical starting points to discuss and validate with your business." /><div className="home-examples">{[examples[0], examples[2], examples[3]].map((item, i) => <ExampleCard key={item.slug} item={item} featured={i === 0} />)}</div><Link to="/case-studies" className="text-link section-link">Explore workflow examples</Link></div></section>
+    <section className="section surface"><div className="container"><Heading eyebrow="ILLUSTRATIVE WORKFLOW EXAMPLES" title="See how better connected work could look." text="Practical starting points to discuss and validate with your business." /><div className="home-examples">{[examples[0], examples[2], examples[3]].map((item, i) => <ExampleCard key={item.slug} item={{ ...item, image: reference.homeExamples[i] }} featured={i === 0} />)}</div><Link to="/case-studies" className="text-link section-link">Explore workflow examples</Link></div></section>
     <section className="section"><div className="container split-grid"><Photo src={editorialStatementImg} alt="Illustrative business collaboration" /><div><span className="eyebrow">OUR PERSPECTIVE</span><h2>Technology should make the business work better.</h2><p className="spaced-copy">We start by understanding your work. Then we agree what needs to change and find a practical way forward, using ERP, integrations, AI, automation or custom software where it fits.</p><Link className="text-link" to="/about">About Corebridge</Link></div></div></section><CTA title="Have a technology gap to bridge?" /></>;
 }
 export function Solutions() {
   return <div className="reference-page solutions-page"><SEO title="Business solutions | Corebridge" description={businessDescription} />
-    <Hero page="solutions" title={<>Business problems.<br /><span>Practical solutions.</span></>} text="ERP, connected systems, AI and automation built around your work." image={reference.solutionsHero} alt="Approved solutions hero photograph" />
+    <Hero page="solutions" title={<>Business problems.<br /><span>Practical solutions.</span></>} text="ERP, connected systems, AI and automation built around your work." image={reference.solutionsHero} alt="Business professional working on a laptop" />
     <section className="erp-section" id="erp-crm"><div className="container service-intro"><div><h2>ERP & CRM implementation</h2><p className="service-subtitle">A solid foundation for a more efficient business.</p><p>We implement Odoo and Zoho to bring your core business processes together. From initial setup to data migration, configuration, training and ongoing support, we help you get real value from your ERP and CRM.</p><Button>Explore ERP & CRM</Button></div><Photo src={reference.erp} alt="Business professionals planning an ERP implementation" /></div></section>
     <div className="erp-areas"><div className="container"><Areas /></div></div>
     <section className="service-editorial-section"><div className="container service-list">
@@ -241,14 +241,14 @@ export function Industries() {
   }));
   const filtered = entries.filter(item => `${item.name} ${item.shortDesc}`.toLowerCase().includes(query.trim().toLowerCase()));
   return <div className="reference-page industries-page"><SEO title="Industry solutions | Corebridge" description="ERP, integrations, AI and automation shaped around your industry and business needs." />
-    <Hero page="industries" title={<>Every industry<br /><span>works differently.</span></>} text="The same goal: simpler systems, more efficient work and better results." image={reference.industriesHero} alt="Industry professional reviewing operations"><label className="search-field"><span className="sr-only">Search industries</span><Search size={19} aria-hidden="true" /><input type="search" value={query} onChange={event => setQuery(event.target.value)} placeholder="Search industries" /></label></Hero>
+    <Hero page="industries" title={<>Every industry<br /><span>works differently.</span></>} text="The same goal: simpler systems, more efficient work and better results." image={reference.industriesHero} alt="Warehouse storage and stock operations"><label className="search-field"><span className="sr-only">Search industries</span><Search size={19} aria-hidden="true" /><input type="search" value={query} onChange={event => setQuery(event.target.value)} placeholder="Search industries" /></label></Hero>
     <section className="industry-gallery-section"><div className="container"><p className="sr-only" role="status">{filtered.length} matching industries</p>{filtered.length ? <div className="industry-grid">{filtered.map(item => <IndustryCard key={item.slug} item={item} />)}</div> : <div className="empty-state"><h2>No industries match that search.</h2><button type="button" className="button button-primary" onClick={() => setQuery('')}>Show all industries</button></div>}</div></section>
     <CTA title="Connect the work across your business." text="Different industries. Common challenges. We bring your systems, data and people together to help you work more efficiently and make better decisions." label="Explore a solution" />
   </div>;
 }
 export function Approach() {
   return <div className="reference-page approach-page"><SEO title="Our approach | Corebridge" description="We start with your business problem, then agree, implement and support a practical solution." />
-    <Hero page="approach" title={<>We start with your<br /><span>business problem.</span></>} text="Understand the work before choosing the technology." image={reference.approachHero} alt="Business discovery conversation" />
+    <Hero page="approach" title={<>We start with your<br /><span>business problem.</span></>} text="Understand the work before choosing the technology." image={reference.approachHero} alt="A business workflow being mapped on a whiteboard" />
     <section className="approach-process-section"><div className="container"><Heading title="Our approach" text="A practical, collaborative process to solve real business problems." /><Steps list={process} detailed /></div></section>
     <section className="approach-principles-section surface"><div className="container"><Heading title="Our principles" /><div className="principles-grid">{[['Preserve what works', 'We build on your existing strengths and improve what matters.'], ['Start with a clear scope', 'We keep things focused, practical and aligned with your goals.'], ['Design for local realities', 'We take into account your industry, market and the way your team works.'], ['Make progress visible', 'We set clear milestones and keep you informed every step of the way.']].map(([title, text], i) => <article key={title}><IconTile name={['settings', 'layers', 'network', 'workflow'][i]} /><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>
     <CTA title="Let’s discuss your challenge." text="Tell us about your business and we’ll explore the best way forward together." />
@@ -256,7 +256,7 @@ export function Approach() {
 }
 export function About() {
   return <div className="reference-page about-page"><SEO title="About Corebridge" description={businessDescription} />
-    <Hero page="about" title={<>Here to solve<br />business problems.</>} text="We help businesses implement ERP systems, connect their important tools and use practical AI and automation to work smarter." image={reference.aboutHero} alt="Approved photograph of business collaboration" />
+    <Hero page="about" title={<>Here to solve<br />business problems.</>} text="We help businesses implement ERP systems, connect their important tools and use practical AI and automation to work smarter." image={reference.aboutHero} alt="Business professionals collaborating in an office meeting" />
     <section className="about-story-section surface"><div className="container split-grid"><Photo src={reference.story} alt="City business district" /><div><span className="eyebrow">OUR STORY</span><h2>Technology should help your business work better.</h2><p>Corebridge was founded to help businesses get real value from technology. We adapt proven global systems to the realities of each business, focusing on practical solutions that solve everyday problems and create a stronger, more efficient future.</p></div></div></section>
     <section className="about-services-section"><div className="container"><Heading centered eyebrow="WHAT WE DO" title="Build. Connect. Improve." text="We implement and support ERP systems, connect your business tools, and apply practical AI and automation to remove manual work and give you clearer information for better decisions." /><div className="principles-grid">{[['ERP implementation', 'Set up and configure ERP systems around how your business works.'], ['System integrations', 'Connect your key business tools and eliminate data silos.'], ['Workflow automation', 'Automate repetitive tasks so your team can focus on what matters.'], ['Practical AI', 'Use AI in useful, realistic ways to improve productivity and insight.']].map(([title, text]) => <article key={title}><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>
     <section className="about-values-section surface"><div className="container"><Heading centered eyebrow="OUR VALUES" title={<>Practical technology.<br />Real business impact.</>} /><div className="values-photo-grid">{[['Understand first', 'We take time to understand your business, people and challenges before suggesting any solution.'], ['Practical solutions', 'We focus on solutions that are realistic, useful and suitable for your business environment.'], ['Connected information', 'We help you bring your systems and data together for a clearer, more complete picture of your business.'], ['Ongoing support', 'We stay engaged to support your team as your business evolves and your needs change.']].map(([title, text], i) => <article key={title}><Photo src={reference.values[i]} alt={`Approved photograph illustrating ${title.toLowerCase()}`} /><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>
@@ -268,7 +268,7 @@ export function Workflows() {
   const cards = [examples[2], examples[3], examples[1]];
   const knowledge = allExamples.at(-1);
   return <div className="reference-page workflows-page"><SEO title="Workflow examples | Corebridge" description="Illustrative approaches using ERP, connected systems, automation and practical AI." />
-    <Hero page="workflows" eyebrow="ILLUSTRATIVE EXAMPLES" title={<>What better connected<br />work could look like.</>} text="These examples show common business challenges and how ERP, connected systems, automation and practical AI can help. They are for illustration only." image={reference.workflowsHero} alt="Business operations professional using a tablet" />
+    <Hero page="workflows" eyebrow="ILLUSTRATIVE EXAMPLES" title={<>What better connected<br />work could look like.</>} text="These examples show common business challenges and how ERP, connected systems, automation and practical AI can help. They are for illustration only." image={reference.workflowsHero} alt="A delivery truck inside a warehouse" />
     <section className="workflow-gallery-section"><div className="container"><div className="workflow-feature"><ExampleCard item={examples[0]} featured /></div><div className="examples-grid">{cards.map(item => <ExampleCard key={item.slug} item={item} />)}</div><div className="knowledge-feature"><ExampleCard item={knowledge} /></div></div></section>
     <CTA title="Have a similar challenge?" text="Let’s discuss how a more connected, automated and intelligent setup could work for your business." image={reference.workflowCTA} variant="inline" />
   </div>;
@@ -296,9 +296,9 @@ export function IndustryDetail() {
     image: examples[3].image
   }];
   const steps = Array.isArray(industry.exampleWorkflow) ? industry.exampleWorkflow : [];
-  return <div className="reference-page industry-detail-page"><SEO title={`${industry.name} | Corebridge`} description={`ERP, connected systems, AI and automation for ${industry.name.toLowerCase()}.`} /><Hero eyebrow="INDUSTRY SOLUTIONS" title={slug === 'retail-fmcg' ? <>Keep sales, stock<br />and finance<br />connected.</> : industry.name} text={slug === 'retail-fmcg' ? 'Bring your retail and wholesale operations together with an integrated ERP, connected systems and practical automation.' : industry.overview} image={slug === 'retail-fmcg' ? reference.retailDetailHero : industry.image} alt={`${industry.name} operations`} light breadcrumb={<><Link to="/industries">All industries</Link><span> / {industry.name}</span></>}><Button>Discuss your operations</Button></Hero>
-  <section className="section surface"><div className="container"><Heading eyebrow="BUSINESS CHALLENGES" title="Where work can become harder than it needs to be." text="These are common considerations. We confirm what matters in your business before recommending a solution." /><div className="challenge-grid photo-challenges">{industry.operationalChallenges?.map((item, i) => <article key={item}><Photo src={reference.detailChallenges[i % 3]} alt="Illustrative business challenge" /><p>{item}</p></article>)}</div></div></section>
-  <section className="section"><div className="container"><Heading eyebrow="HOW WE HELP" title="A more connected operation." /><div className="industry-solutions">{rows.map(row => <article key={row.title}><Photo src={row.image} alt={`Illustrative scene for ${row.title.toLowerCase()}`} /><div><h3>{row.title}</h3><p>{row.text}</p><ul className="plain-list">{row.items?.map(item => <li key={item}>{item}</li>)}</ul></div></article>)}</div></div></section>
+  return <div className="reference-page industry-detail-page"><SEO title={`${industry.name} | Corebridge`} description={`ERP, connected systems, AI and automation for ${industry.name.toLowerCase()}.`} /><Hero eyebrow="INDUSTRY SOLUTIONS" title={slug === 'retail-fmcg' ? <>Keep sales, stock<br />and finance<br />connected.</> : industry.name} text={slug === 'retail-fmcg' ? 'Bring your retail and wholesale operations together with an integrated ERP, connected systems and practical automation.' : industry.overview} image={reference.industryHeroes[slug] || industry.image} alt={`${industry.name} operations`} light breadcrumb={<><Link to="/industries">All industries</Link><span> / {industry.name}</span></>}><Button>Discuss your operations</Button></Hero>
+  <section className="section surface"><div className="container"><Heading eyebrow="BUSINESS CHALLENGES" title="Where work can become harder than it needs to be." text="These are common considerations. We confirm what matters in your business before recommending a solution." /><div className="challenge-grid photo-challenges">{industry.operationalChallenges?.map((item, i) => <article key={item}><p>{item}</p></article>)}</div></div></section>
+  <section className="section"><div className="container"><Heading eyebrow="HOW WE HELP" title="A more connected operation." /><div className="industry-solutions">{rows.map(row => <article key={row.title}><div><h3>{row.title}</h3><p>{row.text}</p><ul className="plain-list">{row.items?.map(item => <li key={item}>{item}</li>)}</ul></div></article>)}</div></div></section>
   <section className="section surface"><div className="container"><Heading title="Keep the important information in view." /><Areas />{steps.length > 0 && <><Heading eyebrow="ILLUSTRATIVE WORKFLOW" title="How a connected process could work." text="The systems, checks and responsibilities would be agreed for your business." /><Steps list={steps} /></>}</div></section><CTA title="Start with one workflow." text="We can review the business problem, identify a suitable approach and agree a manageable scope." /></div>;
 }
 export function WorkflowDetail() {
@@ -307,12 +307,12 @@ export function WorkflowDetail() {
   } = useParams();
   const item = allExamples.find(i => i.slug === slug);
   if (!item) return <Missing title="That workflow example could not be found." />;
-  return <div className="reference-page example-detail-page"><SEO title={`${item.title} | Corebridge`} description={item.problem} /><Hero eyebrow="ILLUSTRATIVE EXAMPLE" title={slug === 'pos-odoo-integration' ? <>From a sale to an<br />accounting record.</> : item.title} text="A possible approach to a business problem, to discuss and test against your requirements." image={reference.exampleHero} alt={`Illustrative scene for ${item.title.toLowerCase()}`} light breadcrumb={<Link to="/case-studies">All workflow examples</Link>}><Button>Discuss a similar problem</Button></Hero>
-  <section className="section"><div className="container detail-intro"><Heading eyebrow="THE BUSINESS PROBLEM" title="Repeated work across separate systems." text={item.problem} /><Photo src={reference.exampleProblem} alt="Illustrative operational workflow" /></div></section>
-  <section className="section surface"><div className="container"><Heading eyebrow="A POSSIBLE APPROACH" title="Connect the work and simplify the handoffs." text={item.approach} /><div className="systems-list">{item.systems.map((system, i) => <article key={system}><Photo src={reference.exampleSystems[i % 4]} alt={system} /><h3>{system}</h3></article>)}</div></div></section>
+  return <div className="reference-page example-detail-page"><SEO title={`${item.title} | Corebridge`} description={item.problem} /><Hero eyebrow="ILLUSTRATIVE EXAMPLE" title={slug === 'pos-odoo-integration' ? <>From a sale to an<br />accounting record.</> : item.title} text="A possible approach to a business problem, to discuss and test against your requirements." image={reference.exampleHeroes[slug]} alt={`Illustrative scene for ${item.title.toLowerCase()}`} light breadcrumb={<Link to="/case-studies">All workflow examples</Link>}><Button>Discuss a similar problem</Button></Hero>
+  <section className="section"><div className="container detail-intro"><Heading eyebrow="THE BUSINESS PROBLEM" title="Repeated work across separate systems." text={item.problem} /><Photo src={reference.exampleProblems[slug]} alt="Illustrative operational workflow" /></div></section>
+  <section className="section surface"><div className="container"><Heading eyebrow="A POSSIBLE APPROACH" title="Connect the work and simplify the handoffs." text={item.approach} /><div className="systems-list">{item.systems.map((system, i) => <article key={system}><h3>{system}</h3></article>)}</div></div></section>
   <section className="section"><div className="container"><Heading eyebrow="ILLUSTRATIVE WORKFLOW" title="How the process could work." /><Steps list={item.steps.map(title => ({
           title
-        }))} /><p className="illustration-note">Proposed workflow, not a client case study. No outcome is assumed before testing.</p><div className="validation-section"><div><h2>Less manual work. A clearer process.</h2><p>ERP and integrations can coordinate records, while automation and AI can assist with repeat tasks. Review steps keep people involved in decisions and exceptions.</p></div><div><h3>What we would validate with you</h3><ul className="check-list">{item.validation.map(v => <li key={v}><Check size={16} aria-hidden="true" />{v}</li>)}</ul></div></div></div></section><CTA title="Discuss a similar business problem." image /></div>;
+        }))} /><p className="illustration-note">Proposed workflow, not a client case study. No outcome is assumed before testing.</p><div className="validation-section"><div><h2>Less manual work. A clearer process.</h2><p>ERP and integrations can coordinate records, while automation and AI can assist with repeat tasks. Review steps keep people involved in decisions and exceptions.</p></div><div><h3>What we would validate with you</h3><ul className="check-list">{item.validation.map(v => <li key={v}><Check size={16} aria-hidden="true" />{v}</li>)}</ul></div></div></div></section><CTA title="Discuss a similar business problem." /></div>;
 }
 export function EnquiryForm() {
   const [status, setStatus] = useState('');
@@ -336,7 +336,7 @@ export function EnquiryForm() {
 }
 export function Contact() {
   return <div className="reference-page contact-page"><SEO title="Contact Corebridge" description="Tell Corebridge about your business problem. Discuss ERP, connected systems, automation and practical AI." />
-    <Hero page="contact" title={<>Tell us what is slowing<br />your business down.</>} text="We are here to understand your challenges and explore how ERP, connected systems, automation or practical AI can help your business work better." image={reference.contactHero} alt="Approved business workspace photograph" light><span /></Hero>
+    <Hero page="contact" title={<>Tell us what is slowing<br />your business down.</>} text="We are here to understand your challenges and explore how ERP, connected systems, automation or practical AI can help your business work better." image={reference.contactHero} alt="Corebridge branded mug on a business desk" light><span /></Hero>
     <section className="contact-form-section" id="enquiry"><div className="container contact-layout"><aside className="contact-details"><h2>Get in touch</h2><p>Choose the easiest way to reach us.</p>{[[WhatsAppIcon, 'WhatsApp', contact.phone, contact.whatsapp], [Phone, 'Call', contact.phone, `tel:${contact.tel}`], [Mail, 'Email', contact.email, `mailto:${contact.email}`]].map(([Icon, label, value, href]) => <a className={`contact-method ${label === 'WhatsApp' ? 'contact-whatsapp' : ''}`} key={label} href={href} {...label === 'WhatsApp' ? {
             target: '_blank',
             rel: 'noopener noreferrer'
@@ -350,7 +350,7 @@ export function Contact() {
         }, {
           title: 'Agree the next step',
           text: 'If there is a good fit, we will agree on the next step and how to move forward.'
-        }]} /><Photo src={reference.contactDesk} alt="Notebook, pen and laptop on a business desk" className="contact-desk-photo" /></div></section>
+        }]} /></div></section>
     <CTA variant="inline light" title="Let’s start a conversation." text="Tell us what is slowing your business down and let’s explore how we can help." />
   </div>;
 }
