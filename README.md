@@ -18,7 +18,7 @@ npm run build
 npm run verify:build
 ```
 
-Publish `dist/`. The build creates static HTML for all main pages, industry profiles and workflow examples, plus `404.html` and a sitemap. React hydrates the static pages for navigation, industry search and enquiries. Existing Docker/Nginx, Render and Cloudflare Pages static hosting can use this output. Cloudflare Pages uses `public/_redirects` for client-side route fallback.
+Publish `dist/`. The build creates static HTML for all main pages, industry profiles and workflow examples, plus `404.html` and a sitemap. React hydrates the static pages for navigation, industry search and enquiries. Existing Docker/Nginx, Render and Cloudflare Pages static hosting can use this output. Cloudflare serves each prerendered route directly using its native HTML handling. There is no catch-all `_redirects` rule; rewriting every request to `/index.html` causes a redirect loop with Workers static assets.
 
 ## Design and content
 

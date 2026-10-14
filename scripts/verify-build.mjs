@@ -73,3 +73,5 @@ for (const route of routes) {
 }
 assert.ok(!contact.includes('contact-desk-photo'), 'Contact office image block is removed');
 console.log(`Verified ${photoOwners.size} distinct photo placements without reuse across the site.`);
+
+await assert.rejects(access('dist/_redirects'), { code: 'ENOENT' }, 'No catch-all redirect file is shipped to Cloudflare');
