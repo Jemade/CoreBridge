@@ -1,3 +1,4 @@
+import { reference } from './referenceImages';
 import { industriesData, solutionsHeroImg, operationalRealityImg, buildIntegrateImproveImg, editorialStatementImg, contactHeroImg, aboutHeroImg, approachHeroImg, caseStudiesData } from '../data/initialData';
 import mining from '../assets/images/industries/mining.jpg';
 import energy from '../assets/images/industries/energy-utilities.jpg';
@@ -16,7 +17,7 @@ export const services = [{
   title: 'ERP & CRM implementation',
   short: 'Bring your core business processes together.',
   text: 'We help you choose, configure and use systems such as Odoo and Zoho around your business. From setup and data migration to training and support, the work starts with what your team needs to do.',
-  image: solutionsHeroImg,
+  image: reference.erp,
   items: ['Finance and accounting', 'Stock and purchasing', 'Sales and customer relationships', 'Projects and day-to-day operations'],
   button: 'Discuss your ERP needs',
   icon: 'layers'
@@ -25,7 +26,7 @@ export const services = [{
   title: 'Systems integration',
   short: 'Connect the tools your business already depends on.',
   text: 'Bring ERP, POS, accounting, payments and other tools into a connected workflow. We assess the available interfaces, agree how information should move and build the connections your business needs.',
-  image: operationalRealityImg,
+  image: reference.integration,
   items: ['Connect existing platforms', 'Reduce duplicate entry', 'Keep records consistent', 'Handle exceptions clearly'],
   button: 'Discuss your systems',
   icon: 'network'
@@ -34,7 +35,7 @@ export const services = [{
   title: 'Workflow automation',
   short: 'Give your team more time for the work that matters.',
   text: 'Simplify repeat tasks such as document handoffs, approvals, reminders and reporting. We map the process first, then automate the steps that make sense, with people involved where judgement is needed.',
-  image: buildIntegrateImproveImg,
+  image: reference.automation,
   items: ['Approvals and reminders', 'Order and job handoffs', 'Document processing', 'Routine reports'],
   button: 'Discuss a workflow',
   icon: 'workflow'
@@ -43,7 +44,7 @@ export const services = [{
   title: 'Practical AI',
   short: 'Use AI to address a clear business need.',
   text: 'Make business information easier to find, organise and use. We explore document extraction, knowledge assistants and operational support, with review steps and validation appropriate to your work.',
-  image: caseStudiesData[3].image,
+  image: reference.ai,
   items: ['Document information extraction', 'Business knowledge access', 'Assisted analysis', 'Human review and validation'],
   button: 'Explore AI for your business',
   icon: 'cpu'
@@ -52,7 +53,7 @@ export const services = [{
   title: 'Custom business software',
   short: 'Build what your existing tools cannot do.',
   text: 'When a suitable off-the-shelf solution does not fit, we design applications, portals and internal tools around your actual requirements. The aim is useful software that works alongside your business systems.',
-  image: editorialStatementImg,
+  image: reference.software,
   items: ['Internal business tools', 'Customer and supplier portals', 'Mobile-friendly workflows', 'Integration-ready applications'],
   button: 'Discuss a custom solution',
   icon: 'code'
@@ -61,7 +62,7 @@ export const services = [{
   title: 'Consulting & support',
   short: 'Make a clear plan for your next improvement.',
   text: 'Get help understanding a system problem, choosing software or improving an existing setup. We agree the scope, responsibilities and support arrangements before starting.',
-  image: aboutHeroImg,
+  image: reference.consulting,
   items: ['System and workflow reviews', 'Software selection', 'Troubleshooting', 'Training and ongoing support'],
   button: 'Talk through your challenge',
   icon: 'settings'
@@ -70,32 +71,32 @@ export const process = [{
   title: 'Understand',
   text: 'We listen to your goals, challenges and the way your business works.',
   deliverable: 'A clear statement of the problem and the people affected.',
-  image: approachHeroImg
+  image: reference.process[0]
 }, {
   title: 'Map the workflow',
   text: 'We look at the steps, information and systems involved in the work.',
   deliverable: 'An agreed picture of the current process and its gaps.',
-  image: operationalRealityImg
+  image: reference.process[1]
 }, {
   title: 'Agree the solution',
   text: 'Together, we choose a practical approach with a clear scope and priorities.',
   deliverable: 'Requirements, responsibilities and acceptance criteria.',
-  image: solutionsHeroImg
+  image: reference.process[2]
 }, {
   title: 'Implement & connect',
   text: 'We configure, build and integrate the systems needed for the agreed change.',
   deliverable: 'A working solution reviewed against your requirements.',
-  image: editorialStatementImg
+  image: reference.process[3]
 }, {
   title: 'Train & launch',
   text: 'We test with your team and help them use the new workflow.',
   deliverable: 'User testing, training and an agreed launch plan.',
-  image: aboutHeroImg
+  image: reference.process[4]
 }, {
   title: 'Support & improve',
   text: 'We review what is working and agree any further improvements or support.',
   deliverable: 'A clear handover and suitable support arrangements.',
-  image: contactHeroImg
+  image: reference.process[5]
 }];
 export const principles = [{
   title: 'Understand first',
@@ -113,8 +114,8 @@ export const principles = [{
 const exampleDefinitions = [{
   title: 'Sales, stock and finance working together',
   category: 'ERP & integration',
-  problem: 'Sales are recorded in one system, stock in another, and finance has to re-enter the same information.',
-  approach: 'Connect POS, ERP and accounting around an agreed transaction workflow, with checks for duplicates and exceptions.',
+  problem: 'Information is spread across different systems, making it hard to see the full picture.',
+  approach: 'Implement an ERP system configured around your business processes, with training and ongoing support.',
   systems: ['Point of sale', 'ERP & inventory', 'Invoicing', 'Accounting'],
   steps: ['Record the sale', 'Update stock', 'Prepare the invoice', 'Reconcile the accounting record'],
   validation: ['Confirm the systems and available interfaces', 'Check stock, tax and currency rules', 'Test duplicates, failures and reconciliation', 'Agree who reviews exceptions']
@@ -145,14 +146,14 @@ const exampleDefinitions = [{
 }];
 export const examples = caseStudiesData.map((item, index) => ({
   slug: item.slug,
-  image: item.image,
+  image: [reference.workflowFeatured, reference.workflowDelivery, reference.workflowJobs, reference.workflowInvoice][index],
   ...exampleDefinitions[index]
 }));
 export const knowledgeExample = {
   slug: 'business-knowledge-assistant',
-  title: 'Business information easier to find',
+  title: 'Business knowledge assistant',
   category: 'Practical AI',
-  image: editorialStatementImg,
+  image: reference.workflowKnowledge,
   problem: 'Useful business knowledge is spread across files, documents and systems, making answers difficult to find.',
   approach: 'Explore an assistant that searches approved information, points to its sources and supports staff without replacing their judgement.',
   systems: ['Approved documents', 'Search', 'Knowledge assistant', 'Staff review'],

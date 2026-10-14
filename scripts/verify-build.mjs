@@ -25,7 +25,14 @@ const home = await readFile('dist/index.html', 'utf8');
 assert.ok(home.includes('ERP') && home.includes('automation') && home.includes('AI'), 'Home shows the business positioning');
 const contact = await readFile('dist/contact/index.html', 'utf8');
 for (const name of ['name','company','email','message']) assert.ok(contact.includes(`name="${name}"`), `Contact field ${name}`);
-assert.ok(contact.includes('Prepare email enquiry') && contact.includes('You send it from your email app.'), 'Contact states actual delivery behavior');
+assert.ok(contact.includes('Send enquiry') && contact.includes('Opens an email draft for you to review and send.'), 'Contact states actual delivery behavior');
+const about = await readFile('dist/about/index.html','utf8');
+assert.ok(about.includes('Corebridge was founded to help businesses'), 'Company purpose is global');
+assert.ok(!/Zimbabwean|Zimbabwe|Harare/.test(about), 'About page has no geographic restriction');
+for (const page of ['solutions','industries','approach','about','contact','case-studies']) {
+ const content = await readFile(`dist/${page}/index.html`,'utf8');
+ assert.ok(content.includes('/reference-images/'), `${page}: approved reference imagery is used`);
+}
 const styles = await readFile('src/styles.css', 'utf8');
 for (const breakpoint of ['1080px','820px','560px']) assert.ok(styles.includes(`max-width:${breakpoint}`), `Responsive layout ${breakpoint}`);
 assert.ok(styles.includes('prefers-reduced-motion'), 'Reduced motion is supported');
