@@ -39,3 +39,19 @@ assert.ok(styles.includes('prefers-reduced-motion'), 'Reduced motion is supporte
 const sitemap = await readFile('dist/sitemap.xml', 'utf8');
 assert.equal((sitemap.match(/<url>/g) || []).length, routes.length, 'Sitemap includes every valid page');
 console.log(`Verified ${routes.length} prerendered pages, ${imageChecks} asset references, internal links, solution anchors, missing routes and contact copy. Responsive CSS checks passed; browser visual QA has not been run.`);
+
+const { reference } = await import('../src/content/referenceImages.js');
+let regionCount = 0;
+async function checkRegions(value) {
+ if (Array.isArray(value)) { for (const item of value) await checkRegions(item); return; }
+ if (!value || typeof value !== 'object') return;
+ if (value.rect) {
+  const [x,y,width,height] = value.rect; const [sheetWidth,sheetHeight] = value.dimensions;
+  assert.ok(x >= 0 && y >= 0 && width > 0 && height > 0 && x + width <= sheetWidth && y + height <= sheetHeight, 'Photo region stays inside its source sheet');
+  await access(path.join('dist',value.sheet)); regionCount++;
+ } else for (const item of Object.values(value)) await checkRegions(item);
+}
+await checkRegions(reference);
+assert.ok(home.includes('mask-image:') && home.includes('var(--blue'), 'Logo uses the site palette through its original shape');
+assert.ok(home.includes('aspect-ratio:'), 'Photo regions have explicit layout dimensions');
+console.log(`Verified ${regionCount} image regions and palette-matched logo markup.`);

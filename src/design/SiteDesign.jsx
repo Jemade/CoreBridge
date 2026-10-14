@@ -116,7 +116,7 @@ function Photo({
   eager = false,
   caption
 }) {
-  return <figure className={`photo ${className}`}>
+  return <figure className={`photo ${className}`} style={typeof src === 'object' ? { aspectRatio: `${src.rect[2]} / ${src.rect[3]}` } : undefined}>
     {typeof src === 'object' ? <span className="reference-image" style={imageRegionStyle(src)} role="img" aria-label={alt} /> : <img src={src} alt={alt} loading={eager ? 'eager' : 'lazy'} decoding="async" width="800" height="540" />}
     {caption && <figcaption>{caption}</figcaption>}
   </figure>;

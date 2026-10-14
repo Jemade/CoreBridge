@@ -1914,3 +1914,9 @@ button {
  .workflows-hero .hero-shade,.people-shade { background:rgba(10,25,41,.98); }
  .industry-detail-page .industry-solutions article { grid-template-columns:1fr; }
 }
+/* A single palette colour for the original logo shape, in header and footer. */
+.brand-wordmark-c > img { visibility:hidden; }
+/* Explicit figure proportions prevent empty or collapsed image regions. */
+.photo { position:relative; }
+.photo > .reference-image { position:absolute; inset:0; width:100%; height:100%; aspect-ratio:auto; }
+.photo:has(> .reference-image) { min-width:0; }

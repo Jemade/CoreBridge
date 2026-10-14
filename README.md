@@ -22,7 +22,7 @@ Publish `dist/`. The build creates static HTML for all main pages, industry prof
 
 ## Design and content
 
-- Original Corebridge logo, navy/blue palette are retained. The approved picture imagery is displayed directly from unchanged reference sheets using CSS image regions.
+- Original Corebridge logo, navy/blue palette are retained. The approved picture imagery is displayed directly from enhanced reference sheets using CSS image regions.
 - Every page leads with business needs, then ERP, integrations, automation and practical AI.
 - Buttons and links have no directional arrow symbols.
 - Shared layouts and responsive rules live in `src/design/SiteDesign.jsx` and `src/styles.css`.
@@ -39,4 +39,4 @@ This static website has no configured mail-delivery backend. The form prepares a
 
 `verify:build` checks every prerendered route, one main heading per page, local asset existence, internal links and service anchors, missing-page states, arrow removal, contact copy, responsive breakpoint definitions, reduced-motion support and sitemap coverage. These checks do not replace browser-based visual and interaction QA.
 
-The supplied approved images are the visual specification. The site uses their exact image regions through CSS, with live HTML text, links, forms and responsive layouts. The reference sheets are small desktop mockups, so their photo regions have limited resolution when enlarged. The company story is not restricted to a single country.
+The supplied approved images are the visual specification. Photo detail has been enhanced and embedded illustrative labels are excluded from the displayed photo regions. The site uses their exact image regions through CSS, with live HTML text, links, forms and responsive layouts. The reference sheets are small desktop mockups, so their photo regions have limited resolution when enlarged. The company story is not restricted to a single country.

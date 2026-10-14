@@ -1,5 +1,5 @@
 /* Approved picture assets. CSS displays the original pixels within each image region;
-   the uploaded reference sheets are kept unchanged. Rectangles are [x, y, width, height]. */
+   the enhanced source sheets remove photo annotations and improve detail. Rectangles are [x, y, width, height]. */
 const sheets = {
   main: '/reference-images/solutions-industries-approach.png',
   company: '/reference-images/about-contact-workflows.png',
@@ -24,24 +24,24 @@ export const reference = {
   process: [region('main', 1337, 296, 160, 61), region('main', 1337, 364, 160, 59), region('main', 1337, 433, 160, 60), region('main', 1337, 503, 160, 58), region('main', 1337, 573, 160, 60), region('main', 1337, 643, 160, 62)],
   aboutHero: region('company', 33, 69, 475, 184),
   story: region('company', 50, 267, 200, 124),
-  values: [region('company', 50, 657, 101, 68), region('company', 164, 657, 100, 68), region('company', 278, 657, 100, 68), region('company', 391, 657, 100, 68)],
-  people: region('company', 50, 806, 442, 89),
+  values: [region('company', 50, 657, 101, 56), region('company', 164, 657, 100, 56), region('company', 278, 657, 100, 56), region('company', 391, 657, 100, 56)],
+  people: region('company', 50, 806, 442, 60),
   contactHero: region('company', 531, 69, 475, 183),
   contactDesk: region('company', 551, 749, 433, 90),
   workflowsHero: region('company', 1030, 69, 473, 157),
   workflowFeatured: region('company', 1047, 235, 222, 189),
-  workflowJobs: region('company', 1044, 440, 141, 73),
-  workflowInvoice: region('company', 1196, 440, 141, 73),
-  workflowDelivery: region('company', 1351, 440, 141, 73),
+  workflowJobs: region('company', 1044, 440, 141, 60),
+  workflowInvoice: region('company', 1196, 440, 141, 60),
+  workflowDelivery: region('company', 1351, 440, 141, 60),
   workflowKnowledge: region('company', 1044, 696, 139, 112),
   workflowCTA: region('company', 1046, 824, 456, 61),
-  retailDetailHero: region('detail', 15, 70, 488, 250),
-  detailChallenges: [region('detail', 40, 388, 141, 79), region('detail', 192, 388, 142, 79), region('detail', 348, 388, 138, 79)],
-  detailERP: region('detail', 43, 568, 127, 50),
-  detailIntegration: region('detail', 43, 632, 127, 51),
-  detailAI: region('detail', 43, 699, 127, 50),
-  exampleHero: region('detail', 526, 70, 487, 204),
-  exampleProblem: region('detail', 825, 290, 166, 118),
+  retailDetailHero: region('detail', 15, 70, 488, 212),
+  detailChallenges: [region('detail', 40, 355, 134, 79), region('detail', 187, 355, 139, 79), region('detail', 336, 355, 137, 79)],
+  detailERP: region('detail', 40, 568, 152, 52),
+  detailIntegration: region('detail', 40, 627, 152, 59),
+  detailAI: region('detail', 40, 696, 152, 61),
+  exampleHero: region('detail', 526, 70, 487, 178),
+  exampleProblem: region('detail', 825, 263, 164, 112),
   exampleSystems: [region('detail', 552, 520, 99, 57), region('detail', 665, 520, 99, 57), region('detail', 778, 520, 100, 57), region('detail', 891, 520, 100, 57)],
   missingDesk: region('detail', 1038, 510, 483, 438)
 };
