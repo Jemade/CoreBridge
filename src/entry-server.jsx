@@ -12,18 +12,18 @@ export function metadata(url) {
   const industry = industries.find(i => url === `/industries/${i.slug}`);
   const example = allExamples.find(e => url === `/case-studies/${e.slug}`);
   const titles = {
-    '/': 'Smarter Systems. Stronger Businesses.',
-    '/solutions': 'Business solutions',
-    '/industries': 'Industry solutions',
-    '/approach': 'Our approach',
-    '/about': 'About Corebridge',
-    '/contact': 'Contact Corebridge',
+    '/': 'Corebridge Zimbabwe | Software Engineering & Business Automation',
+    '/solutions': 'Business Software, ERP & Workflow Automation in Zimbabwe',
+    '/industries': 'Technology Solutions for Industries in Zimbabwe',
+    '/approach': 'Our Approach to Business Technology Projects',
+    '/about': 'About Corebridge Zimbabwe',
+    '/contact': 'Contact Corebridge Zimbabwe',
     '/case-studies': 'Workflow examples',
     '/privacy': 'Website privacy'
   };
   const label = industry?.name || example?.title || titles[url] || 'Page not found';
   return {
-    title: label.includes('Corebridge') ? label : `${label} | Corebridge`,
-    description: example?.problem || (industry ? `ERP, connected systems, AI and automation for ${industry.name.toLowerCase()}.` : businessDescription)
+    title: url === '/' ? label : `${label} | Corebridge`,
+    description: url === '/' ? 'Corebridge is a Zimbabwe-based technology services business offering software engineering, ERP and systems integration, AI automation and practical workflow solutions.' : (example?.problem || (industry ? `Corebridge helps ${industry.name.toLowerCase()} businesses in Zimbabwe improve operations with ERP, connected systems and practical automation.` : businessDescription))
   };
 }

@@ -8,13 +8,14 @@ const template = await readFile('dist/index.html', 'utf8');
 const escape = value => value.replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
 for (const route of [...routes, '/404']) {
   const { title, description } = metadata(route);
-  const canonical = `https://corebridge.co.zw${route === '/' ? '/' : route}`;
+  const canonical = `https://corebridge.co.zw${route === '/' || route === '/404' ? '/' : route}`;
   const html = template.replace('<div id="root"></div>', `<div id="root">${render(route)}</div>`)
     .replace(/<title>.*?<\/title>/, `<title>${escape(title)}</title>`)
     .replace(/<meta name="description"[^>]*>/, `<meta name="description" content="${escape(description)}" />`)
     .replace(/<meta property="og:title"[^>]*>/, `<meta property="og:title" content="${escape(title)}" />`)
     .replace(/<meta property="og:description"[^>]*>/, `<meta property="og:description" content="${escape(description)}" />`)
     .replace(/<meta property="og:url"[^>]*>/, `<meta property="og:url" content="${canonical}" />`)
+    .replace(/<meta name="twitter:title"[^>]*>/, `<meta name="twitter:title" content="${escape(title)}" />`)
     .replace('</head>', `<link rel="canonical" href="${canonical}" />${route === '/404' ? '<meta name="robots" content="noindex" />' : ''}</head>`);
   const destination = route === '/404' ? 'dist/404.html' : path.join('dist', route, 'index.html');
   await mkdir(path.dirname(destination), { recursive: true });
